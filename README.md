@@ -6,7 +6,7 @@
 
 - [① 言語・環境編（B5 版・230 ページ）](https://oukayuka.booth.pm/items/2368045)
 
-各巻とも電子版 ￥ 1,200、紙本+電子版セット ￥ 1,380（送料別）
+各巻とも電子版 ￥ 1,200、紙本+電子版セット ￥ 1,430（送料別）
 
 <a href="https://oukayuka.booth.pm/"><img src="./images/riakuto41-covers.png" alt="りあクト！三部作 表紙画像" /></a>
 

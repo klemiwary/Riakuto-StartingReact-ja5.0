@@ -1,0 +1,11 @@
+.story {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin: 4rem 0;
+  width: 640px;
+  text-align: left;
+}
+
+.story > summary {
+  text-align: center;
+}

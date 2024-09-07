@@ -1,0 +1,15 @@
+pre-commit:
+  parallel: true
+  commands:
+    eslint:
+      glob: '*.{ts,tsx,mts,cts,js,jsx,mjs,cjs}'
+      run: pnpm exec eslint {staged_files} --fix --quiet --max-warnings=0 --no-warn-ignored
+      stage_fixed: true
+    stylelint:
+      glob: 'src/**/*.{css,scss,sass,less}'
+      run: pnpm exec stylelint {staged_files} --fix --quiet --max-warnings=0
+      stage_fixed: true
+    prettier:
+      glob: '**/!(*.min|*-lock).{js,mjs,cjs,jsx,ts,tsx,html,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql}'
+      run: pnpm exec prettier {staged_files} --write --log-level=error
+      stage_fixed: true
