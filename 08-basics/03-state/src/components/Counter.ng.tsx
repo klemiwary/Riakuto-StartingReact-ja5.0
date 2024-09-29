@@ -1,14 +1,13 @@
 import { useState } from 'react';
-import { Button, Group, Card, Text } from '@mantine/core';
-
-const range = (n: number) => [...Array(n).keys()];
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
 function Counter() {
   const [count, setCount] = useState(0);
 
   function increment() {
+    const range = (n: number) => [...Array(n).keys()];
     range(3).forEach(() => setCount(count + 1));
-    // range(3).forEach(() => setCount((c) => c + 1));
   }
 
   function reset() {
@@ -16,21 +15,24 @@ function Counter() {
   }
 
   return (
-    <Card p="lg" radius="md" shadow="md" withBorder>
-      <Card.Section pt="md">
-        <Text fz={18}>Count</Text>
-        <Text fz={36} fw={600}>
-          {count}
-        </Text>
-      </Card.Section>
-      <Group align="center" m="md" mb={6} gap={5}>
-        <Button size="sm" w={140} color="teal.7" onClick={increment}>
+    <Card className="min-w-96">
+      <CardHeader className="pt-4 pb-2">
+        <div className="text-xl font-medium text-center">Count</div>
+      </CardHeader>
+      <CardContent className="py-1 flex justify-center">
+        <div className="text-4xl font-semibold">{count}</div>
+      </CardContent>
+      <CardContent className="flex gap-2 pt-4 pb-6 mx-4">
+        <Button
+          className="flex-1 bg-green-600 hover:bg-green-700"
+          onClick={increment}
+        >
           +3
         </Button>
-        <Button size="sm" w={140} color="red.7" onClick={reset}>
+        <Button className="flex-1 bg-red-600 hover:bg-red-700" onClick={reset}>
           Reset
         </Button>
-      </Group>
+      </CardContent>
     </Card>
   );
 }

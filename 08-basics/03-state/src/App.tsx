@@ -1,15 +1,11 @@
-import { Title } from '@mantine/core';
-import Counter from './components/Counter.tsx';
-import './App.css';
+import Counter from '@/components/Counter.tsx';
 
 function App() {
   return (
-    <>
-      <Title order={1} size={28} mb={32}>
-        State Counter
-      </Title>
+    <main className="flex flex-col items-center justify-center min-h-screen space-y-10">
+      <h1>State Counter</h1>
       <Counter />
-    </>
+    </main>
   );
 }
 
