@@ -1,6 +1,4 @@
-import { Title } from '@mantine/core';
-import CharacterList from './components/CharacterList.tsx';
-import './App.css';
+import CharacterList from '@/components/CharacterList.tsx';
 
 const members = [
   {
@@ -36,12 +34,10 @@ const members = [
 
 function App() {
   return (
-    <div>
-      <Title order={1} my="xl">
-        『SLAM DUNK』登場人物
-      </Title>
+    <main className="flex flex-col items-center justify-center min-h-screen space-y-8">
+      <h1>『SLAM DUNK』登場人物</h1>
       <CharacterList school="湘北高校" characters={members} />
-    </div>
+    </main>
   );
 }
 

@@ -13,9 +13,7 @@ interface Props {
   characters: Character[];
 }
 
-function CharacterList(props: Props) {
-  const { school, characters } = props;
-
+function CharacterList({ school, characters }: Props) {
   return (
     <div className="w-96">
       <h2 className="mb-8 text-center">{school}</h2>
@@ -32,7 +30,7 @@ function CharacterList(props: Props) {
               <p className="flex text-gray-400">
                 <span>{character.grade}年生</span>
                 <span className="mx-2" />
-                <span>{character.height ? character.height : '???'}cm</span>
+                <span>{character.height ?? '???'}cm</span>
               </p>
             </div>
           </li>
