@@ -14,7 +14,7 @@ function Counter() {
   }
 
   return (
-    <Card className="min-w-96">
+    <Card className="min-w-96 shadow-md">
       <CardHeader className="pt-4 pb-2">
         <div className="text-xl font-medium text-center">Count</div>
       </CardHeader>

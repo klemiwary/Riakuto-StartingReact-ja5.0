@@ -1,5 +1,6 @@
 import CharacterList from '@/components/CharacterList.tsx';
 
+const title = import.meta.env.VITE_APP_TITLE;
 const members = [
   {
     id: 1,
@@ -35,7 +36,7 @@ const members = [
 function App() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen space-y-8">
-      <h1>『SLAM DUNK』登場人物</h1>
+      <h1>{title}</h1>
       <CharacterList school="湘北高校" characters={members} />
     </main>
   );

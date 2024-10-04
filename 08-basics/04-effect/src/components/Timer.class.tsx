@@ -1,14 +1,15 @@
 import { Component } from 'react';
-import { Button, Card, Text } from '@mantine/core';
-import { IconRotate } from '@tabler/icons-react';
+import { RotateCw } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
 interface Props {
   maxCount?: number;
 }
+
 interface State {
   countLeft: number;
 }
-const MAX_COUNT = 60;
 
 class Timer extends Component<Props, State> {
   timerId: ReturnType<typeof setInterval> | null = null;
@@ -16,7 +17,7 @@ class Timer extends Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.initialCount = this.props.maxCount ?? MAX_COUNT;
+    this.initialCount = this.props.maxCount ?? 60;
     this.state = { countLeft: this.initialCount };
     this.tick = this.tick.bind(this);
     this.reset = this.reset.bind(this);
@@ -48,21 +49,21 @@ class Timer extends Component<Props, State> {
 
   render() {
     return (
-      <Card px={40} py={20} radius="md" shadow="md" withBorder>
-        <Card.Section pt={10} pb={5}>
-          <Text fz={18}>Count</Text>
-          <Text fz={42} fw={600}>
-            {this.state.countLeft}
-          </Text>
-        </Card.Section>
-        <Button
-          w={250}
-          color="red.8"
-          leftSection={<IconRotate />}
-          onClick={this.reset}
-        >
-          Reset
-        </Button>
+      <Card className="w-80 shadow-md">
+        <CardHeader className="pt-4 pb-2">
+          <div className="text-xl font-medium text-center">Count</div>
+        </CardHeader>
+        <CardContent className="py-1 flex justify-center">
+          <div className="text-4xl font-semibold">{this.state.countLeft}</div>
+        </CardContent>
+        <CardContent className="flex pt-4 pb-6 mx-4">
+          <Button
+            className="w-full bg-red-500 hover:bg-red-600"
+            onClick={this.reset}
+          >
+            <RotateCw className="mr-2 h-4 w-4" /> Reset
+          </Button>
+        </CardContent>
       </Card>
     );
   }

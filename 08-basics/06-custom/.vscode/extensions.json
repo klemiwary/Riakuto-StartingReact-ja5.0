@@ -6,12 +6,10 @@
     "esbenp.prettier-vscode",
     "formulahendry.auto-close-tag",
     "formulahendry.auto-rename-tag",
-    "MariusAlchimavicius.json-to-ts",
     "MS-CEINTL.vscode-language-pack-ja",
-    "stylelint.vscode-stylelint",
+    "oderwat.vscode-indent-rainbow",
     "VisualStudioExptTeam.vscodeintellicode",
-    "vscode-icons-team.vscode-icons",
-    "wix.vscode-import-cost"
+    "vscode-icons-team.vscode-icons"
   ],
   "unwantedRecommendations": []
 }

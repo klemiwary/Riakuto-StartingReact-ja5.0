@@ -1,31 +1,28 @@
-import { Button, Card, Text } from '@mantine/core';
-import { IconRotate } from '@tabler/icons-react';
-import { useTimer } from '../hooks/useTimer.ts';
+import { RotateCw } from 'lucide-react';
+import { useTimer } from '@/hooks/useTimer';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
 interface Props {
   maxCount?: number;
 }
-const MAX_COUNT = 60;
 
-function Timer({ maxCount = MAX_COUNT }: Props) {
+function Timer({ maxCount = 60 }: Props) {
   const [countLeft, reset] = useTimer(maxCount);
 
   return (
-    <Card px={40} py={20} radius="md" shadow="md" withBorder>
-      <Card.Section pt={10} pb={5}>
-        <Text fz={18}>Count</Text>
-        <Text fz={42} fw={600}>
-          {countLeft}
-        </Text>
-      </Card.Section>
-      <Button
-        w={250}
-        color="red.8"
-        leftSection={<IconRotate />}
-        onClick={reset}
-      >
-        Reset
-      </Button>
+    <Card className="w-80 shadow-md">
+      <CardHeader className="pt-4 pb-2">
+        <div className="text-xl font-medium text-center">Count</div>
+      </CardHeader>
+      <CardContent className="py-1 flex justify-center">
+        <div className="text-4xl font-semibold">{countLeft}</div>
+      </CardContent>
+      <CardContent className="flex pt-4 pb-6 mx-4">
+        <Button className="w-full bg-red-500 hover:bg-red-600" onClick={reset}>
+          <RotateCw className="mr-2 h-4 w-4" /> Reset
+        </Button>
+      </CardContent>
     </Card>
   );
 }
