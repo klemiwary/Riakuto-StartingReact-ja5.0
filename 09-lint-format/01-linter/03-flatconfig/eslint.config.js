@@ -1,24 +1,23 @@
 import globals from 'globals';
 import pluginJs from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import pluginReactConfig from 'eslint-plugin-react/configs/recommended.js';
+import tsEsLint from 'typescript-eslint';
+import pluginReact from 'eslint-plugin-react';
 import pluginHooks from 'eslint-plugin-react-hooks';
 import pluginRefresh from 'eslint-plugin-react-refresh';
 
 const reactConfig = {
-  ...pluginReactConfig,
   name: 'React Config',
-  files: ['src/**/*.{ts,tsx,js,jsx}'],
+  files: ['src/**/*.{js,ts,jsx,tsx}'],
   settings: {
     react: { version: 'detect' },
   },
   plugins: {
-    ...pluginReactConfig.plugins,
+    ...pluginReact.configs.flat.recommended.plugins,
     'react-hooks': pluginHooks,
     'react-refresh': pluginRefresh,
   },
   rules: {
-    ...pluginReactConfig.rules,
+    ...pluginReact.configs.flat.recommended.rules,
     ...pluginHooks.configs.recommended.rules,
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
@@ -30,17 +29,17 @@ const reactConfig = {
 };
 
 export default [
+  { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'] },
+  { ignores: ['dist/**', 'public/**', 'node_modules/**'] },
   {
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...globals.es2021,
+        ...globals.es2024,
       },
     },
   },
-  { files: ['**/*.{ts,tsx,mts,cts,js,jsx,mjs,cjs}'] },
-  { ignores: ['**/dist/**', '**/public/**', '**/.*rc.*', '**/*.config.*'] },
   pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
+  ...tsEsLint.configs.recommended,
   reactConfig,
 ];
