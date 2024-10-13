@@ -8,8 +8,8 @@ import pluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import pluginImport from 'eslint-plugin-import';
 import pluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import pluginUnusedImports from 'eslint-plugin-unused-imports';
-import pluginStylistic from '@stylistic/eslint-plugin';
 import pluginJest from 'eslint-plugin-jest';
+import pluginStylistic from '@stylistic/eslint-plugin';
 
 const reactConfig = {
   name: 'React Config',

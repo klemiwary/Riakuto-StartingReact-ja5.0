@@ -1,7 +1,7 @@
 import globals from 'globals';
 import pluginJs from '@eslint/js';
 import tsEsLint from 'typescript-eslint';
-import pluginReactConfig from 'eslint-plugin-react/configs/recommended.js';
+import pluginReact from 'eslint-plugin-react';
 import pluginHooks from 'eslint-plugin-react-hooks';
 import pluginRefresh from 'eslint-plugin-react-refresh';
 import pluginJsxA11y from 'eslint-plugin-jsx-a11y';
@@ -11,28 +11,26 @@ import pluginUnusedImports from 'eslint-plugin-unused-imports';
 import pluginJest from 'eslint-plugin-jest';
 import pluginStylistic from '@stylistic/eslint-plugin';
 import configPrettier from 'eslint-config-prettier';
-import tsEslintParser from '@typescript-eslint/parser';
-import { FlatCompat } from '@eslint/eslintrc';
-
-const compat = new FlatCompat();
-const pluginJsxA11yConfig = compat.config(pluginJsxA11y.configs.recommended)[0];
 
 const reactConfig = {
   name: 'React Config',
-  files: ['src/**/*.{ts,tsx,js,jsx}'],
+  files: ['src/**/*.{js,ts,jsx,tsx}'],
+  languageOptions: {
+    ...pluginJsxA11y.flatConfigs.recommended.languageOptions,
+  },
   settings: {
     react: { version: 'detect' },
   },
   plugins: {
-    ...pluginReactConfig.plugins,
+    react: pluginReact,
     'react-hooks': pluginHooks,
     'react-refresh': pluginRefresh,
     'jsx-a11y': pluginJsxA11y,
   },
   rules: {
-    ...pluginReactConfig.rules,
+    ...pluginReact.configs.flat.recommended.rules,
     ...pluginHooks.configs.recommended.rules,
-    ...pluginJsxA11yConfig.rules,
+    ...pluginJsxA11y.flatConfigs.recommended.rules,
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     'react-refresh/only-export-components': [
@@ -44,28 +42,32 @@ const reactConfig = {
 
 const importConfig = {
   name: 'Import Config',
-  files: ['src/**/*.{ts,tsx,js,jsx}'],
+  files: ['src/**/*.{js,ts,jsx,tsx}'],
   plugins: {
     import: pluginImport,
     'simple-import-sort': pluginSimpleImportSort,
     'unused-imports': pluginUnusedImports,
   },
   settings: {
+    ...pluginImport.configs.react.settings,
     ...pluginImport.configs.typescript.settings,
+
+    // resolve typescript path aliathes
     'import/resolver': {
       ...pluginImport.configs.typescript.settings['import/resolver'],
       typescript: {
         alwaysTryTypes: true,
-        project: ['./tsconfig.json', './tsconfig.node.json'],
+        project: ['tsconfig.json', 'tsconfig.*.json'],
       },
-      node: true,
     },
   },
   rules: {
     ...pluginImport.configs.recommended.rules,
     ...pluginImport.configs.typescript.rules,
+
+    // exclude asset files
     // SEE: `node_modules/vite/client.d.ts`
-    'import/no-unresolved': ['error', { ignore: ['^/.+\\.(svg|png)$'] }],
+    'import/no-unresolved': ['error', { ignore: ['^/.+\\.(svg|png|jpg)$'] }],
 
     // for eslint-plugin-simple-import-sort
     'simple-import-sort/imports': [
@@ -73,11 +75,12 @@ const importConfig = {
       {
         groups: [
           ['^react(-dom)?', '^node:', '^@?\\w', '^@/.*', '^\\.+/(?!assets/)'],
-          ['^.+\\.json$', '^.+\\.(svg|png)$', '^.+\\.s?css$'],
+          ['^.+\\.json$', '^.+\\.(svg|png|jpg)$', '^.+\\.s?css$'],
         ],
       },
     ],
     'simple-import-sort/exports': 'error',
+    'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
 
@@ -96,18 +99,9 @@ const importConfig = {
   },
 };
 
-const testConfig = {
-  ...pluginJest.configs['flat/recommended'],
-  name: 'Test Config',
-  files: [
-    'src/**/*.{test,spec}.{ts,tsx,js,jsx}',
-    'src/**/__tests__/**/*.{ts,tsx,js,jsx}',
-  ],
-};
-
-const styleConfig = {
-  name: 'Style Config',
-  files: ['src/**/*.{ts,tsx,js,jsx}'],
+const blankConfig = {
+  name: 'Blank Config',
+  files: ['src/**/*.{js,ts,jsx,tsx}'],
   plugins: { '@stylistic': pluginStylistic },
   rules: {
     '@stylistic/padding-line-between-statements': [
@@ -121,28 +115,36 @@ const styleConfig = {
   },
 };
 
-/** @type { import('eslint').Linter.FlatConfig[] } */
+const testConfig = {
+  name: 'Test Config',
+  ...pluginJest.configs['flat/recommended'],
+  files: [
+    'src/**/*.{test,spec}.{js,ts,jsxt,sx}',
+    'src/**/__tests__/**/*.{ts,js,jsx,tsx}',
+  ],
+};
+
+/** @type { import('eslint').Linter.Config[] } */
 export default [
+  { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'] },
+  { ignores: ['dist/**', 'public/**', 'node_modules/**', '**/*.config.*'] },
   {
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...globals.es2021,
+        ...globals.es2024,
       },
-      parser: tsEslintParser,
       parserOptions: {
-        project: ['./tsconfig.json', './tsconfig.node.json'],
+        project: ['tsconfig.json', 'tsconfig.*.json'],
       },
     },
   },
-  { files: ['**/*.{ts,tsx,mts,cts,js,jsx,mjs,cjs}'] },
-  { ignores: ['**/dist/**', '**/public/**', '**/.*rc.*', '**/*.config.*'] },
   pluginJs.configs.recommended,
   ...tsEsLint.configs.recommendedTypeChecked,
   ...tsEsLint.configs.stylistic,
   reactConfig,
   importConfig,
+  blankConfig,
   testConfig,
-  styleConfig,
   configPrettier,
 ];
