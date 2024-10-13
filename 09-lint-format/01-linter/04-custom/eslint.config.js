@@ -98,8 +98,8 @@ const importConfig = {
 };
 
 const blankConfig = {
-  name: 'Style Config',
-  files: ['src/**/*.{ts,tsx,js,jsx}'],
+  name: 'Blank Config',
+  files: ['src/**/*.{js,ts,jsx,tsx}'],
   rules: {
     'padding-line-between-statements': [
       'error',
