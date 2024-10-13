@@ -12,7 +12,7 @@ const reactConfig = {
     react: { version: 'detect' },
   },
   plugins: {
-    ...pluginReact.configs.flat.recommended.plugins,
+    react: pluginReact,
     'react-hooks': pluginHooks,
     'react-refresh': pluginRefresh,
   },
@@ -30,7 +30,7 @@ const reactConfig = {
 
 export default [
   { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'] },
-  { ignores: ['dist/**', 'public/**', 'node_modules/**'] },
+  { ignores: ['dist/**', 'public/**', 'node_modules/**', '**/*.config.*'] },
   {
     languageOptions: {
       globals: {
