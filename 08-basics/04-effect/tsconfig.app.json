@@ -14,19 +14,19 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
     /* Directory */
     "baseUrl": ".",
     "paths": {
       "@/*": [
         "./src/*"
       ]
-    },
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    }
   },
   "include": ["src"]
 }

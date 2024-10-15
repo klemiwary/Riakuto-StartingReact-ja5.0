@@ -2,27 +2,27 @@ pre-commit:
   parallel: true
   commands:
     eslint:
-      glob: '*.{ts,tsx,mts,cts,js,jsx,mjs,cjs}'
+      glob: '*.{js,,mjs,cjs,ts,mts,cts,jsx,tsx}'
       exclude: '^(01|02|03|04|05|06|07|08|09)-.+/.*'
-      run: pnpm exec eslint {staged_files} --fix --quiet --max-warnings=0 --no-warn-ignored
+      run: pnpm exec eslint {staged_files} --fix --quiet
       stage_fixed: true
     stylelint:
       glob: 'src/**/*.{css,scss,sass,less}'
       exclude: '^(01|02|03|04|05|06|07|08|09)-.+/.*'
-      run: pnpm exec stylelint {staged_files} --fix --quiet --max-warnings=0
+      run: pnpm exec stylelint {staged_files} --fix --quiet
       stage_fixed: true
     prettier:
-      glob: '**/!(*.min|*-lock).{js,mjs,cjs,jsx,ts,tsx,html,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql}'
+      glob: '**/!(*.min|*-lock).{js,mjs,cjs,ts,mts,cts,jsx,tsx,html,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql}'
       exclude: '^(01|02|03|04|05|06|07|08|09)-.+/.*'
       run: pnpm exec prettier {staged_files} --write --log-level=error
       stage_fixed: true
     09_lint:
       root: 09-lint-format/04-githooks/
-      glob: '*.{ts,tsx,mts,cts,js,jsx,mjs,cjs,css,scss,sass,less}'
+      glob: '*.{js,mjs,cjs,ts,mts,cts,jsx,tsx,css,scss,sass,less}'
       run: pnpm run lint:fix
       stage_fixed: true
     09_format:
       root: 09-lint-format/04-githooks/
-      glob: '**/!(*.min|*-lock).{js,mjs,cjs,jsx,ts,tsx,html,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql}'
+      glob: '**/!(*.min|*-lock).{js,mjs,cjs,ts,mts,cts,jsx,tsx,html,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql}'
       run: pnpm run format
       stage_fixed: true

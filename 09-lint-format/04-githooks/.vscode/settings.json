@@ -1,10 +1,23 @@
 {
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
-    "source.fixAll.stylelint": "explicit"
+    "source.fixAll.stylelint": "explicit",
+    "source.organizeImports": "never",
+    "source.removeUnusedImports": "never",
+    "source.sortImports": "never"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "eslint.experimental.useFlatConfig": true,
-  "stylelint.validate": ["css", "scss", "sass", "less"]
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "eslint.useFlatConfig": true,
+  "stylelint.validate": ["css", "scss", "sass", "less"],
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ]
 }
