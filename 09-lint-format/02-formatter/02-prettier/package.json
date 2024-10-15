@@ -7,9 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "fix": "pnpm run --silent --parallel '/(lint:fix|format)/'",
-    "format": "prettier --write --ignore-unknown --log-level=warn '**/!(*.min|*-lock).{js,mjs,cjs,jsx,ts,tsx,html,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql,md,mdx}'",
+    "format": "prettier --write '**/!(*.min|*-lock).{js,mjs,cjs,jsx,ts,tsx,html,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql,md,mdx}'",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix --report-unused-disable-directives --max-warnings=0",
+    "lint:fix": "eslint . --fix",
     "preview": "vite preview"
   },
   "dependencies": {
