@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 function getUser(userID) {
   return fetch(`https://jsonplaceholder.typicode.com/users/${userID}`)
     .then((response) => {
