@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Framework build files
+.next
+.react-router
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
