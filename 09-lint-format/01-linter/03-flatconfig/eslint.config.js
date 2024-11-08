@@ -7,7 +7,7 @@ import pluginRefresh from 'eslint-plugin-react-refresh';
 
 const reactConfig = {
   name: 'React Config',
-  files: ['src/**/*.{js,ts,jsx,tsx}'],
+  files: ['{src,app,pages}/**/*.{js,ts,jsx,tsx}'],
   settings: {
     react: { version: 'detect' },
   },
@@ -30,7 +30,7 @@ const reactConfig = {
 
 export default [
   { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'] },
-  { ignores: ['dist/**', 'public/**', 'node_modules/**', '**/*.config.*'] },
+  { ignores: ['{dist,build,public,node_modules}/**', '**/*.config.*'] },
   {
     languageOptions: {
       globals: {

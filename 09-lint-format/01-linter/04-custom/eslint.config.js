@@ -12,7 +12,7 @@ import pluginJest from 'eslint-plugin-jest';
 
 const reactConfig = {
   name: 'React Config',
-  files: ['src/**/*.{js,ts,jsx,tsx}'],
+  files: ['{src,app,pages}/**/*.{js,ts,jsx,tsx}'],
   languageOptions: {
     ...pluginJsxA11y.flatConfigs.recommended.languageOptions,
   },
@@ -40,7 +40,7 @@ const reactConfig = {
 
 const importConfig = {
   name: 'Import Config',
-  files: ['src/**/*.{ts,tsx,js,jsx}'],
+  files: ['{src,app,pages}/**/*.{ts,tsx,js,jsx}'],
   plugins: {
     import: pluginImport,
     'simple-import-sort': pluginSimpleImportSort,
@@ -99,7 +99,7 @@ const importConfig = {
 
 const blankConfig = {
   name: 'Blank Config',
-  files: ['src/**/*.{js,ts,jsx,tsx}'],
+  files: ['{src,app,pages}/**/*.{js,ts,jsx,tsx}'],
   rules: {
     'padding-line-between-statements': [
       'error',
@@ -124,7 +124,7 @@ const testConfig = {
 /** @type { import('eslint').Linter.Config[] } */
 export default [
   { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'] },
-  { ignores: ['dist/**', 'public/**', 'node_modules/**', '**/*.config.*'] },
+  { ignores: ['{dist,build,public,node_modules}/**', '**/*.config.*'] },
   {
     languageOptions: {
       globals: {

@@ -12,8 +12,8 @@
     "lint:fix": "pnpm run --silent --parallel '/lint:.*:fix$/'",
     "lint:es": "eslint .",
     "lint:es:fix": "eslint . --fix",
-    "lint:style": "stylelint 'src/**/*.{css,scss,sass,less}'",
-    "lint:style:fix": "stylelint --fix 'src/**/*.{css,scss,sass,less}'",
+    "lint:style": "stylelint '{src,app,pages}/**/*.{css,scss,sass,less}'",
+    "lint:style:fix": "stylelint --fix '{src,app,pages}/**/*.{css,scss,sass,less}'",
     "preview": "vite preview"
   },
   "dependencies": {

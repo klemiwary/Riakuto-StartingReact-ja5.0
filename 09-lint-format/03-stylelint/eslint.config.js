@@ -15,7 +15,7 @@ import configPrettier from 'eslint-config-prettier';
 
 const reactConfig = {
   name: 'React Config',
-  files: ['src/**/*.{js,ts,jsx,tsx}'],
+  files: ['{src,app,pages}/**/*.{js,ts,jsx,tsx}'],
   languageOptions: {
     ...pluginJsxA11y.flatConfigs.recommended.languageOptions,
   },
@@ -43,7 +43,7 @@ const reactConfig = {
 
 const importConfig = {
   name: 'Import Config',
-  files: ['src/**/*.{js,ts,jsx,tsx}'],
+  files: ['{src,app,pages}/**/*.{js,ts,jsx,tsx}'],
   plugins: {
     import: pluginImport,
     'simple-import-sort': pluginSimpleImportSort,
@@ -102,7 +102,7 @@ const importConfig = {
 
 const blankConfig = {
   name: 'Blank Config',
-  files: ['src/**/*.{js,ts,jsx,tsx}'],
+  files: ['{src,app,pages}/**/*.{js,ts,jsx,tsx}'],
   plugins: { '@stylistic': pluginStylistic },
   rules: {
     '@stylistic/padding-line-between-statements': [
@@ -128,7 +128,7 @@ const testConfig = {
 /** @type { import('eslint').Linter.Config[] } */
 export default [
   { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'] },
-  { ignores: ['dist/**', 'public/**', 'node_modules/**', '**/*.config.*'] },
+  { ignores: ['{dist,build,public,node_modules}/**', '**/*.config.*'] },
   {
     languageOptions: {
       globals: {

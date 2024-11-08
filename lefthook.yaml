@@ -7,7 +7,7 @@ pre-commit:
       run: pnpm exec eslint {staged_files} --fix --quiet
       stage_fixed: true
     stylelint:
-      glob: 'src/**/*.{css,scss,sass,less}'
+      glob: '{src,app}/**/*.{css,scss,sass,less}'
       exclude: '^(01|02|03|04|05|06|07|08|09)-.+/.*'
       run: pnpm exec stylelint {staged_files} --fix --quiet
       stage_fixed: true
