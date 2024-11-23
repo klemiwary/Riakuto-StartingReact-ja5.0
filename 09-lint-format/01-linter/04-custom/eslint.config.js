@@ -40,7 +40,7 @@ const reactConfig = {
 
 const importConfig = {
   name: 'Import Config',
-  files: ['{src,app,pages}/**/*.{ts,tsx,js,jsx}'],
+  files: ['{src,app,pages}/**/*.{js,ts,jsx,tsx}'],
   plugins: {
     import: pluginImport,
     'simple-import-sort': pluginSimpleImportSort,

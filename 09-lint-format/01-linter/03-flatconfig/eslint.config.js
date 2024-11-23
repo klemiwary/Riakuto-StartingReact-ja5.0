@@ -28,6 +28,7 @@ const reactConfig = {
   },
 };
 
+/** @type { import('eslint').Linter.Config[] } */
 export default [
   { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'] },
   { ignores: ['{dist,build,public,node_modules}/**', '**/*.config.*'] },
