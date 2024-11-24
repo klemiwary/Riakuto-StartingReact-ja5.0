@@ -6,10 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "fix": "pnpm run --silent --parallel '/(lint:fix|format)/'",
+    "fix": "pnpm run --parallel '/(lint:fix|format)/'",
     "format": "prettier --write --log-level=warn '**/!(*.min|*-lock).{js,mjs,cjs,ts,mts,cts,jsx,tsx,html,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql,md,mdx}'",
-    "lint": "pnpm run --silent --parallel '/lint:(?!.*fix).+$/'",
-    "lint:fix": "pnpm run --silent --parallel '/lint:.*:fix$/'",
+    "lint": "pnpm run --parallel '/lint:(?!.*fix).+$/'",
+    "lint:fix": "pnpm run --parallel '/lint:.*:fix$/'",
     "lint:es": "eslint .",
     "lint:es:fix": "eslint . --fix",
     "lint:style": "stylelint '{src,app,pages}/**/*.{css,scss,sass,less}'",

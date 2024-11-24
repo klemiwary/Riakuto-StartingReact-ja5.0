@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "fix": "pnpm run --silent --parallel '/(lint:fix|format)/'",
+    "fix": "pnpm run --parallel '/(lint:fix|format)/'",
     "format": "prettier --write '**/!(*.min|*-lock).{js,mjs,cjs,ts,mts,cts,jsx,tsx,html,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql,md,mdx}'",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
