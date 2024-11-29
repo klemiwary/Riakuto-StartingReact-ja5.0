@@ -12,19 +12,19 @@
     "lint:fix": "pnpm run --parallel '/lint:.*:fix$/'",
     "lint:es": "eslint .",
     "lint:es:fix": "eslint . --fix",
-    "lint:style": "stylelint '{src,app,pages}/**/*.{css,scss,sass,less}'",
-    "lint:style:fix": "stylelint --fix '{src,app,pages}/**/*.{css,scss,sass,less}'",
+    "lint:style": "stylelint 'src/**/*.{css,scss,sass,less}'",
+    "lint:style:fix": "stylelint --fix 'src/**/*.{css,scss,sass,less}'",
     "preview": "vite preview",
     "preinstall": "pnpx typesync"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
-    "class-variance-authority": "^0.7.0",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.460.0",
+    "lucide-react": "^0.461.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tailwind-merge": "^2.5.4",
+    "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
@@ -35,10 +35,9 @@
     "@types/eslint-plugin-react-refresh": "~0.4.0",
     "@types/eslint-plugin-tailwindcss": "~3.17.0",
     "@types/eslint__js": "~8.42.3",
-    "@types/node": "^22.9.2",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.3",
+    "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
@@ -61,8 +60,9 @@
     "stylelint-config-recess-order": "^5.1.1",
     "stylelint-config-standard": "^36.0.1",
     "tailwindcss": "^3.4.15",
-    "typescript": "^5.6.2",
-    "typescript-eslint": "^8.15.0",
-    "vite": "^5.4.10"
+    "typescript": "~5.6.2",
+    "typescript-eslint": "^8.11.1",
+    "vite": "^6.0.0",
+    "vite-tsconfig-paths": "^5.1.3"
   }
 }

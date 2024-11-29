@@ -7,7 +7,7 @@ import pluginRefresh from 'eslint-plugin-react-refresh';
 
 const reactConfig = {
   name: 'React Config',
-  files: ['{src,app,pages}/**/*.{js,ts,jsx,tsx}'],
+  files: ['src/**/*.{js,ts,jsx,tsx}'],
   settings: {
     react: { version: 'detect' },
   },

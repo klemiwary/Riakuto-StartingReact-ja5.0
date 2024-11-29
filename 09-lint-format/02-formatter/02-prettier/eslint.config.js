@@ -14,7 +14,7 @@ import configPrettier from 'eslint-config-prettier';
 
 const reactConfig = {
   name: 'React Config',
-  files: ['{src,app,pages}/**/*.{js,ts,jsx,tsx}'],
+  files: ['src/**/*.{js,ts,jsx,tsx}'],
   languageOptions: {
     ...pluginJsxA11y.flatConfigs.recommended.languageOptions,
   },
@@ -42,7 +42,7 @@ const reactConfig = {
 
 const importConfig = {
   name: 'Import Config',
-  files: ['{src,app,pages}/**/*.{js,ts,jsx,tsx}'],
+  files: ['src/**/*.{js,ts,jsx,tsx}'],
   plugins: {
     import: pluginImport,
     'simple-import-sort': pluginSimpleImportSort,
@@ -99,9 +99,9 @@ const importConfig = {
   },
 };
 
-const blankConfig = {
-  name: 'Blank Config',
-  files: ['{src,app,pages}/**/*.{js,ts,jsx,tsx}'],
+const stylisticConfig = {
+  name: 'Stylistic Config',
+  files: ['src/**/*.{js,ts,jsx,tsx}'],
   plugins: { '@stylistic': pluginStylistic },
   rules: {
     '@stylistic/padding-line-between-statements': [
@@ -144,7 +144,7 @@ export default [
   ...tsEsLint.configs.stylistic,
   reactConfig,
   importConfig,
-  blankConfig,
+  stylisticConfig,
   testConfig,
   configPrettier,
 ];

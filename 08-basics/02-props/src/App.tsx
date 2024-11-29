@@ -1,7 +1,7 @@
-import CharacterList from '@/components/CharacterList.tsx';
+import PlayerList from '@/components/PlayerList.tsx';
 
 const title = import.meta.env.VITE_APP_TITLE;
-const members = [
+const players = [
   {
     id: 1,
     name: '桜木花道',
@@ -37,7 +37,7 @@ function App() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen space-y-8">
       <h1>{title}</h1>
-      <CharacterList school="湘北高校" characters={members} />
+      <PlayerList school="湘北高校" players={players} />
     </main>
   );
 }
