@@ -7,7 +7,6 @@ import { Switch } from '@/components/ui/switch.tsx';
 export default function Players() {
   const { teamId } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams.get('loading'));
   const isLoading = !!searchParams.get('loading');
   const handleLoading = (checked: boolean) =>
     checked ? setSearchParams('loading=true') : setSearchParams('loading=');

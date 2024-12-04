@@ -16,7 +16,6 @@ import configPrettier from 'eslint-config-prettier';
 const reactConfig = {
   name: 'React Config',
   files: ['src/**/*.{js,ts,jsx,tsx}'],
-  ignores: ['**/lib/utils.{js,ts}', '**/components/ui/**'],
   languageOptions: {
     ...pluginJsxA11y.flatConfigs.recommended.languageOptions,
   },
@@ -129,7 +128,14 @@ const testConfig = {
 /** @type { import('eslint').Linter.Config[] } */
 export default [
   { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'] },
-  { ignores: ['{dist,build,public,node_modules}/**', '**/*.config.*'] },
+  {
+    ignores: [
+      '{dist,build,public,node_modules}/**',
+      '**/lib/utils.{js,ts}',
+      '**/components/ui/**/*.{jsx,tsx}',
+      '**/*.config.*',
+    ],
+  },
   {
     languageOptions: {
       globals: {

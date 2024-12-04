@@ -2,12 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+@layer base {
+  html {
+    @apply bg-white text-gray-900;
+  }
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+  body {
+    @apply font-sans leading-normal antialiased;
+  }
+
+  h1 {
+    @apply text-3xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl font-semibold;
+  }
+
+  a {
+    @apply text-gray-500 transition-colors duration-200 ease-in-out hover:text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50;
   }
 }
 

@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router';
 import Layout from '@/routes/_layout.tsx';
 import Index from '@/routes/index.tsx';
-// import Players from '@/routes/players.tsx';
-import Players from '@/routes/players.loading.tsx';
+import Players from '@/routes/players.tsx';
+// import Players from '@/routes/players.loading.tsx';
 
 export default function App() {
   const { hash, pathname } = useLocation();

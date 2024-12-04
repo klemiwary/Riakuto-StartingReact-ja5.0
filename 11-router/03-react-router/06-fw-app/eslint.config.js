@@ -55,7 +55,7 @@ const typeConfig = {
       'warn',
       { prefer: 'type-imports' },
     ],
-    "@typescript-eslint/only-throw-error": "error",
+    '@typescript-eslint/only-throw-error': 'off',
   },
 };
 
