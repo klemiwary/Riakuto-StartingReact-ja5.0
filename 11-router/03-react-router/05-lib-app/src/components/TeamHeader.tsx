@@ -1,4 +1,4 @@
-import { getTeam } from '@/lib/data-reader.ts';
+import { getTeam } from "@/lib/data-reader.ts";
 
 interface Props {
   teamId?: string;
@@ -6,7 +6,7 @@ interface Props {
 
 export default function TeamHeader({ teamId }: Props) {
   const team = getTeam(teamId);
-  const teamName = team?.name || '全チーム';
+  const teamName = team?.name || "全チーム";
 
   if (teamId && !team) {
     throw new Error(`not found team '${teamId}'`, { cause: { status: 404 } });

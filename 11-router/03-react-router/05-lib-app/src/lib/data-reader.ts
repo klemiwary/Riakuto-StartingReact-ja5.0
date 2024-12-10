@@ -1,7 +1,7 @@
-import type { Player, Team } from '@/slamdunk.d.ts';
+import type { Player, Team } from "@/slamdunk.d.ts";
 
-import playersData from '../data/players.json';
-import teamsData from '../data/teams.json';
+import playersData from "../data/players.json";
+import teamsData from "../data/teams.json";
 
 export function getTeam(teamId?: string) {
   const teams = teamsData as Team[];

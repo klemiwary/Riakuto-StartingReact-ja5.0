@@ -1,6 +1,6 @@
-import { Link } from 'react-router';
-import { CircleCheck } from 'lucide-react';
-import { getAllTeams } from '@/lib/data-reader.ts';
+import { Link } from "react-router";
+import { CircleCheck } from "lucide-react";
+import { getAllTeams } from "@/lib/data-reader.ts";
 
 export default function TeamList() {
   const bullet = <CircleCheck className="mr-[0.4em] size-4 text-cyan-700" />;

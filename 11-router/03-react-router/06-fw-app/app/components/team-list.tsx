@@ -1,6 +1,6 @@
-import { Link } from 'react-router';
-import { CircleCheck } from 'lucide-react';
-import type { Team } from '~/slamdunk.d.ts';
+import { Link } from "react-router";
+import { CircleCheck } from "lucide-react";
+import type { Team } from "~/slamdunk.d.ts";
 
 interface Props {
   teams: Team[];

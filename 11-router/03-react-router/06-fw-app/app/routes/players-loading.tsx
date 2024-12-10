@@ -1,10 +1,9 @@
-import { data, Link, useSearchParams } from 'react-router';
-import PlayerList from '~/components/player-list.loading.tsx';
-import TeamHeader from '~/components/team-header.tsx';
-import { Label } from '~/components/ui/label.tsx';
-import { Switch } from '~/components/ui/switch.tsx';
-import { getPlayers, getTeam } from '~/lib/data-reader.ts';
-import type { Route } from './+types/players-loading';
+import { data, Link, useSearchParams } from "react-router";
+import PlayerList from "~/components/player-list.loading.tsx";
+import { Label } from "~/components/ui/label.tsx";
+import { Switch } from "~/components/ui/switch.tsx";
+import { getPlayers, getTeam } from "~/lib/data-reader.ts";
+import type { Route } from "./+types/players.ts";
 
 export function loader({ params }: Route.LoaderArgs) {
   const team = getTeam(params.teamId);
@@ -17,16 +16,20 @@ export function loader({ params }: Route.LoaderArgs) {
   return { team, players };
 }
 
+export function meta({ data }: Route.MetaArgs) {
+  return [{ title: `${data.team.name}の選手` }];
+}
+
 export default function Players({ loaderData }: Route.ComponentProps) {
   const { team, players } = loaderData;
   const [searchParams, setSearchParams] = useSearchParams();
-  const isLoading = !!searchParams.get('loading');
+  const isLoading = !!searchParams.get("loading");
   const handleLoading = (checked: boolean) =>
-    checked ? setSearchParams('loading=true') : setSearchParams('loading=');
+    checked ? setSearchParams("loading=true") : setSearchParams("loading=");
 
   return (
     <>
-      <TeamHeader team={team} />
+      <h2 className="mb-12 text-center">{team.name}の選手</h2>
       <PlayerList
         players={players}
         teamColor={team.color}

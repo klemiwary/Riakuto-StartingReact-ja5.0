@@ -1,4 +1,4 @@
-import TeamList from '@/components/TeamList.tsx';
+import TeamList from "@/components/TeamList.tsx";
 
 const appTitle = import.meta.env.VITE_APP_TITLE;
 

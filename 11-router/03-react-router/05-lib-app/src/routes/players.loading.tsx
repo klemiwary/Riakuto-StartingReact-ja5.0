@@ -1,15 +1,15 @@
-import { Link, useParams, useSearchParams } from 'react-router';
-import PlayerList from '@/components/PlayerList.loading.tsx';
-import TeamHeader from '@/components/TeamHeader.tsx';
-import { Label } from '@/components/ui/label.tsx';
-import { Switch } from '@/components/ui/switch.tsx';
+import { Link, useParams, useSearchParams } from "react-router";
+import PlayerList from "@/components/PlayerList.loading.tsx";
+import TeamHeader from "@/components/TeamHeader.tsx";
+import { Label } from "@/components/ui/label.tsx";
+import { Switch } from "@/components/ui/switch.tsx";
 
 export default function Players() {
   const { teamId } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
-  const isLoading = !!searchParams.get('loading');
+  const isLoading = !!searchParams.get("loading");
   const handleLoading = (checked: boolean) =>
-    checked ? setSearchParams('loading=true') : setSearchParams('loading=');
+    checked ? setSearchParams("loading=true") : setSearchParams("loading=");
 
   return (
     <>

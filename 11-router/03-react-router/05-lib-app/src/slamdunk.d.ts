@@ -1,4 +1,4 @@
-export type TeamCode = 'shohoku' | 'ryonan' | 'kainan';
+export type TeamCode = "shohoku" | "ryonan" | "kainan";
 
 export interface Team {
   id: TeamCode;

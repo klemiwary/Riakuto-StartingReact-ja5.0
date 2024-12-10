@@ -1,5 +1,5 @@
-import { Link } from 'react-router';
-import { getAllTeams } from '@/lib/data-reader.ts';
+import { Link } from "react-router";
+import { getAllTeams } from "@/lib/data-reader.ts";
 
 export default function TeamList() {
   return (

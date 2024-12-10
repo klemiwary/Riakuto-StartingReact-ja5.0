@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import { Navigate, Route, Routes, useLocation } from 'react-router';
-import Layout from '@/routes/_layout.tsx';
-import Index from '@/routes/index.tsx';
-import Players from '@/routes/players.tsx';
+import { useEffect } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router";
+import Layout from "@/routes/_layout.tsx";
+import Index from "@/routes/index.tsx";
+import Players from "@/routes/players.tsx";
 // import Players from '@/routes/players.loading.tsx';
 
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
       const element = document.getElementById(location.hash.slice(1));
 
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     } else {
       window.scrollTo(0, 0);

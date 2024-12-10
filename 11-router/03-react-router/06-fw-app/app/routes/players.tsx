@@ -1,8 +1,7 @@
-import { data, Link } from 'react-router';
-import PlayerList from '~/components/player-list.tsx';
-import TeamHeader from '~/components/team-header.tsx';
-import { getPlayers, getTeam } from '~/lib/data-reader.ts';
-import type { Route } from './+types/players';
+import { data, Link } from "react-router";
+import PlayerList from "~/components/player-list.tsx";
+import { getPlayers, getTeam } from "~/lib/data-reader.ts";
+import type { Route } from "./+types/players.ts";
 
 export function loader({ params }: Route.LoaderArgs) {
   const team = getTeam(params.teamId);
@@ -15,12 +14,16 @@ export function loader({ params }: Route.LoaderArgs) {
   return { team, players };
 }
 
+export function meta({ data }: Route.MetaArgs) {
+  return [{ title: `${data.team.name}の選手` }];
+}
+
 export default function Players({ loaderData }: Route.ComponentProps) {
   const { team, players } = loaderData;
 
   return (
     <>
-      <TeamHeader team={team} />
+      <h2 className="mb-12 text-center">{team.name}の選手</h2>
       <PlayerList players={players} teamColor={team.color} />
       <hr className="my-4" />
       <div className="flex justify-center">

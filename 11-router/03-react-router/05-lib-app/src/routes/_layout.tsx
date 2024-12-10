@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router';
+import { Outlet } from "react-router";
 
 const appTitle = import.meta.env.VITE_APP_TITLE;
 
