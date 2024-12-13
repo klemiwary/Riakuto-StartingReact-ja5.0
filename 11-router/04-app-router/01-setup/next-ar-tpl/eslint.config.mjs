@@ -76,6 +76,17 @@ const importConfig = {
   settings: {
     ...pluginImport.configs.react.settings,
     ...pluginImport.configs.typescript.settings,
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        js: "always",
+        jsx: "always",
+        ts: "always",
+        tsx: "always",
+        ignorePackages: true,
+      },
+    ],
 
     // resolve typescript path aliathes
     "import/resolver": {
@@ -168,6 +179,7 @@ export default [
     languageOptions: {
       globals: {
         ...globals.browser,
+        ...globals.node,
         ...globals.es2024,
       },
       parserOptions: {

@@ -11,6 +11,7 @@ import pluginUnusedImports from "eslint-plugin-unused-imports";
 import pluginJest from "eslint-plugin-jest";
 import pluginStylistic from "@stylistic/eslint-plugin";
 import pluginTailwind from "eslint-plugin-tailwindcss";
+import pluginNext from "@next/eslint-plugin-next";
 import configPrettier from "eslint-config-prettier";
 
 const assetPattern =
@@ -18,7 +19,7 @@ const assetPattern =
 
 const reactConfig = {
   name: "React Config",
-  files: ["src/**/*.{js,ts,jsx,tsx}"],
+  files: ["{src,app,pages}/**/*.{js,ts,jsx,tsx}"],
   languageOptions: {
     ...pluginJsxA11y.flatConfigs.recommended.languageOptions,
   },
@@ -30,23 +31,29 @@ const reactConfig = {
     "react-hooks": pluginHooks,
     "react-refresh": pluginRefresh,
     "jsx-a11y": pluginJsxA11y,
+    "@next/next": pluginNext,
   },
   rules: {
     ...pluginReact.configs.flat.recommended.rules,
     ...pluginHooks.configs.recommended.rules,
     ...pluginJsxA11y.flatConfigs.recommended.rules,
+    ...pluginNext.configs.recommended.rules,
+    ...pluginNext.configs["core-web-vitals"].rules,
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react-refresh/only-export-components": [
       "warn",
-      { allowConstantExport: true },
+      {
+        allowConstantExport: true,
+        allowExportNames: ["metadata"],
+      },
     ],
   },
 };
 
 const typeConfig = {
   name: "Type Config",
-  files: ["src/**/*.{ts,tsx}"],
+  files: ["{src,app,pages}/**/*.{ts,tsx}"],
   plugins: {
     "typescript-eslint": tsEsLint,
   },
@@ -60,7 +67,7 @@ const typeConfig = {
 
 const importConfig = {
   name: "Import Config",
-  files: ["src/**/*.{js,ts,jsx,tsx}"],
+  files: ["{src,app,pages}/**/*.{js,ts,jsx,tsx}"],
   plugins: {
     import: pluginImport,
     "simple-import-sort": pluginSimpleImportSort,
@@ -69,17 +76,6 @@ const importConfig = {
   settings: {
     ...pluginImport.configs.react.settings,
     ...pluginImport.configs.typescript.settings,
-    "import/extensions": [
-      "error",
-      "always",
-      {
-        js: "always",
-        jsx: "always",
-        ts: "always",
-        tsx: "always",
-        ignorePackages: true,
-      },
-    ],
 
     // resolve typescript path aliathes
     "import/resolver": {
@@ -94,16 +90,19 @@ const importConfig = {
     ...pluginImport.configs.recommended.rules,
     ...pluginImport.configs.typescript.rules,
 
-    // exclude asset files
-    // SEE: `node_modules/vite/client.d.ts`
-    "import/no-unresolved": ["error", { ignore: ["^/" + assetPattern] }],
-
     // for eslint-plugin-simple-import-sort
     "simple-import-sort/imports": [
       "error",
       {
         groups: [
-          ["^react(-dom)?", "^node:", "^@?\\w", "^@/.*", "^\\.+/(?!assets/)"],
+          [
+            "^react(-dom)?",
+            "^next(/.+)?",
+            "^node:",
+            "^@?\\w",
+            "^[@~]/.*",
+            "^\\.+/(?!assets/)",
+          ],
           [".+\\.json$", ".+\\.s?css$", assetPattern],
         ],
       },
@@ -130,7 +129,7 @@ const importConfig = {
 
 const stylisticConfig = {
   name: "Stylistic Config",
-  files: ["src/**/*.{js,ts,jsx,tsx}"],
+  files: ["{src,app,pages}/**/*.{js,ts,jsx,tsx}"],
   plugins: { "@stylistic": pluginStylistic },
   rules: {
     "@stylistic/padding-line-between-statements": [
@@ -148,8 +147,8 @@ const testConfig = {
   name: "Test Config",
   ...pluginJest.configs["flat/recommended"],
   files: [
-    "src/**/*.{test,spec}.{js,ts,jsxt,sx}",
-    "src/**/__tests__/**/*.{ts,js,jsx,tsx}",
+    "{src,app,pages}/**/*.{test,spec}.{js,ts,jsxt,sx}",
+    "{src,app,pages}/**/__tests__/**/*.{ts,js,jsx,tsx}",
   ],
 };
 
@@ -159,6 +158,7 @@ export default [
   {
     ignores: [
       "{dist,build,public,node_modules}/**",
+      "{.react-router,.next}/**",
       "**/lib/utils.{js,ts}",
       "**/components/ui/**/*.{jsx,tsx}",
       "**/*.config.*",
@@ -180,6 +180,7 @@ export default [
   ...tsEsLint.configs.stylistic,
   ...pluginTailwind.configs["flat/recommended"],
   reactConfig,
+  typeConfig,
   importConfig,
   stylisticConfig,
   testConfig,

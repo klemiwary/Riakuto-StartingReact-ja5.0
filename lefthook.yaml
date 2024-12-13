@@ -2,30 +2,47 @@ pre-commit:
   parallel: true
   commands:
     eslint:
-      glob: '*.{js,,mjs,cjs,ts,mts,cts,jsx,tsx}'
-      exclude:
-        - (01|02|03|04|05|06|07|08|09)-*
+      glob: "*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"
+      exclude: "^(01|02|03|04|05|07|08|09)-"
       run: sh eslint-each.sh {staged_files}
       stage_fixed: true
     stylelint:
-      glob: '{src,app}/**/*.{css,scss,sass,less}'
-      exclude:
-        - (01|02|03|04|05|06|07|08|09)-*
+      glob: "{src,app,pages}/**/*.{css,scss,sass,less}"
+      exclude: "^(01|02|03|04|05|07|08|09)-"
       run: pnpm exec stylelint {staged_files} --fix --quiet
       stage_fixed: true
     prettier:
-      glob: '**/!(*.min|*-lock).{js,mjs,cjs,ts,mts,cts,jsx,tsx,html,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql}'
+      glob: "{11,12,13,14,15}-*/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx,html,htm,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql}"
       exclude:
-        - (01|02|03|04|05|06|07|08|09)-*
+        - "**/*.min.js"
+        - "**/*-lock.{json,yaml}"
+        - "**/(public|build|dist)/**/*"
+        - "**/rrlib-app/**/*"
+        - "**/rrfw-app/**/*"
       run: pnpm exec prettier {staged_files} --write --log-level=error
+      stage_fixed: true
+    prettier-single:
+      glob: "{10,11}-*/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx,html,htm,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql}"
+      exclude:
+        - "**/*.min.js"
+        - "**/*-lock.{json,yaml}"
+        - "**/(public|build|dist)/**/*"
+        - "**/rrfw-tpl**/*"
+        - "**/05-lib-app**/*"
+        - "**/06-fw-app**/*"
+        - "**/04-app-router/**/*"
+      run: pnpm exec prettier {staged_files} --config=prettier.config.sgl.js --write --log-level=error
       stage_fixed: true
     09_lint:
       root: 09-lint-format/04-githooks/
-      glob: '*.{js,mjs,cjs,ts,mts,cts,jsx,tsx,css,scss,sass,less}'
+      glob: "*.{js,mjs,cjs,ts,mts,cts,jsx,tsx,css,scss,sass,less}"
       run: pnpm run lint:fix
       stage_fixed: true
     09_format:
       root: 09-lint-format/04-githooks/
-      glob: '**/!(*.min|*-lock).{js,mjs,cjs,ts,mts,cts,jsx,tsx,html,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql}'
+      glob: "*.{js,mjs,cjs,ts,mts,cts,jsx,tsx,html,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql}"
+      exclude:
+        - "**/*.min.js"
+        - "**/*-lock.{json,yaml}"
       run: pnpm run format
       stage_fixed: true

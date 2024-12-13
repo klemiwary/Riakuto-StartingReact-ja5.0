@@ -86,6 +86,17 @@ const importConfig = {
   rules: {
     ...pluginImport.configs.recommended.rules,
     ...pluginImport.configs.typescript.rules,
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        js: "always",
+        jsx: "always",
+        ts: "always",
+        tsx: "always",
+        ignorePackages: true,
+      },
+    ],
 
     // exclude asset files
     // SEE: `node_modules/vite/client.d.ts`
@@ -169,6 +180,7 @@ export default [
     languageOptions: {
       globals: {
         ...globals.browser,
+        ...globals.node,
         ...globals.es2024,
       },
       parserOptions: {
