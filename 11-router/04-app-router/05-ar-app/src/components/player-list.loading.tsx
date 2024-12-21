@@ -1,6 +1,7 @@
 import { UserRound } from "lucide-react";
-import { Avatar, AvatarFallback } from "~/components/ui/avatar.tsx";
-import type { Player } from "~/slamdunk.d.ts";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar.tsx";
+import { Skeleton } from "@/components/ui/skeleton.tsx";
+import { getPlayers, getTeamColor } from "@/lib/data-reader.ts";
 
 const ColorVars = {
   red: {
@@ -21,17 +22,29 @@ const ColorVars = {
   },
 };
 
-interface PlayerListProps {
-  players: Player[];
-  teamColor?: string;
+interface Props {
+  teamId?: string;
+  isLoading?: boolean;
 }
 
-export default function PlayerList({ players, teamColor }: PlayerListProps) {
-  const color = (teamColor ?? "gray") as keyof typeof ColorVars;
+export default function PlayerList({ teamId, isLoading = false }: Props) {
+  const color = (getTeamColor(teamId) ?? "gray") as keyof typeof ColorVars;
 
-  return (
+  const content = isLoading ? (
     <ul className="my-6 space-y-5">
-      {players.map((player) => (
+      {Array.from({ length: 5 }).map((_, n) => (
+        <li className="flex items-center space-x-4" key={n}>
+          <Skeleton className="size-12 rounded-full" />
+          <div className="space-y-2">
+            <Skeleton className="h-4 w-[200px]" />
+            <Skeleton className="h-4 w-[250px]" />
+          </div>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <ul className="my-6 space-y-5">
+      {getPlayers(teamId).map((player) => (
         <li key={player.id} className="flex items-center space-x-4">
           <Avatar>
             <AvatarFallback className={ColorVars[color].bg}>
@@ -50,4 +63,6 @@ export default function PlayerList({ players, teamColor }: PlayerListProps) {
       ))}
     </ul>
   );
+
+  return content;
 }

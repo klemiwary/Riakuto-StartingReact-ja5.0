@@ -8,12 +8,12 @@ interface Player {
   height?: number;
 }
 
-interface Props {
+interface PlayerListProps {
   school: string;
   players: Player[];
 }
 
-function PlayerList(props: Props) {
+function PlayerList(props: PlayerListProps) {
   const { school, players } = props;
 
   return (

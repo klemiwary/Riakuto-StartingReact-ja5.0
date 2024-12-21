@@ -8,12 +8,12 @@ interface Player {
   height?: number;
 }
 
-interface Props {
+interface PlayerListProps {
   school: string;
   players: Player[];
 }
 
-function PlayerList({ school, players }: Props) {
+function PlayerList({ school, players }: PlayerListProps) {
   return (
     <div className="w-96">
       <h2 className="mb-8 text-center">{school}</h2>

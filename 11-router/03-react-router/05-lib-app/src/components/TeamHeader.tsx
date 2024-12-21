@@ -1,10 +1,10 @@
 import { getTeam } from "@/lib/data-reader.ts";
 
-interface Props {
+interface TeamHeaderProps {
   teamId?: string;
 }
 
-export default function TeamHeader({ teamId }: Props) {
+export default function TeamHeader({ teamId }: TeamHeaderProps) {
   const team = getTeam(teamId);
   const teamName = team?.name || "全チーム";
 

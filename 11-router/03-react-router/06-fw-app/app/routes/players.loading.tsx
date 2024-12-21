@@ -1,7 +1,6 @@
-import { data, Link, useSearchParams } from "react-router";
+import { data, useSearchParams } from "react-router";
+import LoadingSwitch from "~/components/loading-switch.tsx";
 import PlayerList from "~/components/player-list.loading.tsx";
-import { Label } from "~/components/ui/label.tsx";
-import { Switch } from "~/components/ui/switch.tsx";
 import { getPlayers, getTeam } from "~/lib/data-reader.ts";
 import type { Route } from "./+types/players.ts";
 
@@ -22,10 +21,8 @@ export function meta({ data }: Route.MetaArgs) {
 
 export default function Players({ loaderData }: Route.ComponentProps) {
   const { team, players } = loaderData;
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const isLoading = !!searchParams.get("loading");
-  const handleLoading = (checked: boolean) =>
-    checked ? setSearchParams("loading=true") : setSearchParams("loading=");
 
   return (
     <>
@@ -35,20 +32,7 @@ export default function Players({ loaderData }: Route.ComponentProps) {
         teamColor={team.color}
         isLoading={isLoading}
       />
-      <div className="mr-4 mt-10 flex flex-row-reverse">
-        <div className="flex items-center space-x-2">
-          <Switch
-            id="loading"
-            checked={isLoading}
-            onCheckedChange={handleLoading}
-          />
-          <Label htmlFor="loading">ローディング状態</Label>
-        </div>
-      </div>
-      <hr className="my-4" />
-      <div className="flex justify-center">
-        <Link to="/">🔝 トップへ戻る</Link>
-      </div>
+      <LoadingSwitch />
     </>
   );
 }

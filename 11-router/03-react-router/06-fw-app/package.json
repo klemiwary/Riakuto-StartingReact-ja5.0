@@ -18,10 +18,9 @@
     "preinstall": "pnpx typesync"
   },
   "dependencies": {
-    "@radix-ui/react-avatar": "^1.1.1",
-    "@radix-ui/react-label": "^2.1.0",
-    "@radix-ui/react-slot": "^1.1.0",
-    "@radix-ui/react-switch": "^1.1.1",
+    "@radix-ui/react-avatar": "^1.1.2",
+    "@radix-ui/react-label": "^2.1.1",
+    "@radix-ui/react-switch": "^1.1.2",
     "@react-router/node": "^7.0.2",
     "@react-router/serve": "^7.0.2",
     "class-variance-authority": "^0.7.1",
@@ -43,7 +42,7 @@
     "@types/eslint-plugin-react-refresh": "~0.4.0",
     "@types/eslint-plugin-tailwindcss": "~3.17.0",
     "@types/node": "^20",
-    "@types/react": "^19.0.1",
+    "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.15.0",

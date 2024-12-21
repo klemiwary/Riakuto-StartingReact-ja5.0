@@ -22,7 +22,7 @@ const ColorVars = {
   },
 };
 
-interface Props {
+interface PlayerListProps {
   players: Player[];
   teamColor?: string;
   isLoading?: boolean;
@@ -32,7 +32,7 @@ export default function PlayerList({
   players,
   teamColor,
   isLoading = false,
-}: Props) {
+}: PlayerListProps) {
   const color = (teamColor ?? "gray") as keyof typeof ColorVars;
 
   const content = isLoading ? (

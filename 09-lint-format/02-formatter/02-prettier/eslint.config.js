@@ -40,6 +40,24 @@ const reactConfig = {
   },
 };
 
+const typeConfig = {
+  name: "Type Config",
+  files: ["{src,app,pages}/**/*.{ts,tsx}"],
+  plugins: {
+    "typescript-eslint": tsEsLint,
+  },
+  rules: {
+    "@typescript-eslint/consistent-indexed-object-style": [
+      "error",
+      "index-signature",
+    ],
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      { prefer: "type-imports" },
+    ],
+  },
+};
+
 const importConfig = {
   name: 'Import Config',
   files: ['src/**/*.{js,ts,jsx,tsx}'],
@@ -154,6 +172,7 @@ export default [
   ...tsEsLint.configs.recommendedTypeChecked,
   ...tsEsLint.configs.stylistic,
   reactConfig,
+  typeConfig,
   importConfig,
   stylisticConfig,
   testConfig,

@@ -2,12 +2,6 @@ import TeamList from "~/components/team-list.tsx";
 import { getAllTeams } from "~/lib/data-reader.ts";
 import type { Route } from "./+types/index.ts";
 
-export function meta() {
-  const appTitle = import.meta.env.VITE_APP_TITLE;
-
-  return [{ title: appTitle }];
-}
-
 export function loader() {
   const teams = getAllTeams();
 

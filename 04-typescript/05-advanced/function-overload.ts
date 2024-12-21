@@ -27,7 +27,7 @@ function transform(item?: Brooch | Compact): void {
   } else if (item instanceof CrisisCompact) {
     console.log("Moon crisis🏆, make up!");
   } else if (item === undefined) {
-    console.log("Moon prisim power🌙, make up!");
+    console.log("Moon prism power🌙, make up!");
   } else {
     console.log("Item is fake...😖");
   }

@@ -1,4 +1,4 @@
-import { data, Link } from "react-router";
+import { data } from "react-router";
 import PlayerList from "~/components/player-list.tsx";
 import { getPlayers, getTeam } from "~/lib/data-reader.ts";
 import type { Route } from "./+types/players.ts";
@@ -25,10 +25,6 @@ export default function Players({ loaderData }: Route.ComponentProps) {
     <>
       <h2 className="mb-12 text-center">{team.name}の選手</h2>
       <PlayerList players={players} teamColor={team.color} />
-      <hr className="my-4" />
-      <div className="flex justify-center">
-        <Link to="/">🔝 トップへ戻る</Link>
-      </div>
     </>
   );
 }

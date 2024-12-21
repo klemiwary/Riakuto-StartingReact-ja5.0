@@ -3,11 +3,11 @@ import { RotateCw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
-interface Props {
+interface TimerProps {
   maxCount?: number;
 }
 
-function Timer({ maxCount = 60 }: Props) {
+function Timer({ maxCount = 60 }: TimerProps) {
   const [countLeft, setCountLeft] = useState(maxCount);
 
   function tick() {

@@ -45,7 +45,7 @@ const reactConfig = {
       "warn",
       {
         allowConstantExport: true,
-        allowExportNames: ["metadata"],
+        allowExportNames: ["metadata", "generateMetadata"],
       },
     ],
   },
@@ -58,6 +58,10 @@ const typeConfig = {
     "typescript-eslint": tsEsLint,
   },
   rules: {
+    "@typescript-eslint/consistent-indexed-object-style": [
+      "error",
+      "index-signature",
+    ],
     "@typescript-eslint/consistent-type-imports": [
       "warn",
       { prefer: "type-imports" },
@@ -89,6 +93,17 @@ const importConfig = {
   rules: {
     ...pluginImport.configs.recommended.rules,
     ...pluginImport.configs.typescript.rules,
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        js: "always",
+        jsx: "always",
+        ts: "always",
+        tsx: "always",
+        ignorePackages: true,
+      },
+    ],
 
     // for eslint-plugin-simple-import-sort
     "simple-import-sort/imports": [
@@ -168,6 +183,7 @@ export default [
     languageOptions: {
       globals: {
         ...globals.browser,
+        ...globals.node,
         ...globals.es2024,
       },
       parserOptions: {
