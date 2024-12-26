@@ -48,10 +48,6 @@ const typeConfig = {
     'typescript-eslint': tsEsLint,
   },
   rules: {
-    '@typescript-eslint/consistent-indexed-object-style': [
-      'error',
-      'index-signature',
-    ],
     '@typescript-eslint/consistent-type-imports': [
       'warn',
       { prefer: 'type-imports' },
