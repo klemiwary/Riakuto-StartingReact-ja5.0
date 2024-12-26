@@ -69,6 +69,17 @@ const importConfig = {
   settings: {
     ...pluginImport.configs.react.settings,
     ...pluginImport.configs.typescript.settings,
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        js: "always",
+        jsx: "always",
+        ts: "always",
+        tsx: "always",
+        ignorePackages: true,
+      },
+    ],
 
     // resolve typescript path aliathes
     "import/resolver": {
@@ -82,17 +93,6 @@ const importConfig = {
   rules: {
     ...pluginImport.configs.recommended.rules,
     ...pluginImport.configs.typescript.rules,
-    "import/extensions": [
-      "error",
-      "always",
-      {
-        js: "always",
-        jsx: "always",
-        ts: "always",
-        tsx: "always",
-        ignorePackages: true,
-      },
-    ],
 
     // exclude asset files
     // SEE: `node_modules/vite/client.d.ts`
@@ -180,8 +180,8 @@ export default [
   ...tsEsLint.configs.stylistic,
   ...pluginTailwind.configs["flat/recommended"],
   reactConfig,
-  typeConfig,
   importConfig,
+  typeConfig,
   stylisticConfig,
   testConfig,
   configPrettier,
