@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function PlayersLayout({
+export default function PlayersTemplate({
   children,
 }: {
   children: React.ReactNode;

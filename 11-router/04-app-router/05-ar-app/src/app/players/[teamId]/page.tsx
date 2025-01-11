@@ -9,9 +9,7 @@ interface PlayersProps {
 function generateTitle(teamId: string) {
   const team = getTeam(teamId);
 
-  if (!team) {
-    notFound();
-  }
+  if (!team) notFound();
 
   return `${team.name}の選手`;
 }
