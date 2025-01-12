@@ -1,0 +1,26 @@
+[
+  {
+    "id": "facebook",
+    "name": "Meta"
+  },
+  {
+    "id": "vercel",
+    "name": "Vercel"
+  },
+  {
+    "id": "remix-run",
+    "name": "Remix"
+  },
+  {
+    "id": "vitejs",
+    "name": "Vite"
+  },
+  {
+    "id": "denoland",
+    "name": "Deno"
+  },
+  {
+    "id": "tanstack",
+    "name": "TanStack"
+  }
+]

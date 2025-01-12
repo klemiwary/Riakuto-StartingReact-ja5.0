@@ -1,6 +1,6 @@
 import TeamList from "~/components/team-list.tsx";
 import { getAllTeams } from "~/lib/data-reader.ts";
-import type { Route } from "./+types/index.ts";
+import type { Route } from "./+types/home.ts";
 
 export function loader() {
   const teams = getAllTeams();

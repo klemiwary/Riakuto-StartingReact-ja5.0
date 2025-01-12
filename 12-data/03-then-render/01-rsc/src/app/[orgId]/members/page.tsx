@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
-import MemberCard from "@/components/member-card.tsx";
+import MemberList from "@/components/member-list.tsx";
 import { getMembers, getOrganization } from "@/lib/data-reader.ts";
 
-interface OrgMembersProps {
+interface MembersProps {
   params: Promise<{ orgId: string }>;
 }
 
@@ -12,14 +12,14 @@ function generateTitle(orgId: string) {
   return `${org.name}の開発メンバー`;
 }
 
-export async function generateMetadata({ params }: OrgMembersProps) {
+export async function generateMetadata({ params }: MembersProps) {
   const { orgId } = await params;
   const title = generateTitle(orgId);
 
   return { title };
 }
 
-export default async function Players({ params }: OrgMembersProps) {
+export default async function Players({ params }: MembersProps) {
   const { orgId } = await params;
   const title = generateTitle(orgId);
   const members = await getMembers(orgId);
@@ -27,11 +27,7 @@ export default async function Players({ params }: OrgMembersProps) {
   return (
     <>
       <h2 className="mb-12 text-center">{title}</h2>
-      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {members.map((member) => (
-          <MemberCard member={member} key={member.id} />
-        ))}
-      </div>
+      <MemberList members={members} />
     </>
   );
 }

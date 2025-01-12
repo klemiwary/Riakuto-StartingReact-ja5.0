@@ -8,10 +8,8 @@ import {
 export default [
   layout("routes/_home.tsx", [
     index("routes/home.tsx"),
-    route("players", "routes/_players.tsx", [
-      index("routes/players-all.tsx"),
-      route(":teamId", "routes/players.tsx"),
-      // route(":teamId", "routes/players.loading.tsx"),
+    route(":orgId", "routes/_members.tsx", [
+      route("members", "routes/members.tsx"),
     ]),
   ]),
   route("*", "routes/redirect.ts"),
