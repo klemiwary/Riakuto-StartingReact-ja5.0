@@ -22,7 +22,7 @@ export default function MemberList({ orgId }: MemberListProps) {
       } catch (error) {
         if (error instanceof Error) {
           console.error(error.message);
-          throw new Error(`not exist organization '${orgId}'`);
+          throw new Error("GitHub API Error", { cause: error });
         }
       } finally {
         setIsLoading(false);

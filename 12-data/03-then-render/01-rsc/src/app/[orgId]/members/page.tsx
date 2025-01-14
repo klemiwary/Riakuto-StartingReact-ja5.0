@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: MembersProps) {
   return { title };
 }
 
-export default async function Players({ params }: MembersProps) {
+export default async function Members({ params }: MembersProps) {
   const { orgId } = await params;
   const title = generateTitle(orgId);
   const members = await getMembers(orgId);
