@@ -4,14 +4,6 @@ import { Loader2 } from "lucide-react";
 import MemberList from "@/components/MemberList.tsx";
 import OrgHeader from "@/components/OrgHeader.tsx";
 
-function Loading() {
-  return (
-    <div className="my-14 flex h-80 items-center justify-center">
-      <Loader2 className="size-12 animate-spin text-primary" />
-    </div>
-  );
-}
-
 export default function Members() {
   const { orgId } = useParams();
 
@@ -30,5 +22,13 @@ export default function Members() {
         <Link to="/">🔝 トップへ戻る</Link>
       </div>
     </>
+  );
+}
+
+function Loading() {
+  return (
+    <div className="my-14 flex h-80 items-center justify-center">
+      <Loader2 className="size-12 animate-spin text-primary" />
+    </div>
   );
 }
