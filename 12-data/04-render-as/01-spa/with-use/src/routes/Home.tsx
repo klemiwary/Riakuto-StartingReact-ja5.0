@@ -1,4 +1,4 @@
-import TeamList from "@/components/TeamList.tsx";
+import OrgList from "@/components/OrgList.tsx";
 
 const appTitle = import.meta.env.VITE_APP_TITLE;
 
@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <>
       <title>{appTitle}</title>
-      <h2 className="mb-12 text-center">🏀 高校チーム別一覧</h2>
-      <TeamList />
+      <h2 className="mb-12 text-center">🏢 表示可能な組織</h2>
+      <OrgList />
     </>
   );
 }

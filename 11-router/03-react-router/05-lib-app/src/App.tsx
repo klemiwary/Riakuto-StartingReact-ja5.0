@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router";
-import Layout from "@/routes/_layout.tsx";
-import Index from "@/routes/home.tsx";
-import Players from "@/routes/players.tsx";
+import Layout from "@/routes/_Layout.tsx";
+import Index from "@/routes/Home.tsx";
+import Players from "@/routes/Players.tsx";
 // import Players from '@/routes/players.loading.tsx';
 
 export default function App() {

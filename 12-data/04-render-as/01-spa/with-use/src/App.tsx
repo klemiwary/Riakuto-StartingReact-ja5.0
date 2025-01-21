@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router";
-import Layout from "@/routes/_layout.tsx";
-import Index from "@/routes/index.tsx";
-import Members from "@/routes/members.tsx";
+import Layout from "@/routes/_Layout.tsx";
+import Home from "@/routes/Home.tsx";
+import Members from "@/routes/Members.tsx";
 
 export default function App() {
   const { hash, pathname } = useLocation();
@@ -22,7 +22,7 @@ export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route path="/" element={<Index />} />
+        <Route path="/" element={<Home />} />
         <Route path=":orgId/members" element={<Members />}></Route>
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />

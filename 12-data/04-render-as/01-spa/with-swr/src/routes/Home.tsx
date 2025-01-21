@@ -2,7 +2,7 @@ import OrgList from "@/components/OrgList.tsx";
 
 const appTitle = import.meta.env.VITE_APP_TITLE;
 
-export default function Index() {
+export default function Home() {
   return (
     <>
       <title>{appTitle}</title>
