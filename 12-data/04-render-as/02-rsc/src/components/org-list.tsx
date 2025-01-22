@@ -14,7 +14,7 @@ export default function OrgList({ orgs }: OrgListProps) {
       {orgs.map((org) => (
         <li key={org.id} className="flex items-center">
           {bullet}
-          <Link href={`${org.id}/members`}>{org.name}</Link>
+          <Link href={`/${org.id}/members`}>{org.name}</Link>
         </li>
       ))}
     </ul>
