@@ -5,19 +5,19 @@ interface OrgHeaderProps {
 }
 
 export default function OrgHeader({ orgId }: OrgHeaderProps) {
-  const org = getOrganization(orgId);
-  const orgName = org?.name;
-
-  if (orgId && !org) {
-    throw new Error(`Not found organization '${orgId}'`, { cause: 404 });
-  } else if (orgId === "error") {
+  if (orgId === "error") {
     throw new Error(`Intentional Error!`);
+  }
+  const org = getOrganization(orgId);
+
+  if (!org) {
+    throw new Error(`Not found organization '${orgId}'`, { cause: 404 });
   }
 
   return (
     <>
-      <title>{`${orgName}の開発メンバー`}</title>
-      <h2 className="mb-12 text-center">{orgName} の開発メンバー</h2>
+      <title>{`${org.name}の開発メンバー`}</title>
+      <h2 className="mb-12 text-center">{org.name} の開発メンバー</h2>
     </>
   );
 }
