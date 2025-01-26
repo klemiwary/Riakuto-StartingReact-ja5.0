@@ -2,6 +2,7 @@
 export default {
   extends: ["stylelint-config-standard", "stylelint-config-recess-order"],
   rules: {
+    "at-rule-no-deprecated": [true, { ignoreAtRules: ["apply"] }],
     "at-rule-no-unknown": [
       true,
       {

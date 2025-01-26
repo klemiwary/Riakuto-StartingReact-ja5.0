@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { RotateCw } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Button } from '@/components/ui/button.tsx';
+import { Card, CardContent, CardHeader } from '@/components/ui/card.tsx';
 
 interface Props {
   maxCount?: number;
