@@ -11,7 +11,7 @@ interface TimerProps {
 
 export default function Timer({ maxCount = 60 }: TimerProps) {
   const [countLeft, reset] = useTimer(maxCount);
-  const primNumbers = useMemo(() => getPrimeNumbers(maxCount), [maxCount]);
+  const primeNumbers = useMemo(() => getPrimeNumbers(maxCount), [maxCount]);
 
   return (
     <Card className="w-80 shadow-md">
@@ -20,7 +20,7 @@ export default function Timer({ maxCount = 60 }: TimerProps) {
       </CardHeader>
       <CardContent className="flex justify-center py-1">
         <div className="text-4xl font-semibold">
-          {primNumbers.includes(countLeft) ? (
+          {primeNumbers.includes(countLeft) ? (
             <span className="text-pink-400">{countLeft}</span>
           ) : (
             <>{countLeft}</>

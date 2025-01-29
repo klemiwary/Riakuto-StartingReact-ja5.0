@@ -1,5 +1,5 @@
 export function getPrimeNumbers(max: number) {
-  console.count("getPrimeNumbers called");
+  console.count("getPrimeNumbers is called");
 
   if (max < 2) return [];
 

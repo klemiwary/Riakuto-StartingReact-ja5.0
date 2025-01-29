@@ -1,5 +1,4 @@
 import Timer from "@/components/Timer.tsx";
-// import Timer from '@/components/Timer.class.tsx';
 
 const title = import.meta.env.VITE_APP_TITLE;
 
