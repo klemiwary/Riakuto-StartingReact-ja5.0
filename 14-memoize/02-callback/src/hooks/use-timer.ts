@@ -2,25 +2,25 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 export function useTimer(maxCount: number) {
   const [countLeft, setCountLeft] = useState(maxCount);
-  const intervalId = useRef(0);
+  const timerId = useRef<NodeJS.Timeout>(null);
 
   function tick() {
     setCountLeft((c) => c - 1);
   }
 
   const reset = useCallback(() => {
-    if (intervalId.current) {
-      clearInterval(intervalId.current);
+    if (timerId.current) {
+      clearInterval(timerId.current);
     }
 
-    intervalId.current = setInterval(tick, 1000);
+    timerId.current = setInterval(tick, 1000);
     setCountLeft(maxCount);
   }, [maxCount]);
 
   useEffect(() => {
     reset();
 
-    return () => clearInterval(intervalId.current);
+    return () => clearInterval(timerId.current!);
   }, [reset]);
 
   useEffect(() => {

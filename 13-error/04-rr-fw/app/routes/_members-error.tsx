@@ -5,9 +5,9 @@ import {
   useLocation,
   useNavigate,
 } from "react-router";
+import { toast } from "sonner";
 import { Button } from "~/components/ui/button.tsx";
-import { Toaster } from "~/components/ui/toaster.tsx";
-import { useToast } from "~/hooks/use-toast.ts";
+import { Toaster } from "~/components/ui/sonner.tsx";
 import type { Route } from "./+types/members.ts";
 
 export default function MembersError() {
@@ -17,13 +17,12 @@ export default function MembersError() {
 export function ErrorBoundary({ params, error }: Route.ErrorBoundaryProps) {
   const navigate = useNavigate();
   const location = useLocation();
-  const { toast } = useToast();
 
   useEffect(() => {
     if (location.state === "reset") {
-      toast({ description: "⚠️ 再試行されました" });
+      toast("⚠️ 再試行されました");
     }
-  }, [location, toast]);
+  }, [location]);
 
   return (
     <>
@@ -31,7 +30,7 @@ export function ErrorBoundary({ params, error }: Route.ErrorBoundaryProps) {
         {isRouteErrorResponse(error) && error.status === 404 ? (
           <div className="flex items-center gap-6">
             <div className="text-2xl font-medium leading-none">404</div>
-            <div className="h-16 w-px bg-border" />
+            <div className="bg-border h-16 w-px" />
             <div className="flex flex-col">
               <div className="text-xl">その組織は見つかりませんでした</div>
               <div className="text-lg text-gray-400">

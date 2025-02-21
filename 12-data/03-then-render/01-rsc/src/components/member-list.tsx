@@ -1,5 +1,5 @@
-import type { Member } from "@/dev-members.d.ts";
-import MemberCard from "./member-card.tsx";
+import type { Member } from '@/dev-members.d.ts';
+import MemberCard from './member-card.tsx';
 
 interface MemberListProps {
   members: Member[];

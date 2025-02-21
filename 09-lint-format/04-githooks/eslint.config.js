@@ -10,7 +10,6 @@ import pluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import pluginUnusedImports from 'eslint-plugin-unused-imports';
 import pluginJest from 'eslint-plugin-jest';
 import pluginStylistic from '@stylistic/eslint-plugin';
-import pluginTailwind from 'eslint-plugin-tailwindcss';
 import configPrettier from 'eslint-config-prettier';
 
 const reactConfig = {
@@ -145,15 +144,22 @@ const testConfig = {
   name: 'Test Config',
   ...pluginJest.configs['flat/recommended'],
   files: [
-    '{src,app,pages}/**/*.{test,spec}.{js,ts,jsxt,sx}',
-    '{src,app,pages}/**/__tests__/**/*.{ts,js,jsx,tsx}',
+    'src/**/*.{test,spec}.{js,ts,jsxt,sx}',
+    'src/**/__tests__/**/*.{ts,js,jsx,tsx}',
   ],
 };
 
 /** @type { import('eslint').Linter.Config[] } */
 export default [
   { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'] },
-  { ignores: ['{dist,build,public,node_modules}/**', '**/*.config.*'] },
+  {
+    ignores: [
+      '{dist,build,public,node_modules}/**',
+      '**/lib/utils.{js,ts}',
+      '**/components/ui/**/*.{jsx,tsx}',
+      '**/*.config.*',
+    ],
+  },
   {
     languageOptions: {
       globals: {
@@ -168,7 +174,6 @@ export default [
   pluginJs.configs.recommended,
   ...tsEsLint.configs.recommendedTypeChecked,
   ...tsEsLint.configs.stylistic,
-  ...pluginTailwind.configs['flat/recommended'],
   reactConfig,
   typeConfig,
   importConfig,

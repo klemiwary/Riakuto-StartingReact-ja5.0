@@ -3,7 +3,8 @@
  * @type {import('prettier').Config}
  */
 const config = {
-  plugins: ["prettier-plugin-tailwindcss"],
+  singleQuote: true,
+  plugins: ['prettier-plugin-tailwindcss'],
 };
 
 export default config;

@@ -1,4 +1,5 @@
 import Counter from '@/components/Counter.tsx';
+import './App.css';
 
 const title = import.meta.env.VITE_APP_TITLE;
 

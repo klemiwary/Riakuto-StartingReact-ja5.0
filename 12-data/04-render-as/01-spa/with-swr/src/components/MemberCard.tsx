@@ -28,7 +28,7 @@ export default function MemberCard({ member }: MemberCardProps) {
         </Avatar>
         <div className="space-y-1">
           <p className="text-sm font-semibold leading-none">{member.login}</p>
-          <p className="whitespace-nowrap text-sm text-muted-foreground">
+          <p className="text-muted-foreground whitespace-nowrap text-sm">
             GitHub ID: {member.id}
           </p>
         </div>

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 export function useTimer(maxCount: number) {
   const [countLeft, setCountLeft] = useState(maxCount);
-  const timerId = useRef(0);
+  const timerId = useRef<NodeJS.Timeout>(null);
 
   function tick() {
     setCountLeft((c) => c - 1);
@@ -20,7 +20,7 @@ export function useTimer(maxCount: number) {
   useEffect(() => {
     reset();
 
-    return () => clearInterval(timerId.current);
+    return () => clearInterval(timerId.current!);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {

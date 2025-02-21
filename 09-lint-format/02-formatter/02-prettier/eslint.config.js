@@ -41,15 +41,15 @@ const reactConfig = {
 };
 
 const typeConfig = {
-  name: "Type Config",
-  files: ["{src,app,pages}/**/*.{ts,tsx}"],
+  name: 'Type Config',
+  files: ['{src,app,pages}/**/*.{ts,tsx}'],
   plugins: {
-    "typescript-eslint": tsEsLint,
+    'typescript-eslint': tsEsLint,
   },
   rules: {
-    "@typescript-eslint/consistent-type-imports": [
-      "warn",
-      { prefer: "type-imports" },
+    '@typescript-eslint/consistent-type-imports': [
+      'warn',
+      { prefer: 'type-imports' },
     ],
   },
 };
@@ -152,7 +152,14 @@ const testConfig = {
 /** @type { import('eslint').Linter.Config[] } */
 export default [
   { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'] },
-  { ignores: ['{dist,build,public,node_modules}/**', '**/*.config.*'] },
+  {
+    ignores: [
+      '{dist,build,public,node_modules}/**',
+      '**/lib/utils.{js,ts}',
+      '**/components/ui/**/*.{jsx,tsx}',
+      '**/*.config.*',
+    ],
+  },
   {
     languageOptions: {
       globals: {

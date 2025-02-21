@@ -9,7 +9,7 @@ import pluginImport from 'eslint-plugin-import';
 import pluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import pluginUnusedImports from 'eslint-plugin-unused-imports';
 import pluginJest from 'eslint-plugin-jest';
-import pluginStylistic from '@stylistic/eslint-plugin';
+// import pluginStylistic from '@stylistic/eslint-plugin';
 
 const reactConfig = {
   name: 'React Config',
@@ -112,9 +112,10 @@ const importConfig = {
 const stylisticConfig = {
   name: 'Stylistic Config',
   files: ['src/**/*.{js,ts,jsx,tsx}'],
-  plugins: { '@stylistic': pluginStylistic },
+//  plugins: { '@stylistic': pluginStylistic },
   rules: {
-    '@stylistic/padding-line-between-statements': [
+      'padding-line-between-statements': [
+//      '@stylistic/padding-line-between-statements': [
       'error',
       { blankLine: 'always', prev: '*', next: 'return' },
       { blankLine: 'always', prev: '*', next: ['function', `class`] },
@@ -137,7 +138,14 @@ const testConfig = {
 /** @type { import('eslint').Linter.Config[] } */
 export default [
   { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'] },
-  { ignores: ['{dist,build,public,node_modules}/**', '**/*.config.*'] },
+  {
+    ignores: [
+      '{dist,build,public,node_modules}/**',
+      '**/lib/utils.{js,ts}',
+      '**/components/ui/**/*.{jsx,tsx}',
+      '**/*.config.*',
+    ],
+  },
   {
     languageOptions: {
       globals: {

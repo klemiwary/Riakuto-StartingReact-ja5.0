@@ -1,8 +1,8 @@
-import { Suspense } from "react";
-import { notFound } from "next/navigation";
-import { Loader2 } from "lucide-react";
-import MemberList from "@/components/member-list.tsx";
-import { getOrganization } from "@/lib/data-reader.ts";
+import { Suspense } from 'react';
+import { notFound } from 'next/navigation';
+import { Loader2 } from 'lucide-react';
+import MemberList from '@/components/member-list.tsx';
+import { getOrganization } from '@/lib/data-reader.ts';
 
 interface MembersProps {
   params: Promise<{ orgId: string }>;
@@ -38,7 +38,7 @@ export default async function Members({ params }: MembersProps) {
 function Loading() {
   return (
     <div className="my-14 flex h-80 items-center justify-center">
-      <Loader2 className="size-12 animate-spin text-primary" />
+      <Loader2 className="text-primary size-12 animate-spin" />
     </div>
   );
 }

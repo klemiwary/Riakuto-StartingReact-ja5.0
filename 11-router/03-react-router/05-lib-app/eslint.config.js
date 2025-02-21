@@ -10,7 +10,6 @@ import pluginSimpleImportSort from "eslint-plugin-simple-import-sort";
 import pluginUnusedImports from "eslint-plugin-unused-imports";
 import pluginJest from "eslint-plugin-jest";
 import pluginStylistic from "@stylistic/eslint-plugin";
-import pluginTailwind from "eslint-plugin-tailwindcss";
 import configPrettier from "eslint-config-prettier";
 
 const assetPattern =
@@ -178,7 +177,6 @@ export default [
   pluginJs.configs.recommended,
   ...tsEsLint.configs.recommendedTypeChecked,
   ...tsEsLint.configs.stylistic,
-  ...pluginTailwind.configs["flat/recommended"],
   reactConfig,
   typeConfig,
   importConfig,

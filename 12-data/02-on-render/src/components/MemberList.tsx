@@ -34,7 +34,7 @@ export default function MemberList({ orgId }: MemberListProps) {
 
   return isLoading ? (
     <div className="my-14 flex h-80 items-center justify-center">
-      <Loader2 className="size-12 animate-spin text-primary" />
+      <Loader2 className="text-primary size-12 animate-spin" />
     </div>
   ) : (
     <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

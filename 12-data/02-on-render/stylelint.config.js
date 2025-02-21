@@ -1,15 +1,11 @@
 /** @type { import('stylelint').Config } */
 export default {
-  extends: ["stylelint-config-standard", "stylelint-config-recess-order"],
+  extends: [
+    "stylelint-config-standard",
+    "stylelint-config-recess-order",
+    "stylelint-config-tailwindcss",
+  ],
   rules: {
     "at-rule-no-deprecated": [true, { ignoreAtRules: ["apply"] }],
-    "at-rule-no-unknown": [
-      true,
-      {
-        ignoreAtRules: ["tailwind", "layer", "apply", "config"],
-      },
-    ],
-    "function-no-unknown": [true, { ignoreFunctions: ["theme", "screen"] }],
-    "no-descending-specificity": null,
   },
 };

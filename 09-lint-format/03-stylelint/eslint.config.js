@@ -10,7 +10,6 @@ import pluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import pluginUnusedImports from 'eslint-plugin-unused-imports';
 import pluginJest from 'eslint-plugin-jest';
 import pluginStylistic from '@stylistic/eslint-plugin';
-import pluginTailwind from 'eslint-plugin-tailwindcss';
 import configPrettier from 'eslint-config-prettier';
 
 const reactConfig = {
@@ -42,15 +41,15 @@ const reactConfig = {
 };
 
 const typeConfig = {
-  name: "Type Config",
-  files: ["{src,app,pages}/**/*.{ts,tsx}"],
+  name: 'Type Config',
+  files: ['{src,app,pages}/**/*.{ts,tsx}'],
   plugins: {
-    "typescript-eslint": tsEsLint,
+    'typescript-eslint': tsEsLint,
   },
   rules: {
-    "@typescript-eslint/consistent-type-imports": [
-      "warn",
-      { prefer: "type-imports" },
+    '@typescript-eslint/consistent-type-imports': [
+      'warn',
+      { prefer: 'type-imports' },
     ],
   },
 };
@@ -153,7 +152,14 @@ const testConfig = {
 /** @type { import('eslint').Linter.Config[] } */
 export default [
   { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'] },
-  { ignores: ['{dist,build,public,node_modules}/**', '**/*.config.*'] },
+  {
+    ignores: [
+      '{dist,build,public,node_modules}/**',
+      '**/lib/utils.{js,ts}',
+      '**/components/ui/**/*.{jsx,tsx}',
+      '**/*.config.*',
+    ],
+  },
   {
     languageOptions: {
       globals: {
@@ -168,7 +174,6 @@ export default [
   pluginJs.configs.recommended,
   ...tsEsLint.configs.recommendedTypeChecked,
   ...tsEsLint.configs.stylistic,
-  ...pluginTailwind.configs['flat/recommended'],
   reactConfig,
   typeConfig,
   importConfig,

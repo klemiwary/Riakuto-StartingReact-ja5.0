@@ -1,6 +1,6 @@
-import { notFound } from "next/navigation";
-import MemberList from "@/components/member-list.tsx";
-import { getMembers, getOrganization } from "@/lib/data-reader.ts";
+import { notFound } from 'next/navigation';
+import MemberList from '@/components/member-list.tsx';
+import { getMembers, getOrganization } from '@/lib/data-reader.ts';
 
 interface MembersProps {
   params: Promise<{ orgId: string }>;
