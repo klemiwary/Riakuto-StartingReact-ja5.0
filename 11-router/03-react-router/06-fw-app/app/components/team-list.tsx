@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { href, Link } from "react-router";
 import { CircleCheck } from "lucide-react";
 import type { Team } from "~/slamdunk.d.ts";
 
@@ -14,12 +14,14 @@ export default function TeamList({ teams }: TeamListProps) {
       {teams.map((team) => (
         <li key={team.id} className="flex items-center">
           {bullet}
-          <Link to={`players/${team.id}`}>{team.name}</Link>
+          <Link to={href("/players/:teamId", { teamId: team.id })}>
+            {team.name}
+          </Link>
         </li>
       ))}
       <li className="flex items-center">
         {bullet}
-        <Link to="players">全チーム</Link>
+        <Link to={href("/players")}>全チーム</Link>
       </li>
     </ul>
   );

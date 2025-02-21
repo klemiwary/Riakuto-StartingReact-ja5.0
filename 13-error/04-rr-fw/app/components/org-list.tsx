@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { href, Link } from "react-router";
 import { CircleCheck } from "lucide-react";
 import type { Organization } from "~/dev-members.d.ts";
 
@@ -14,7 +14,9 @@ export default function OrgList({ orgs }: OrgListProps) {
       {orgs.map((org) => (
         <li key={org.id} className="flex items-center">
           {bullet}
-          <Link to={`${org.id}/members`}>{org.name}</Link>
+          <Link to={href("/:orgId/members", { orgId: org.id })}>
+            {org.name}
+          </Link>
         </li>
       ))}
     </ul>
