@@ -15,7 +15,7 @@ export default function Players() {
     <>
       <TeamHeader teamId={teamId} />
       <PlayerList teamId={teamId} isLoading={isLoading} />
-      <div className="mr-4 mt-10 flex flex-row-reverse">
+      <div className="mt-10 mr-4 flex flex-row-reverse">
         <div className="flex items-center space-x-2">
           <Switch
             id="loading"

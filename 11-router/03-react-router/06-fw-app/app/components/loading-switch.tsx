@@ -9,7 +9,7 @@ export default function LoadingSwitch() {
     checked ? setSearchParams("loading=true") : setSearchParams("loading=");
 
   return (
-    <div className="mr-4 mt-10 flex flex-row-reverse">
+    <div className="mt-10 mr-4 flex flex-row-reverse">
       <div className="flex items-center space-x-2">
         <Switch
           id="loading"

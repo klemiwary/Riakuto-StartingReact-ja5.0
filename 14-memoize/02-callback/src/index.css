@@ -4,30 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-html {
-  @apply bg-white text-gray-900;
-}
-
-body {
-  @apply font-sans leading-normal antialiased;
-}
-
-h1 {
-  @apply text-3xl font-bold;
-}
-
-h2 {
-  @apply text-2xl font-semibold;
-}
-
-h3 {
-  @apply text-xl font-semibold;
-}
-
-a {
-  @apply text-gray-500 transition-colors duration-200 ease-in-out hover:text-blue-600 hover:underline focus:opacity-50 focus:outline-none;
-}
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
@@ -131,6 +107,22 @@ a {
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans leading-normal antialiased;
+  }
+
+  h1 {
+    @apply text-3xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl font-semibold;
+  }
+
+  a {
+    @apply text-gray-500 transition-colors duration-200 ease-in-out hover:text-blue-600 hover:underline focus:opacity-50 focus:outline-none;
   }
 }

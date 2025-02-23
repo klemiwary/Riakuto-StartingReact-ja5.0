@@ -13,7 +13,7 @@ export default function Members() {
     <>
       <OrgHeader orgId={orgId} />
       <MemberList orgId={orgId} />
-      <hr className="mb-4 mt-8" />
+      <hr className="mt-8 mb-4" />
       <div className="flex justify-center">
         <Link to="/">🔝 トップへ戻る</Link>
       </div>
