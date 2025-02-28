@@ -96,7 +96,7 @@ export default function RegistrationForm() {
           <div className="flex justify-center pt-2">
             <Button
               type="submit"
-              className="w-2/3 bg-blue-500 text-white"
+              className="w-2/3 bg-blue-500 text-white hover:bg-blue-400"
               disabled={!(formData.isAgreed && !!formData.username.trim())}
             >
               送信

@@ -12,6 +12,9 @@ import pluginJest from "eslint-plugin-jest";
 import pluginStylistic from "@stylistic/eslint-plugin";
 import configPrettier from "eslint-config-prettier";
 
+const assetPattern =
+  ".+\\.(jpe?g|gif|png|webp|avif|ico|svg|mp4|webm|woff2?)(\\?.*)?$";
+
 const reactConfig = {
   name: "React Config",
   files: ["src/**/*.{js,ts,jsx,tsx}"],
@@ -42,7 +45,7 @@ const reactConfig = {
 
 const typeConfig = {
   name: "Type Config",
-  files: ["{src,app,pages}/**/*.{ts,tsx}"],
+  files: ["src/**/*.{ts,tsx}"],
   plugins: {
     "typescript-eslint": tsEsLint,
   },
@@ -92,7 +95,7 @@ const importConfig = {
 
     // exclude asset files
     // SEE: `node_modules/vite/client.d.ts`
-    "import/no-unresolved": ["error", { ignore: ["^/.+\\.(svg|png|jpg)$"] }],
+    "import/no-unresolved": ["error", { ignore: ["^/" + assetPattern] }],
 
     // for eslint-plugin-simple-import-sort
     "simple-import-sort/imports": [
@@ -100,7 +103,7 @@ const importConfig = {
       {
         groups: [
           ["^react(-dom)?", "^node:", "^@?\\w", "^@/.*", "^\\.+/(?!assets/)"],
-          ["^.+\\.json$", "^.+\\.(svg|png|jpg)$", "^.+\\.s?css$"],
+          [".+\\.json$", ".+\\.s?css$", assetPattern],
         ],
       },
     ],
