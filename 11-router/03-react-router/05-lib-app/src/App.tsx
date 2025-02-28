@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router";
 import Layout from "@/routes/_Layout.tsx";
-import Index from "@/routes/Home.tsx";
+import Home from "@/routes/Home.tsx";
 import Players from "@/routes/Players.tsx";
 // import Players from '@/routes/players.loading.tsx';
 
@@ -23,7 +23,7 @@ export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route path="/" element={<Index />} />
+        <Route path="/" element={<Home />} />
         <Route path="players" element={<Players />}></Route>
         <Route path="players/:teamId" element={<Players />}></Route>
       </Route>

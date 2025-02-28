@@ -115,10 +115,12 @@ const importConfig = {
     'unused-imports/no-unused-vars': [
       'warn',
       {
-        vars: 'all',
-        varsIgnorePattern: '^_',
-        args: 'after-used',
-        argsIgnorePattern: '^_',
+        args: "after-used",
+        argsIgnorePattern: "^_",
+        caughtErrorsIgnorePattern: "^_",
+        destructuredArrayIgnorePattern: "^_",
+        vars: "all",
+        varsIgnorePattern: "^_",
       },
     ],
   },
