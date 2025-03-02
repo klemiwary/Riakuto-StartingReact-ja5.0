@@ -1,6 +1,8 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin "tailwindcss-animate";
+
+@source "safelist.txt";
 
 @custom-variant dark (&:is(.dark *));
 

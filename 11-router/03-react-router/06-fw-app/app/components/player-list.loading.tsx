@@ -3,25 +3,6 @@ import { Avatar, AvatarFallback } from "~/components/ui/avatar.tsx";
 import { Skeleton } from "~/components/ui/skeleton.tsx";
 import type { Player } from "~/slamdunk.d.ts";
 
-const ColorVars = {
-  red: {
-    bg: "bg-red-50",
-    text: "text-red-500",
-  },
-  blue: {
-    bg: "bg-blue-50",
-    text: "text-blue-500",
-  },
-  purple: {
-    bg: "bg-purple-50",
-    text: "text-purple-500",
-  },
-  gray: {
-    bg: "bg-gray-50",
-    text: "text-gray-500",
-  },
-};
-
 interface PlayerListProps {
   players: Player[];
   teamColor?: string;
@@ -33,7 +14,7 @@ export default function PlayerList({
   teamColor,
   isLoading = false,
 }: PlayerListProps) {
-  const color = (teamColor ?? "gray") as keyof typeof ColorVars;
+  const color = teamColor ?? "gray";
 
   const content = isLoading ? (
     <ul className="my-6 space-y-5">
@@ -52,8 +33,8 @@ export default function PlayerList({
       {players.map((player) => (
         <li key={player.id} className="flex items-center space-x-4">
           <Avatar>
-            <AvatarFallback className={ColorVars[color].bg}>
-              <UserRound className={ColorVars[color].text} />
+            <AvatarFallback className={`bg-${color}-50`}>
+              <UserRound className={`text-${color}-500`} />
             </AvatarFallback>
           </Avatar>
           <div className="ml-4 text-left">

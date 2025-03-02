@@ -1,0 +1,8 @@
+bg-red-50
+bg-blue-50
+bg-purple-50
+bg-gray-50
+text-red-500
+text-blue-500
+text-purple-500
+text-gray-500
