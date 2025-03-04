@@ -1,0 +1,122 @@
+[
+  {
+    "id": "hanamichi",
+    "name": "桜木花道",
+    "teamId": "shohoku",
+    "grade": 1,
+    "height": 189.2,
+    "likedCount": 2518
+  },
+  {
+    "id": "rukawa",
+    "name": "流川 楓",
+    "teamId": "shohoku",
+    "grade": 1,
+    "height": 187,
+    "likedCount": 1696
+  },
+  {
+    "id": "ryochin",
+    "name": "宮城リョータ",
+    "teamId": "shohoku",
+    "grade": 2,
+    "height": 168,
+    "likedCount": 1766
+  },
+  {
+    "id": "mitchy",
+    "name": "三井 寿",
+    "teamId": "shohoku",
+    "grade": 3,
+    "height": 184,
+    "likedCount": 3608
+  },
+  {
+    "id": "gori",
+    "name": "赤木剛憲",
+    "teamId": "shohoku",
+    "grade": 3,
+    "height": 197,
+    "likedCount": 911
+  },
+  {
+    "id": "sendo",
+    "name": "仙道 彰",
+    "grade": 2,
+    "teamId": "ryonan",
+    "height": 190,
+    "likedCount": 1601
+  },
+  {
+    "id": "uozumi",
+    "name": "魚住 純",
+    "teamId": "ryonan",
+    "grade": 3,
+    "height": 202,
+    "likedCount": 476
+  },
+  {
+    "id": "fuku",
+    "name": "福田吉兆",
+    "teamId": "ryonan",
+    "grade": 2,
+    "height": 188,
+    "likedCount": 244
+  },
+  {
+    "id": "ikegami",
+    "name": "池上亮二",
+    "teamId": "ryonan",
+    "grade": 3,
+    "height": 183,
+    "likedCount": 116
+  },
+  {
+    "id": "koshino",
+    "name": "越野宏明",
+    "teamId": "ryonan",
+    "grade": 2,
+    "height": 174,
+    "likedCount": 140
+  },
+  {
+    "id": "maki",
+    "name": "牧 紳一",
+    "teamId": "kainan",
+    "grade": 3,
+    "height": 184,
+    "likedCount": 666
+  },
+  {
+    "id": "kiyota",
+    "name": "清田信長",
+    "teamId": "kainan",
+    "grade": 3,
+    "height": 178,
+    "likedCount": 571
+  },
+  {
+    "id": "jin",
+    "name": "神 宗一郎",
+    "teamId": "kainan",
+    "grade": 2,
+    "height": 189,
+    "likedCount": 656
+  },
+  {
+    "id": "takasago",
+    "name": "高砂一馬",
+    "teamId": "kainan",
+    "grade": 3,
+    "height": 191,
+    "likedCount": 25
+  },
+  {
+    "id": "muto",
+    "name": "武藤 正",
+    "teamId": "kainan",
+    "grade": 3,
+    "height": 184,
+    "likedCount": 0
+  }
+]

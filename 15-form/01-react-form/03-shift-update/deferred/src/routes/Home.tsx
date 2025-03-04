@@ -1,0 +1,25 @@
+import { Link } from "react-router";
+import { ChevronRight } from "lucide-react";
+
+const pageList = [
+  { name: "テキスト入力を Urgent Update で反映", path: "urgent-update" },
+  {
+    name: "テキスト入力を useDeferredValue でハンドリング",
+    path: "deferred-update",
+  },
+];
+
+export default function Home() {
+  const bullet = <ChevronRight className="mr-[0.4em] size-4 text-cyan-700" />;
+
+  return (
+    <ul className="my-6 space-y-3">
+      {pageList.map((page) => (
+        <li key={page.path} className="flex items-center">
+          {bullet}
+          <Link to={page.path}>{page.name}</Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
