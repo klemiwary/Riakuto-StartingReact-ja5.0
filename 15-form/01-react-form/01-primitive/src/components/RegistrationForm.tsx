@@ -14,7 +14,7 @@ import {
 
 const genderOption = { m: "男性", f: "女性", n: "それ以外" } as const;
 
-interface FormData {
+interface RegData {
   username: string;
   zipcode?: string;
   gender?: keyof typeof genderOption;
@@ -22,20 +22,20 @@ interface FormData {
 }
 
 export default function RegistrationForm() {
-  const [formData, setFormData] = useState<FormData>({
+  const [regData, setRegData] = useState<RegData>({
     username: "",
     isAgreed: false,
   });
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(formData);
+    console.log(regData);
   }
 
   function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
     const { name } = event.target;
     const value = event.target.value;
-    setFormData((state) => ({ ...state, [name]: value }));
+    setRegData((state) => ({ ...state, [name]: value }));
   }
 
   return (
@@ -45,7 +45,7 @@ export default function RegistrationForm() {
           <Label className="mb-2 block">ユーザー名（必須）</Label>
           <Input
             name="username"
-            value={formData.username}
+            value={regData.username}
             onChange={handleInput}
             className="mb-4 w-full"
           />
@@ -53,20 +53,20 @@ export default function RegistrationForm() {
           <Input
             name="zipcode"
             maxLength={7}
-            value={formData.zipcode ?? ""}
+            value={regData.zipcode ?? ""}
             onChange={handleInput}
             className="mb-4 w-full"
           />
           <Label className="mb-2 block">性別</Label>
           <div className="mb-6 w-full">
             <Select
-              value={formData.gender}
+              value={regData.gender}
               onValueChange={(value) => {
                 const gender =
                   value in genderOption
                     ? (value as keyof typeof genderOption)
                     : undefined;
-                setFormData((state) => ({ ...state, gender }));
+                setRegData((state) => ({ ...state, gender }));
               }}
             >
               <SelectTrigger>
@@ -84,10 +84,10 @@ export default function RegistrationForm() {
           <div className="mb-4 flex items-center justify-center">
             <Checkbox
               id="isAgreed"
-              checked={formData.isAgreed}
+              checked={regData.isAgreed}
               onCheckedChange={(checked) => {
                 const isAgreed = checked === "indeterminate" ? false : checked;
-                setFormData((state) => ({ ...state, isAgreed }));
+                setRegData((state) => ({ ...state, isAgreed }));
               }}
               className="mr-2"
             />
@@ -97,7 +97,7 @@ export default function RegistrationForm() {
             <Button
               type="submit"
               className="w-2/3 bg-blue-500 text-white hover:bg-blue-400"
-              disabled={!(formData.isAgreed && !!formData.username.trim())}
+              disabled={!(regData.isAgreed && !!regData.username.trim())}
             >
               送信
             </Button>

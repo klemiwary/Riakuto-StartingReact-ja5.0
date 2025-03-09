@@ -6,17 +6,17 @@ import { Card, CardContent } from "@/components/ui/card.tsx";
 import { Input } from "@/components/ui/input.tsx";
 import { Label } from "@/components/ui/label.tsx";
 import { dummyApi } from "@/lib/dummy-api.ts";
-import { type FormData } from "@/types/form.ts";
+import type { RegData } from "@/types/form.d.ts";
 
 export default function CatForm() {
-  const [formData, setFormData] = useState<FormData>({ username: "" });
+  const [regData, setRegData] = useState<RegData>({ username: "" });
   const [isPending, startTransition] = useTransition();
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     startTransition(async () => {
       try {
-        await dummyApi(formData);
+        await dummyApi(regData);
         toast("🎉️ 登録されました");
       } catch (_err) {
         toast("⚠️ 不正な入力エラー");
@@ -27,7 +27,7 @@ export default function CatForm() {
   function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
     const { name } = event.target;
     const value = event.target.value;
-    setFormData((state) => ({ ...state, [name]: value }));
+    setRegData((state) => ({ ...state, [name]: value }));
   }
 
   return (
@@ -38,14 +38,14 @@ export default function CatForm() {
           <Label className="mb-2 block">ユーザー名（必須）</Label>
           <Input
             name="username"
-            value={formData.username}
+            value={regData.username}
             onChange={handleInput}
             className="mb-4 w-full"
           />
           <Label className="mb-2 block">郵便番号</Label>
           <Input
             name="zipcode"
-            value={formData.zipcode ?? ""}
+            value={regData.zipcode ?? ""}
             onChange={handleInput}
             className="mb-4 w-full"
           />
@@ -53,7 +53,7 @@ export default function CatForm() {
             <Button
               type="submit"
               className="w-2/3 bg-blue-500 text-white hover:bg-blue-400"
-              disabled={isPending || !formData.username.trim()}
+              disabled={isPending || !regData.username.trim()}
             >
               {isPending ? "送信中…" : "送信"}
             </Button>

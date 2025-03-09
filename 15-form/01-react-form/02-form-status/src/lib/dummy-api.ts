@@ -1,10 +1,10 @@
-import { type FormData } from "@/types/form.ts";
+import { type RegData } from "@/types/form.ts";
 
-export async function dummyApi(formData: FormData) {
+export async function dummyApi(regData: RegData) {
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  if (parseInt(formData.zipcode || "") === 0) {
+  if (parseInt(regData.zipcode || "") === 0) {
     throw new Error("Invalid input");
   }
-  console.log(formData);
+  console.log(regData);
 }
