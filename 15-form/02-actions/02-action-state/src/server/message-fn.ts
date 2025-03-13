@@ -11,7 +11,8 @@ export async function addMessage(
   formData: FormData,
 ): Promise<MessageResult> {
   await new Promise((resolve) => setTimeout(resolve, 200));
-  const body = (formData.get("body") as string).trim();
+  const value = formData.get("body");
+  const body = typeof value === "string" ? value.trim() : "";
 
   if (!body) {
     return {

@@ -1,15 +1,10 @@
-"use server";
-
-import { revalidatePath } from "next/cache";
 import { v4 as uuidv4 } from "uuid";
-import type { Message } from "@/message.d.ts";
+import type { Message } from "~/message.d.ts";
 
 const messages: Message[] = [];
 
-export async function addMessage(formData: FormData) {
+export async function addMessage(body: string) {
   await new Promise((resolve) => setTimeout(resolve, 200));
-  const value = formData.get("body");
-  const body = typeof value === "string" ? value.trim() : "";
 
   if (!body) throw new Error("メッセージ本文が空です");
 
@@ -18,7 +13,6 @@ export async function addMessage(formData: FormData) {
     body,
     createdAt: new Date(),
   });
-  revalidatePath("/");
 }
 
 // eslint-disable-next-line @typescript-eslint/require-await
