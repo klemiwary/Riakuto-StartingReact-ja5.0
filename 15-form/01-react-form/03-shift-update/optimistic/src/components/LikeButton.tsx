@@ -1,8 +1,8 @@
 import { startTransition, useOptimistic, useState } from "react";
-import { clsx } from "clsx";
 import { Heart } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button.tsx";
+import { cn } from "@/lib/utils.ts";
 
 interface LikeButtonProps {
   initialCount?: number;
@@ -49,7 +49,7 @@ export default function LikeButton({ initialCount = 0 }: LikeButtonProps) {
     <Button
       variant="outline"
       size="sm"
-      className={clsx(
+      className={cn(
         "h-8 gap-1.5 px-3 text-xs transition-all",
         optimisticLikes.liked &&
           "border-pink-200 bg-pink-50 text-pink-500 hover:bg-pink-100 hover:text-pink-600",
@@ -57,14 +57,14 @@ export default function LikeButton({ initialCount = 0 }: LikeButtonProps) {
       onClick={likeAction}
     >
       <Heart
-        className={clsx(
+        className={cn(
           "h-3.5 w-3.5 transition-all",
           optimisticLikes.liked ? "fill-pink-500 text-pink-500" : "fill-none",
         )}
       />
       {optimisticLikes.count > 0 && (
         <span
-          className={clsx(
+          className={cn(
             "font-medium",
             optimisticLikes.liked && "text-pink-500",
           )}

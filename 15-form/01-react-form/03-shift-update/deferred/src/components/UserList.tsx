@@ -1,9 +1,9 @@
 import { memo } from "react";
-import clsx from "clsx";
 import { UserRound } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar.tsx";
 import { Card } from "@/components/ui/card.tsx";
 import createUser from "@/lib/create-user.ts";
+import { cn } from "@/lib/utils.ts";
 
 interface UserListProps {
   username: string;
@@ -23,13 +23,13 @@ function UserList({ username, count }: UserListProps) {
           >
             <Avatar className="mb-3 h-12 w-12">
               <AvatarFallback
-                className={clsx("text-white", `bg-${user.color}-400`)}
+                className={cn("text-white", `bg-${user.color}-400`)}
               >
                 <UserRound className="h-8 w-8" />
               </AvatarFallback>
             </Avatar>
             <p
-              className={clsx(
+              className={cn(
                 "text-lg font-bold tracking-wide uppercase",
                 `text-${user.color}-400`,
               )}
