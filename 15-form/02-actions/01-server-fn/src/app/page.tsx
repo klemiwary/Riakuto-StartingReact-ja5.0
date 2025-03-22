@@ -7,11 +7,11 @@ export default async function Home() {
   const messages = await getMessages();
 
   return (
-    <main className="container mx-auto max-w-3xl px-4 py-8">
+    <div className="container mx-auto max-w-3xl px-4 py-8">
       <div className="grid gap-8">
         <MessageForm />
         <MessageList messages={messages} />
       </div>
-    </main>
+    </div>
   );
 }

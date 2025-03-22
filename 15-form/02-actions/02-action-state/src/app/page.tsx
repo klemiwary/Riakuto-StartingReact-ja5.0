@@ -1,5 +1,4 @@
 import MessageForm from "@/components/message-form.tsx";
-// import MessageForm from "@/components/message-form.client.tsx";
 import MessageList from "@/components/message-list.tsx";
 import { getMessages } from "@/server/message-fn.ts";
 
