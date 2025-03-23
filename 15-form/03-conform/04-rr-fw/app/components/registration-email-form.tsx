@@ -1,35 +1,43 @@
-"use client";
-
-import { useActionState } from "react";
-import { getInputProps, getSelectProps, useForm } from "@conform-to/react";
+import { Form, useNavigation } from "react-router";
+import {
+  getInputProps,
+  getSelectProps,
+  type SubmissionResult,
+  useForm,
+} from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { ChevronDown } from "lucide-react";
-import { Field, FieldError } from "@/components/field.tsx";
-import { Button } from "@/components/ui/button.tsx";
-import { Card, CardContent, CardFooter } from "@/components/ui/card.tsx";
-import { Input } from "@/components/ui/input.tsx";
-import { Label } from "@/components/ui/label.tsx";
-import { UserRegisterSchema } from "@/domains/schema.ts";
-import { genderOptions } from "@/domains/types.ts";
-import { registerAction } from "@/server/actions.ts";
+import { Field, FieldError } from "~/components/field.tsx";
+import { Button } from "~/components/ui/button.tsx";
+import { Card, CardContent, CardFooter } from "~/components/ui/card.tsx";
+import { Input } from "~/components/ui/input.tsx";
+import { Label } from "~/components/ui/label.tsx";
+import { createEmailSchema, UserRegisterSchema } from "~/domains/schema.ts";
+import { genderOptions } from "~/domains/types.ts";
 
-export default function RegistrationForm() {
-  const [lastResult, action, isPending] = useActionState(
-    registerAction,
-    undefined,
-  );
+interface RegistrationEmailFormlProps {
+  lastResult: SubmissionResult<string[]> | null | undefined;
+}
+
+export default function RegistrationFormEmail({
+  lastResult,
+}: RegistrationEmailFormlProps) {
+  const navigation = useNavigation();
+  const isPending = navigation.state !== "idle";
+
   const [form, fields] = useForm({
     lastResult,
     onValidate({ formData }) {
-      return parseWithZod(formData, { schema: UserRegisterSchema });
+      return parseWithZod(formData, {
+        schema: (intent) => UserRegisterSchema.merge(createEmailSchema(intent)),
+      });
     },
     shouldValidate: "onBlur",
-    shouldRevalidate: "onInput",
   });
 
   return (
     <Card className="w-md max-w-md p-5 shadow-md">
-      <form id={form.id} onSubmit={form.onSubmit} action={action} noValidate>
+      <Form id={form.id} onSubmit={form.onSubmit} method="post" noValidate>
         <CardContent className="px-1 py-2">
           <Field>
             <Label className="block">ユーザー名（必須）</Label>
@@ -39,6 +47,16 @@ export default function RegistrationForm() {
             />
             {fields.username.errors && (
               <FieldError>{fields.username.errors}</FieldError>
+            )}
+          </Field>
+          <Field>
+            <Label className="block">メールアドレス（必須）</Label>
+            <Input
+              {...getInputProps(fields.email, { type: "text" })}
+              className="w-full"
+            />
+            {fields.email.errors && (
+              <FieldError>{fields.email.errors}</FieldError>
             )}
           </Field>
           <Field>
@@ -81,7 +99,7 @@ export default function RegistrationForm() {
             >
               <input
                 {...getInputProps(fields.isAgreed, { type: "checkbox" })}
-                className="h-4 w-4 cursor-pointer rounded-sm border-gray-300 checked:border-gray-900 checked:bg-gray-900 checked:text-white checked:accent-gray-900"
+                className="mr-2 h-4 w-4 cursor-pointer rounded-sm border-gray-300 checked:border-gray-900 checked:bg-gray-900 checked:text-white checked:accent-gray-900"
               />
               <span>規約に同意する</span>
             </Label>
@@ -98,7 +116,7 @@ export default function RegistrationForm() {
             {isPending ? "送信中…" : "送信"}
           </Button>
         </CardFooter>
-      </form>
+      </Form>
     </Card>
   );
 }

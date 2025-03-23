@@ -1,0 +1,8 @@
+bg-sky-50
+bg-rose-50
+bg-amber-50
+bg-gray-50
+text-sky-500
+text-rose-500
+text-amber-500
+text-gray-500

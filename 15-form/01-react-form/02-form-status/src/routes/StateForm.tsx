@@ -35,21 +35,26 @@ export default function StateForm() {
     <Card className="w-md max-w-md p-5 shadow-md">
       <CardContent className="px-1 py-2">
         <form onSubmit={(data) => void handleSubmit(data)}>
-          <Label className="mb-2 block">ユーザー名（必須）</Label>
-          <Input
-            name="username"
-            value={regData.username}
-            onChange={handleInput}
-            className="mb-4 w-full"
-          />
-          <Label className="mb-2 block">郵便番号</Label>
-          <Input
-            name="zipcode"
-            value={regData.zipcode ?? ""}
-            onChange={handleInput}
-            className="mb-4 w-full"
-          />
-          <div className="flex justify-center pt-4">
+          <fieldset className="mb-4">
+            <Label className="mb-2 block">ユーザー名（必須）</Label>
+            <Input
+              name="username"
+              value={regData.username}
+              onChange={handleInput}
+              className="w-full"
+            />
+          </fieldset>
+          <fieldset className="mb-4">
+            <Label className="mb-2 block">郵便番号</Label>
+            <Input
+              name="zipcode"
+              maxLength={7}
+              value={regData.zipcode ?? ""}
+              onChange={handleInput}
+              className="w-full"
+            />
+          </fieldset>
+          <fieldset className="flex justify-center pt-4">
             <Button
               type="submit"
               className="w-2/3 bg-blue-500 text-white hover:bg-blue-400"
@@ -57,7 +62,7 @@ export default function StateForm() {
             >
               {isPending ? "送信中…" : "送信"}
             </Button>
-          </div>
+          </fieldset>
         </form>
       </CardContent>
     </Card>

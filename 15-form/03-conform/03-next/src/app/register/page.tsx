@@ -1,9 +1,6 @@
-import type { Metadata } from "next";
 import RegistrationForm from "@/components/registration-form.tsx";
 
-const title = process.env.APP_TITLE;
-
-export const metadata: Metadata = { title };
+const title = "ユーザー登録フォーム";
 
 export default function RegisterPage() {
   return (

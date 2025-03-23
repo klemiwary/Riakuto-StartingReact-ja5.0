@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+import { href, Link } from "react-router";
 import { ChevronRight } from "lucide-react";
 
 const title = "フォームリスト";
-export const metadata: Metadata = { title };
+
+export function meta() {
+  return [{ title }];
+}
 
 const pageList = [
   { name: "メールアドレスなし", path: "/register" },
   { name: "メールアドレスあり（重複チェック）", path: "/register-email" },
-];
+] as const;
 
 export default function Home() {
   const bullet = <ChevronRight className="mr-[0.4em] size-4 text-cyan-700" />;
@@ -23,7 +25,7 @@ export default function Home() {
           {pageList.map((page) => (
             <li key={page.path} className="flex items-center">
               {bullet}
-              <Link href={page.path}>{page.name}</Link>
+              <Link to={href(page.path)}>{page.name}</Link>
             </li>
           ))}
         </ul>

@@ -42,23 +42,27 @@ export default function RegistrationForm() {
     <Card className="w-md max-w-md p-5 shadow-md">
       <CardContent className="px-1 py-2">
         <form onSubmit={handleSubmit}>
-          <Label className="mb-2 block">ユーザー名（必須）</Label>
-          <Input
-            name="username"
-            value={regData.username}
-            onChange={handleInput}
-            className="mb-4 w-full"
-          />
-          <Label className="mb-2 block">郵便番号</Label>
-          <Input
-            name="zipcode"
-            maxLength={7}
-            value={regData.zipcode ?? ""}
-            onChange={handleInput}
-            className="mb-4 w-full"
-          />
-          <Label className="mb-2 block">性別</Label>
-          <div className="mb-6 w-full">
+          <fieldset className="mb-4">
+            <Label className="mb-2 block">ユーザー名（必須）</Label>
+            <Input
+              name="username"
+              value={regData.username}
+              onChange={handleInput}
+              className="w-full"
+            />
+          </fieldset>
+          <fieldset className="mb-4">
+            <Label className="mb-2 block">郵便番号</Label>
+            <Input
+              name="zipcode"
+              maxLength={7}
+              value={regData.zipcode ?? ""}
+              onChange={handleInput}
+              className="w-full"
+            />
+          </fieldset>
+          <fieldset className="mb-6">
+            <Label className="mb-2 block">性別</Label>
             <Select
               value={regData.gender}
               onValueChange={(value) => {
@@ -80,8 +84,11 @@ export default function RegistrationForm() {
                 ))}
               </SelectContent>
             </Select>
-          </div>
-          <div className="mb-4 flex items-center justify-center">
+          </fieldset>
+          <Label
+            htmlFor="isAgreed"
+            className="mb-4 flex items-center justify-center"
+          >
             <Checkbox
               id="isAgreed"
               checked={regData.isAgreed}
@@ -91,9 +98,9 @@ export default function RegistrationForm() {
               }}
               className="mr-2"
             />
-            <Label htmlFor="isAgreed">規約に同意する</Label>
-          </div>
-          <div className="flex justify-center pt-2">
+            <span>規約に同意する</span>
+          </Label>
+          <fieldset className="flex justify-center pt-2">
             <Button
               type="submit"
               className="w-2/3 bg-blue-500 text-white hover:bg-blue-400"
@@ -101,7 +108,7 @@ export default function RegistrationForm() {
             >
               送信
             </Button>
-          </div>
+          </fieldset>
         </form>
       </CardContent>
     </Card>
