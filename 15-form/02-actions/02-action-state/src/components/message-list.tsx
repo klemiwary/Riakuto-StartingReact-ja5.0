@@ -4,14 +4,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card.tsx";
+import { getMessages } from "@/entities/message-service.ts";
 import { formatDate } from "@/lib/date.ts";
-import type { Message } from "@/message.d.ts";
 
-interface MessageListProps {
-  messages: Message[];
-}
+export default async function MessageList() {
+  const messages = await getMessages();
 
-export default function MessageList({ messages }: MessageListProps) {
   return (
     <Card>
       <CardHeader>

@@ -34,7 +34,7 @@ export default function MessageForm({ errorMessage }: MessageFormProps) {
             {errorMessage && `⚠️ ${errorMessage}`}
           </div>
           <Button type="submit" disabled={navigation.state !== "idle"}>
-            投稿する
+            {navigation.state === "idle" ? "投稿する" : "送信中…"}
           </Button>
         </CardFooter>
       </Form>

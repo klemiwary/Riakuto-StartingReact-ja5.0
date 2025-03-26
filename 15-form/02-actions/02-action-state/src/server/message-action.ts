@@ -1,12 +1,10 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { v4 as uuidv4 } from "uuid";
-import type { Message, MessageResult } from "@/message.d.ts";
+import { addMessage } from "@/entities/message-service.ts";
+import type { MessageResult } from "@/entities/message-type.ts";
 
-const messages: Message[] = [];
-
-export async function addMessage(
+export async function postAction(
   _prevResult: MessageResult,
   formData: FormData,
 ): Promise<MessageResult> {
@@ -21,19 +19,8 @@ export async function addMessage(
     };
   }
 
-  messages.push({
-    id: uuidv4(),
-    body,
-    createdAt: new Date(),
-  });
+  await addMessage(body);
   revalidatePath("/");
 
   return { status: "succeeded" };
-}
-
-// eslint-disable-next-line @typescript-eslint/require-await
-export async function getMessages() {
-  return [...messages].sort(
-    (a, b) => b.createdAt.getTime() - a.createdAt.getTime(),
-  );
 }

@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import type { Message } from "~/message.d.ts";
+import type { Message } from "@/entities/message-type.ts";
 
 const messages: Message[] = [];
 

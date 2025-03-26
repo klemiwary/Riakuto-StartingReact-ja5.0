@@ -1,7 +1,7 @@
 import MessageForm from "~/components/message-form.tsx";
 // import MessageForm from "~/components/message-form.fetcher.tsx";
 import MessageList from "~/components/message-list.tsx";
-import { addMessage, getMessages } from "~/domains/message-fn.ts";
+import { addMessage, getMessages } from "~/entities/message-service.ts";
 import type { Route } from "./+types/home";
 
 export async function loader() {

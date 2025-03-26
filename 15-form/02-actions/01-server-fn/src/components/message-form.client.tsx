@@ -4,12 +4,12 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button.tsx";
 import { Card, CardContent, CardFooter } from "@/components/ui/card.tsx";
 import { Textarea } from "@/components/ui/textarea.tsx";
-import { addMessage } from "@/server/message-fn.ts";
+import { postAction } from "@/server/message-action.ts";
 
 export default function MessageForm() {
-  async function formAction(formData: FormData) {
+  async function action(formData: FormData) {
     try {
-      await addMessage(formData);
+      await postAction(formData);
     } catch (error) {
       toast("⚠️ " + (error as Error).message);
     }
@@ -17,7 +17,7 @@ export default function MessageForm() {
 
   return (
     <Card className="pb-5">
-      <form action={formAction}>
+      <form action={action}>
         <CardContent>
           <Textarea
             name="body"
