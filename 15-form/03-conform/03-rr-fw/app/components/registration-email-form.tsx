@@ -12,8 +12,11 @@ import { Button } from "~/components/ui/button.tsx";
 import { Card, CardContent, CardFooter } from "~/components/ui/card.tsx";
 import { Input } from "~/components/ui/input.tsx";
 import { Label } from "~/components/ui/label.tsx";
-import { createEmailSchema, UserRegisterSchema } from "~/domains/schema.ts";
-import { genderOptions } from "~/domains/types.ts";
+import {
+  createEmailSchema,
+  userRegisterSchema,
+} from "~/entities/user-schema.ts";
+import { genderOptions } from "~/entities/user-type.ts";
 
 interface RegistrationEmailFormlProps {
   lastResult: SubmissionResult<string[]> | null | undefined;
@@ -22,18 +25,16 @@ interface RegistrationEmailFormlProps {
 export default function RegistrationFormEmail({
   lastResult,
 }: RegistrationEmailFormlProps) {
-  const navigation = useNavigation();
-  const isPending = navigation.state !== "idle";
-
   const [form, fields] = useForm({
     lastResult,
-    onValidate({ formData }) {
-      return parseWithZod(formData, {
-        schema: (intent) => UserRegisterSchema.merge(createEmailSchema(intent)),
-      });
-    },
+    onValidate: ({ formData }) =>
+      parseWithZod(formData, {
+        schema: (intent) => userRegisterSchema.merge(createEmailSchema(intent)),
+      }),
     shouldValidate: "onBlur",
   });
+  const navigation = useNavigation();
+  const isPending = navigation.state !== "idle";
 
   return (
     <Card className="w-md max-w-md p-5 shadow-md">
@@ -95,11 +96,11 @@ export default function RegistrationFormEmail({
           <Field className="flex items-center gap-3">
             <Label
               htmlFor={fields.isAgreed.id}
-              className="flex items-center justify-center"
+              className="flex items-center justify-center gap-2"
             >
               <input
                 {...getInputProps(fields.isAgreed, { type: "checkbox" })}
-                className="mr-2 h-4 w-4 cursor-pointer rounded-sm border-gray-300 checked:border-gray-900 checked:bg-gray-900 checked:text-white checked:accent-gray-900"
+                className="h-4 w-4 cursor-pointer rounded-sm border-gray-300 checked:border-gray-900 checked:bg-gray-900 checked:text-white checked:accent-gray-900"
               />
               <span>規約に同意する</span>
             </Label>

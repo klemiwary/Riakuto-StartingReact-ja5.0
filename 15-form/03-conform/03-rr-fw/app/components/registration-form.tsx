@@ -12,8 +12,8 @@ import { Button } from "~/components/ui/button.tsx";
 import { Card, CardContent, CardFooter } from "~/components/ui/card.tsx";
 import { Input } from "~/components/ui/input.tsx";
 import { Label } from "~/components/ui/label.tsx";
-import { UserRegisterSchema } from "~/domains/schema.ts";
-import { genderOptions } from "~/domains/types.ts";
+import { userRegisterSchema } from "~/entities/user-schema.ts";
+import { genderOptions } from "~/entities/user-type.ts";
 
 interface RegistrationFormProps {
   lastResult: SubmissionResult<string[]> | null | undefined;
@@ -22,16 +22,15 @@ interface RegistrationFormProps {
 export default function RegistrationForm({
   lastResult,
 }: RegistrationFormProps) {
-  const navigation = useNavigation();
-  const isPending = navigation.state !== "idle";
   const [form, fields] = useForm({
     lastResult,
-    onValidate({ formData }) {
-      return parseWithZod(formData, { schema: UserRegisterSchema });
-    },
+    onValidate: ({ formData }) =>
+      parseWithZod(formData, { schema: userRegisterSchema }),
     shouldValidate: "onBlur",
     shouldRevalidate: "onInput",
   });
+  const navigation = useNavigation();
+  const isPending = navigation.state !== "idle";
 
   return (
     <Card className="w-md max-w-md p-5 shadow-md">
@@ -83,7 +82,7 @@ export default function RegistrationForm({
           <Field className="flex items-center gap-3">
             <Label
               htmlFor={fields.isAgreed.id}
-              className="flex items-center justify-center"
+              className="flex items-center justify-center gap-2"
             >
               <input
                 {...getInputProps(fields.isAgreed, { type: "checkbox" })}

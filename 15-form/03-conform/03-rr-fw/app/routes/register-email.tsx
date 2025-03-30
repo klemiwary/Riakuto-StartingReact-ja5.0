@@ -1,12 +1,15 @@
 import { href, redirect } from "react-router";
 import { parseWithZod } from "@conform-to/zod";
 import RegistrationFormEmail from "~/components/registration-email-form.tsx";
-import { createEmailSchema, UserRegisterSchema } from "~/domains/schema.ts";
-import { addUser, isEmailUnique } from "~/domains/users.ts";
-import { createUserWithForm } from "~/lib/form.ts";
+import { addUser, isEmailUnique } from "~/entities/user-api.ts";
+import { createUserFromForm } from "~/entities/user-lib.ts";
+import {
+  createEmailSchema,
+  userRegisterSchema,
+} from "~/entities/user-schema.ts";
 import type { Route } from "./+types/register";
 
-const title = "ユーザー登録フォーム（要メールアドレス）";
+const title = `${import.meta.env.VITE_APP_TITLE}（要メールアドレス）`;
 
 export function meta() {
   return [{ title }];
@@ -17,7 +20,7 @@ export async function action({ request }: Route.ActionArgs) {
   const formData = await request.formData();
   const submission = await parseWithZod(formData, {
     schema: (intent) =>
-      UserRegisterSchema.merge(createEmailSchema(intent, { isEmailUnique })),
+      userRegisterSchema.merge(createEmailSchema(intent, { isEmailUnique })),
     async: true,
   });
 
@@ -25,7 +28,7 @@ export async function action({ request }: Route.ActionArgs) {
     return { lastResult: submission.reply() };
   }
 
-  await addUser(createUserWithForm(formData));
+  await addUser(createUserFromForm(formData));
 
   return redirect(href("/registered"));
 }

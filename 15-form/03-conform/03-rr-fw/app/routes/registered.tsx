@@ -1,5 +1,5 @@
 import UserList from "~/components/user-list.tsx";
-import { getUsers } from "~/domains/users.ts";
+import { getUsers } from "~/entities/user-api.ts";
 import type { Route } from "./+types/registered";
 
 const title = "登録完了";

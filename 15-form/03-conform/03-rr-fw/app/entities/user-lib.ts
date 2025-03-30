@@ -1,6 +1,6 @@
-import type { GenderCode, User } from "~/domains/types.ts";
+import type { GenderCode, User } from "~/entities/user-type.ts";
 
-export function createUserWithForm(formData: FormData): Omit<User, "id"> {
+export function createUserFromForm(formData: FormData): Omit<User, "id"> {
   const username = (formData.get("username") as string | null)?.trim() ?? "";
   const email = (formData.get("email") as string | null)?.trim();
   const zipcode =
