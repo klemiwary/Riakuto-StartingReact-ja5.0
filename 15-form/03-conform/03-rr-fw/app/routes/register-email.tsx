@@ -3,10 +3,7 @@ import { parseWithZod } from "@conform-to/zod";
 import RegistrationFormEmail from "~/components/registration-email-form.tsx";
 import { addUser, isEmailUnique } from "~/entities/user-api.ts";
 import { createUserFromForm } from "~/entities/user-lib.ts";
-import {
-  createEmailSchema,
-  userRegisterSchema,
-} from "~/entities/user-schema.ts";
+import { createRegisterSchema } from "~/entities/user-schema.ts";
 import type { Route } from "./+types/register";
 
 const title = `${import.meta.env.VITE_APP_TITLE}（要メールアドレス）`;
@@ -19,8 +16,7 @@ export async function action({ request }: Route.ActionArgs) {
   await new Promise((resolve) => setTimeout(resolve, 200));
   const formData = await request.formData();
   const submission = await parseWithZod(formData, {
-    schema: (intent) =>
-      userRegisterSchema.merge(createEmailSchema(intent, { isEmailUnique })),
+    schema: (intent) => createRegisterSchema(intent, { isEmailUnique }),
     async: true,
   });
 

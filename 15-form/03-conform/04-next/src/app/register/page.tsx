@@ -1,6 +1,6 @@
 import RegistrationForm from "@/components/registration-form.tsx";
 
-const title = "ユーザー登録フォーム";
+const title = process.env.APP_TITLE;
 
 export default function RegisterPage() {
   return (

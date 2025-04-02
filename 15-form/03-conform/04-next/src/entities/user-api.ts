@@ -1,7 +1,5 @@
-"use server";
-
 import { v4 as uuidv4 } from "uuid";
-import type { User } from "@/domains/types.ts";
+import type { User } from "@/entities/user-type.ts";
 
 const users: User[] = [];
 
@@ -13,7 +11,7 @@ export async function addUser(user: Omit<User, "id">) {
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export async function getUsers() {
-  return users;
+  return users.toReversed();
 }
 
 export async function isEmailUnique(email: string) {

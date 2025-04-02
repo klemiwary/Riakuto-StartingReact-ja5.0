@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/button.tsx";
 import { Card, CardContent, CardFooter } from "@/components/ui/card.tsx";
 import { Input } from "@/components/ui/input.tsx";
 import { Label } from "@/components/ui/label.tsx";
-import { UserRegisterSchema } from "@/domains/schema.ts";
-import { genderOptions } from "@/domains/types.ts";
-import { registerAction } from "@/server/actions.ts";
+import { userRegisterSchema } from "@/entities/user-schema.ts";
+import { genderOptions } from "@/entities/user-type.ts";
+import { registerAction } from "@/server/register-action.ts";
 
 export default function RegistrationForm() {
   const [lastResult, action, isPending] = useActionState(
@@ -20,9 +20,8 @@ export default function RegistrationForm() {
   );
   const [form, fields] = useForm({
     lastResult,
-    onValidate({ formData }) {
-      return parseWithZod(formData, { schema: UserRegisterSchema });
-    },
+    onValidate: ({ formData }) =>
+      parseWithZod(formData, { schema: userRegisterSchema }),
     shouldValidate: "onBlur",
     shouldRevalidate: "onInput",
   });
@@ -77,7 +76,7 @@ export default function RegistrationForm() {
           <Field className="flex items-center gap-3">
             <Label
               htmlFor={fields.isAgreed.id}
-              className="flex items-center justify-center"
+              className="flex items-center justify-center gap-2"
             >
               <input
                 {...getInputProps(fields.isAgreed, { type: "checkbox" })}

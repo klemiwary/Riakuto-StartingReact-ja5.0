@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import RegistrationEmailForm from "@/components/registration-email-form.tsx";
 
-const title = "ユーザー登録フォーム（要メールアドレス）";
+const title = `${process.env.APP_TITLE}（要メールアドレス）`;
 
 export const metadata: Metadata = { title };
 

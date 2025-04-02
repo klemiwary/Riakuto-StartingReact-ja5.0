@@ -12,10 +12,7 @@ import { Button } from "~/components/ui/button.tsx";
 import { Card, CardContent, CardFooter } from "~/components/ui/card.tsx";
 import { Input } from "~/components/ui/input.tsx";
 import { Label } from "~/components/ui/label.tsx";
-import {
-  createEmailSchema,
-  userRegisterSchema,
-} from "~/entities/user-schema.ts";
+import { createRegisterSchema } from "~/entities/user-schema.ts";
 import { genderOptions } from "~/entities/user-type.ts";
 
 interface RegistrationEmailFormlProps {
@@ -29,7 +26,7 @@ export default function RegistrationFormEmail({
     lastResult,
     onValidate: ({ formData }) =>
       parseWithZod(formData, {
-        schema: (intent) => userRegisterSchema.merge(createEmailSchema(intent)),
+        schema: (intent) => createRegisterSchema(intent),
       }),
     shouldValidate: "onBlur",
   });

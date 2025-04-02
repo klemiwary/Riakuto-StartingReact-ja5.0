@@ -2,21 +2,24 @@
 
 import { redirect } from "next/navigation";
 import { parseWithZod } from "@conform-to/zod";
-import { createEmailSchema, UserRegisterSchema } from "@/domains/schema.ts";
-import type { GenderCode, User } from "@/domains/types.ts";
-import { addUser, isEmailUnique } from "@/domains/users.ts";
+import { addUser, isEmailUnique } from "@/entities/user-api.ts";
+import {
+  createRegisterSchema,
+  userRegisterSchema,
+} from "@/entities/user-schema.ts";
+import type { GenderCode, User } from "@/entities/user-type.ts";
 
 export async function registerAction(_prevResult: unknown, formData: FormData) {
   await new Promise((resolve) => setTimeout(resolve, 200));
   const submission = parseWithZod(formData, {
-    schema: UserRegisterSchema,
+    schema: userRegisterSchema,
   });
 
   if (submission.status !== "success") {
     return submission.reply();
   }
 
-  await addUser(createUserWithForm(formData));
+  await addUser(createUserFromForm(formData));
 
   redirect("/registered");
 }
@@ -27,8 +30,7 @@ export async function registerActionWithEmail(
 ) {
   await new Promise((resolve) => setTimeout(resolve, 200));
   const submission = await parseWithZod(formData, {
-    schema: (intent) =>
-      UserRegisterSchema.merge(createEmailSchema(intent, { isEmailUnique })),
+    schema: (intent) => createRegisterSchema(intent, { isEmailUnique }),
     async: true,
   });
 
@@ -36,12 +38,12 @@ export async function registerActionWithEmail(
     return submission.reply();
   }
 
-  await addUser(createUserWithForm(formData));
+  await addUser(createUserFromForm(formData));
 
   redirect("/registered");
 }
 
-function createUserWithForm(formData: FormData): Omit<User, "id"> {
+function createUserFromForm(formData: FormData): Omit<User, "id"> {
   const username = (formData.get("username") as string | null)?.trim() ?? "";
   const email = (formData.get("email") as string | null)?.trim();
   const zipcode =
