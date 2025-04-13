@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>React Test</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      import React from 'https://esm.sh/react@19';
+      import { createRoot } from 'https://esm.sh/react-dom@19/client';
+
+      const root = createRoot(document.getElementById('root'));
+      root.render(React.createElement('h1', null, 'React works!'));
+    </script>
+  </body>
+</html>

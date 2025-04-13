@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { getInputProps, getSelectProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { ChevronDown } from "lucide-react";
@@ -25,8 +25,20 @@ export default function RegistrationEmailForm() {
         schema: (intent) => createRegisterSchema(intent),
       }),
     shouldValidate: "onBlur",
-    // shouldValidate: "onSubmit",
   });
+
+  useEffect(() => {
+    const preventReset = (event: Event) => {
+      if (event.target === document.forms.namedItem(form.id)) {
+        event.preventDefault();
+      }
+    };
+    document.addEventListener("reset", preventReset, true);
+
+    return () => {
+      document.removeEventListener("reset", preventReset, true);
+    };
+  }, [form.id]);
 
   return (
     <Card className="w-md max-w-md p-5 shadow-md">
