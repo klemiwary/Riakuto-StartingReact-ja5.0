@@ -10,6 +10,7 @@ import pluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
 import pluginUnusedImports from 'eslint-plugin-unused-imports';
 import pluginJest from 'eslint-plugin-jest';
 // import pluginStylistic from '@stylistic/eslint-plugin';
+import { defineConfig } from 'eslint/config';
 
 const reactConfig = {
   name: 'React Config',
@@ -29,13 +30,10 @@ const reactConfig = {
   rules: {
     ...pluginReact.configs.flat.recommended.rules,
     ...pluginHooks.configs.recommended.rules,
+    ...pluginRefresh.configs.recommended.rules,
     ...pluginJsxA11y.flatConfigs.recommended.rules,
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
   },
 };
 
@@ -56,7 +54,6 @@ const importConfig = {
       ...pluginImport.configs.typescript.settings['import/resolver'],
       typescript: {
         alwaysTryTypes: true,
-        project: ['tsconfig.json', 'tsconfig.*.json'],
       },
     },
   },
@@ -100,12 +97,12 @@ const importConfig = {
     'unused-imports/no-unused-vars': [
       'warn',
       {
-        args: "after-used",
-        argsIgnorePattern: "^_",
-        caughtErrorsIgnorePattern: "^_",
-        destructuredArrayIgnorePattern: "^_",
-        vars: "all",
-        varsIgnorePattern: "^_",
+        args: 'after-used',
+        argsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+        destructuredArrayIgnorePattern: '^_',
+        vars: 'all',
+        varsIgnorePattern: '^_',
       },
     ],
   },
@@ -114,10 +111,10 @@ const importConfig = {
 const stylisticConfig = {
   name: 'Stylistic Config',
   files: ['src/**/*.{js,ts,jsx,tsx}'],
-//  plugins: { '@stylistic': pluginStylistic },
+  //  plugins: { '@stylistic': pluginStylistic },
   rules: {
-      'padding-line-between-statements': [
-//      '@stylistic/padding-line-between-statements': [
+    'padding-line-between-statements': [
+      //      '@stylistic/padding-line-between-statements': [
       'error',
       { blankLine: 'always', prev: '*', next: 'return' },
       { blankLine: 'always', prev: '*', next: ['function', `class`] },
@@ -137,8 +134,7 @@ const testConfig = {
   ],
 };
 
-/** @type { import('eslint').Linter.Config[] } */
-export default [
+export default defineConfig([
   { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'] },
   {
     ignores: [
@@ -166,4 +162,4 @@ export default [
   importConfig,
   stylisticConfig,
   testConfig,
-];
+]);

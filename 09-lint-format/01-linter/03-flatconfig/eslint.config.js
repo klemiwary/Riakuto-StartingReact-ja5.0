@@ -4,6 +4,7 @@ import tsEsLint from 'typescript-eslint';
 import pluginReact from 'eslint-plugin-react';
 import pluginHooks from 'eslint-plugin-react-hooks';
 import pluginRefresh from 'eslint-plugin-react-refresh';
+import { defineConfig } from 'eslint/config';
 
 const reactConfig = {
   name: 'React Config',
@@ -19,21 +20,18 @@ const reactConfig = {
   rules: {
     ...pluginReact.configs.flat.recommended.rules,
     ...pluginHooks.configs.recommended.rules,
+    ...pluginRefresh.configs.recommended.rules,
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
   },
 };
 
-/** @type { import('eslint').Linter.Config[] } */
-export default [
+export default defineConfig([
   { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'] },
   { ignores: ['{dist,build,public,node_modules}/**', '**/*.config.*'] },
   {
     languageOptions: {
+      ecmaVersion: 'latest',
       globals: {
         ...globals.browser,
         ...globals.es2024,
@@ -41,6 +39,6 @@ export default [
     },
   },
   pluginJs.configs.recommended,
-  ...tsEsLint.configs.recommended,
+  tsEsLint.configs.recommended,
   reactConfig,
-];
+]);

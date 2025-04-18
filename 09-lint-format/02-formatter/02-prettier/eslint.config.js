@@ -11,6 +11,7 @@ import pluginUnusedImports from 'eslint-plugin-unused-imports';
 import pluginJest from 'eslint-plugin-jest';
 import pluginStylistic from '@stylistic/eslint-plugin';
 import configPrettier from 'eslint-config-prettier';
+import { defineConfig } from 'eslint/config';
 
 const reactConfig = {
   name: 'React Config',
@@ -30,13 +31,10 @@ const reactConfig = {
   rules: {
     ...pluginReact.configs.flat.recommended.rules,
     ...pluginHooks.configs.recommended.rules,
+    ...pluginRefresh.configs.recommended.rules,
     ...pluginJsxA11y.flatConfigs.recommended.rules,
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
   },
 };
 
@@ -71,7 +69,6 @@ const importConfig = {
       ...pluginImport.configs.typescript.settings['import/resolver'],
       typescript: {
         alwaysTryTypes: true,
-        project: ['tsconfig.json', 'tsconfig.*.json'],
       },
     },
   },
@@ -115,12 +112,12 @@ const importConfig = {
     'unused-imports/no-unused-vars': [
       'warn',
       {
-        args: "after-used",
-        argsIgnorePattern: "^_",
-        caughtErrorsIgnorePattern: "^_",
-        destructuredArrayIgnorePattern: "^_",
-        vars: "all",
-        varsIgnorePattern: "^_",
+        args: 'after-used',
+        argsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+        destructuredArrayIgnorePattern: '^_',
+        vars: 'all',
+        varsIgnorePattern: '^_',
       },
     ],
   },
@@ -151,8 +148,7 @@ const testConfig = {
   ],
 };
 
-/** @type { import('eslint').Linter.Config[] } */
-export default [
+export default defineConfig([
   { files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'] },
   {
     ignores: [
@@ -182,4 +178,4 @@ export default [
   stylisticConfig,
   testConfig,
   configPrettier,
-];
+]);
