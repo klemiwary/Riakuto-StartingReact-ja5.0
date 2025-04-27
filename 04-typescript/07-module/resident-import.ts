@@ -1,6 +1,6 @@
-import { Resident } from "./resident";
+import { Resident } from "./resident-export";
 
-// const resident = new Resident()
+const resident = new Resident()
 const patty: Resident = {
   name: "Patty Rabbit",
   age: 8,

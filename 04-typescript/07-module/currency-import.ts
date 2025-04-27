@@ -1,4 +1,4 @@
-import { Currency } from "./currency-export";
+import { Currency } from './currency-export';
 
 const dollars: Currency = {
   unit: "USD",
@@ -6,4 +6,4 @@ const dollars: Currency = {
 };
 
 console.log(dollars);
-console.log(Currency.exchange(dollars, "JPY"));
+console.log(Currency.exchange(dollars, 'JPY'));

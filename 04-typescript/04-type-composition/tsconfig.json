@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "module": "CommonJS",
+    "target": "es2022",
+    "module": "commonjs",
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
     "skipLibCheck": true
