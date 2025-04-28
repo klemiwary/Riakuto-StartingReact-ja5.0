@@ -1,8 +1,6 @@
-import Greet from './components/Greet.tsx';
-// import Greet from './components/Greet.new.tsx';
+import Greet from './components/Greet.new.tsx';
 import Summary from './components/Summary.tsx';
-import Form from './components/Form.tsx';
-// import Form from './components/Form.new.tsx';
+import Form from './components/Form.new.tsx';
 import TextInput from './components/TextInput.tsx';
 import './App.css';
 
