@@ -1,6 +1,6 @@
 import { data } from "react-router";
 import PlayerList from "~/components/player-list.tsx";
-import { getPlayers, getTeam } from "~/lib/data-reader.ts";
+import { getPlayers, getTeam } from "~/entities/data-reader.ts";
 import type { Route } from "./+types/players.ts";
 
 export function loader({ params }: Route.LoaderArgs) {

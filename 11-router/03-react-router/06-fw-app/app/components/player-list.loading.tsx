@@ -1,7 +1,7 @@
 import { UserRound } from "lucide-react";
 import { Avatar, AvatarFallback } from "~/components/ui/avatar.tsx";
 import { Skeleton } from "~/components/ui/skeleton.tsx";
-import type { Player } from "~/slamdunk.d.ts";
+import type { Player } from "~/entities/types.ts";
 
 interface PlayerListProps {
   players: Player[];

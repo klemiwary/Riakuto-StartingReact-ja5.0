@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "fix": "pnpm run --parallel '/(lint:fix|format)/'",
+    "fix": "pnpm run format && pnpm run lint:fix",
     "format": "prettier --write --log-level=warn '**/!(*.min|*-lock).{js,mjs,cjs,ts,mts,cts,jsx,tsx,html,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql,md,mdx}'",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -31,7 +31,6 @@
     "@types/eslint-plugin-jsx-a11y": "~6.10.0",
     "@types/eslint-plugin-react-refresh": "~0.4.0",
     "@types/eslint-plugin-tailwindcss": "~3.17.0",
-    "@types/eslint__js": "~9.14.0",
     "@types/node": "^22.15.3",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.3",

@@ -1,7 +1,7 @@
 import { data, useSearchParams } from "react-router";
 import LoadingSwitch from "~/components/loading-switch.tsx";
 import PlayerList from "~/components/player-list.loading.tsx";
-import { getPlayers, getTeam } from "~/lib/data-reader.ts";
+import { getPlayers, getTeam } from "~/entities/data-reader.ts";
 import type { Route } from "./+types/players.ts";
 
 export function loader({ params }: Route.LoaderArgs) {

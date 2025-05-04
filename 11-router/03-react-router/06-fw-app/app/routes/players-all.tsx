@@ -1,5 +1,5 @@
 import PlayerList from "~/components/player-list.tsx";
-import { getPlayers } from "~/lib/data-reader.ts";
+import { getPlayers } from "~/entities/data-reader.ts";
 import type { Route } from "./+types/players-all.ts";
 
 const title = "全チームの選手";

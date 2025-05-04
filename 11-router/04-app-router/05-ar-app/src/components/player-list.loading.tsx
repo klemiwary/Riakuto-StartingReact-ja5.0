@@ -1,7 +1,7 @@
 import { UserRound } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar.tsx";
 import { Skeleton } from "@/components/ui/skeleton.tsx";
-import { getPlayers, getTeamColor } from "@/lib/data-reader.ts";
+import { getPlayers, getTeamColor } from "@/entities/data-reader.ts";
 
 interface Props {
   teamId?: string;

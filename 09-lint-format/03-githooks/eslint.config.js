@@ -89,7 +89,13 @@ const importConfig = {
 
     // exclude asset files
     // SEE: `node_modules/vite/client.d.ts`
-    'import/no-unresolved': ['error', { ignore: ['^/.+\\.(svg|png|jpg)$'] }],
+    "import/no-unresolved": [
+      "error",
+      {
+        ignore: ['^/.+\\.(svg|png|jpg)$'],
+        caseSensitive: false,
+      },
+    ],
 
     // for eslint-plugin-simple-import-sort
     'simple-import-sort/imports': [

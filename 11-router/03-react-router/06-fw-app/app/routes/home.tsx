@@ -1,5 +1,5 @@
 import TeamList from "~/components/team-list.tsx";
-import { getAllTeams } from "~/lib/data-reader.ts";
+import { getAllTeams } from "~/entities/data-reader.ts";
 import type { Route } from "./+types/home.ts";
 
 export function loader() {

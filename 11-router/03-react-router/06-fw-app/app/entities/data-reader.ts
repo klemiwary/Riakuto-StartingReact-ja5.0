@@ -1,4 +1,4 @@
-import type { Player, Team } from "~/slamdunk.d.ts";
+import type { Player, Team } from "~/entities/types.ts";
 
 import playersData from "../data/players.json";
 import teamsData from "../data/teams.json";
