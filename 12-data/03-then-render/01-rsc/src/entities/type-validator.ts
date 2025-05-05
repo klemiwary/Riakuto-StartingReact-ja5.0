@@ -1,4 +1,4 @@
-import type { Member } from '@/dev-members.d.ts';
+import type { Member } from '@/entities/types.ts';
 
 export function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null;

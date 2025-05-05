@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import MemberList from '@/components/member-list.tsx';
-import { getMembers, getOrganization } from '@/lib/data-reader.ts';
+import { getOrganization } from '@/entities/data-reader.ts';
 
 interface MembersProps {
   params: Promise<{ orgId: string }>;
@@ -22,12 +22,11 @@ export async function generateMetadata({ params }: MembersProps) {
 export default async function Members({ params }: MembersProps) {
   const { orgId } = await params;
   const title = generateTitle(orgId);
-  const members = await getMembers(orgId);
 
   return (
     <>
       <h2 className="mb-12 text-center">{title}</h2>
-      <MemberList members={members} />
+      <MemberList orgId={orgId} />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { CircleCheck } from "lucide-react";
-import { getAllOrganizations } from "@/lib/data-reader.ts";
+import { getAllOrganizations } from "@/entities/data-reader.ts";
 
 export default function OrgList() {
   const bullet = <CircleCheck className="mr-[0.4em] size-4 text-blue-800" />;

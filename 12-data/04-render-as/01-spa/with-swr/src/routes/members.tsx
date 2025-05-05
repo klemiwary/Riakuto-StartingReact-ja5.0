@@ -17,7 +17,7 @@ export default function Members() {
       <Suspense fallback={<Loading />}>
         <MemberList orgId={orgId} />
       </Suspense>
-      <hr className="mb-4 mt-8" />
+      <hr className="mt-8 mb-4" />
       <div className="flex justify-center">
         <Link to="/">🔝 トップへ戻る</Link>
       </div>

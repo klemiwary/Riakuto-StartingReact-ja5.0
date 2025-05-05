@@ -1,4 +1,4 @@
-import { getMembers } from '@/lib/data-reader.ts';
+import { getMembers } from '@/entities/data-reader.ts';
 import MemberCard from './member-card.tsx';
 
 interface MemberListProps {

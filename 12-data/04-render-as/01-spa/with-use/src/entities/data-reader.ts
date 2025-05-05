@@ -1,5 +1,5 @@
 import camelcaseKeys from "camelcase-keys";
-import type { Member, Organization } from "@/dev-members.d.ts";
+import type { Member, Organization } from "@/entities/types.ts";
 import { isMember, isObject } from "./type-validator.ts";
 
 import orgsData from "../data/organizations.json";
@@ -26,6 +26,7 @@ export async function getMembers(orgId: string): Promise<Member[]> {
       "User-Agent": "Node.js",
     },
   });
+  console.log(response.headers);
 
   if (!response.ok) {
     throw new Error(`HTTP error status: ${response.status}`);

@@ -4,7 +4,7 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar.tsx";
 import { Card } from "@/components/ui/card.tsx";
-import type { Member } from "@/dev-members.d.ts";
+import type { Member } from "@/entities/types.ts";
 
 interface MemberCardProps {
   member: Member;
