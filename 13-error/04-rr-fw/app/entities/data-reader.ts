@@ -1,5 +1,5 @@
 import camelcaseKeys from "camelcase-keys";
-import type { Member, Organization } from "@/dev-members.d.ts";
+import type { Member, Organization } from "~/entities/types.ts";
 import { isMember, isObject } from "./type-validator.ts";
 
 import orgsData from "../data/organizations.json";
@@ -25,15 +25,11 @@ export async function getMembers(orgId: string): Promise<Member[]> {
       Accept: "application/vnd.github.v3+json",
       "User-Agent": "Node.js",
     },
-    // cache: "force-cache",
   });
   // console.log(`Response-Date: ${response.headers.get("date")}`);
 
   if (!response.ok) {
-    if (response.status === 404) {
-      throw new Error(`Not found organization '${orgId}'`, { cause: 404 });
-    }
-    throw new Error("GitHub API Error", { cause: response.headers });
+    throw new Error(`HTTP error status: ${response.status}`);
   }
 
   const data = (await response.json()) as unknown;

@@ -1,5 +1,5 @@
 import camelcaseKeys from "camelcase-keys";
-import type { Member, Organization } from "@/dev-members.d.ts";
+import type { Member, Organization } from "@/entities/types.ts";
 import { isMember, isObject } from "./type-validator.ts";
 
 import orgsData from "../data/organizations.json";

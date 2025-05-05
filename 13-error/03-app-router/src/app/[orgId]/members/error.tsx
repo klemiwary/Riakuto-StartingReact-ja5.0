@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button.tsx";
+import { Button } from '@/components/ui/button.tsx';
 
 interface ErrorProps {
   error: Error & { digest?: string };

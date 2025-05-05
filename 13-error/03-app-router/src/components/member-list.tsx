@@ -1,5 +1,5 @@
-import { getMembers } from "@/lib/data-reader.ts";
-import MemberCard from "./member-card.tsx";
+import { getMembers } from '@/entities/data-reader.ts';
+import MemberCard from './member-card.tsx';
 
 interface MemberListProps {
   orgId: string;
