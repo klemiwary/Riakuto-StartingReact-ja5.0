@@ -3,7 +3,7 @@ import { RotateCw } from "lucide-react";
 import { Button } from "@/components/ui/button.tsx";
 import { Card, CardContent, CardHeader } from "@/components/ui/card.tsx";
 import { useTimer } from "@/hooks/use-timer.ts";
-import { getPrimeNumbers } from "@/utils/math.ts";
+import { getPrimeNumbers } from "@/lib/math.ts";
 
 interface TimerProps {
   maxCount?: number;
@@ -24,7 +24,7 @@ export default function Timer({ maxCount = 60 }: TimerProps) {
 
   return (
     <Card className="w-80 shadow-md">
-      <CardHeader className="pb-2 pt-4">
+      <CardHeader className="pt-4 pb-2">
         <div className="text-center text-xl font-medium">Count</div>
       </CardHeader>
       <CardContent className="flex justify-center py-1">
@@ -36,7 +36,7 @@ export default function Timer({ maxCount = 60 }: TimerProps) {
           )}
         </div>
       </CardContent>
-      <CardContent className="mx-4 flex pb-6 pt-4">
+      <CardContent className="mx-4 flex pt-4 pb-6">
         <ResetButton reset={reset} />
       </CardContent>
     </Card>
