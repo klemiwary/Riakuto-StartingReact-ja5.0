@@ -4,7 +4,7 @@ import { useActionState } from "react";
 import { Button } from "@/components/ui/button.tsx";
 import { Card, CardContent, CardFooter } from "@/components/ui/card.tsx";
 import { Textarea } from "@/components/ui/textarea.tsx";
-import { postAction } from "@/server/message-action.ts";
+import { postAction } from "@/server/post-action.ts";
 
 export default function MessageForm() {
   const [result, action, isPending] = useActionState(postAction, {

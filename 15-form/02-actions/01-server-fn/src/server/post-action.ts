@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { addMessage } from "@/entities/message-service.ts";
+import { addMessage } from "@/entities/message-api.ts";
 
 export async function postAction(formData: FormData) {
   await new Promise((resolve) => setTimeout(resolve, 200));

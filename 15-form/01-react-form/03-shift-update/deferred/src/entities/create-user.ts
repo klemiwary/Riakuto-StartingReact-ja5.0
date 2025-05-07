@@ -28,7 +28,7 @@ function overload(amount: number) {
   }
 }
 
-export default function createUser(id: number, username: string): User {
+export function createUser(id: number, username: string): User {
   overload(1e5);
   const hash = SHA256(`${id}${username}`).toString().substring(0, 18);
   const colorNum = hash.split("").find((c) => c.match(/[0-9]/)) ?? "0";

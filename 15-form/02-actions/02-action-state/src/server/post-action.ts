@@ -1,8 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { addMessage } from "@/entities/message-service.ts";
-import type { MessageResult } from "@/entities/message-type.ts";
+import { addMessage } from "@/entities/message-api.ts";
+import type { MessageResult } from "@/entities/types.ts";
 
 export async function postAction(
   _prevResult: MessageResult,

@@ -4,7 +4,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card.tsx";
-import { getMessages } from "@/entities/message-service.ts";
+import { getMessages } from "@/entities/message-api.ts";
 import { formatDate } from "@/lib/date.ts";
 
 export default async function MessageList() {
