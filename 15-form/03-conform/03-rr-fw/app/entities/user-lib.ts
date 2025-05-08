@@ -1,4 +1,4 @@
-import type { GenderCode, User } from "~/entities/user-type.ts";
+import type { GenderCode, User } from "~/entities/types.ts";
 
 export function createUserFromForm(formData: FormData): Omit<User, "id"> {
   const username = (formData.get("username") as string | null)?.trim() ?? "";

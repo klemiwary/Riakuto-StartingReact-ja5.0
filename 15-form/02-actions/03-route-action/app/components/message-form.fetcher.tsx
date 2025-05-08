@@ -10,11 +10,9 @@ interface MessageFormProps {
 }
 
 export default function MessageForm({ errorMessage }: MessageFormProps) {
-  const fetcher = useFetcher();
+  const fetcher = useFetcher<typeof action>();
   const formRef = useRef<HTMLFormElement>(null);
-  const errMsg =
-    errorMessage ??
-    (fetcher.data as Awaited<ReturnType<typeof action>>)?.errorMessage;
+  const errMsg = errorMessage ?? fetcher.data?.errorMessage;
 
   useEffect(() => {
     if (fetcher.state === "idle") {

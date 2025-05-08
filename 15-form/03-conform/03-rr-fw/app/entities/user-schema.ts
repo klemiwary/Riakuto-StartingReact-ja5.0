@@ -1,7 +1,7 @@
 import type { Intent } from "@conform-to/react";
 import { conformZodMessage } from "@conform-to/zod";
 import { z } from "zod";
-import { type GenderCode, genderOptions } from "~/entities/user-type.ts";
+import { type GenderCode, genderOptions } from "~/entities/types.ts";
 
 export const userRegisterSchema = z.object({
   username: z.string({ required_error: "必須項目です" }),

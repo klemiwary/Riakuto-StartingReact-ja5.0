@@ -12,8 +12,8 @@ import { Button } from "~/components/ui/button.tsx";
 import { Card, CardContent, CardFooter } from "~/components/ui/card.tsx";
 import { Input } from "~/components/ui/input.tsx";
 import { Label } from "~/components/ui/label.tsx";
+import { genderOptions } from "~/entities/types.ts";
 import { userRegisterSchema } from "~/entities/user-schema.ts";
-import { genderOptions } from "~/entities/user-type.ts";
 
 interface RegistrationFormProps {
   lastResult: SubmissionResult<string[]> | null | undefined;

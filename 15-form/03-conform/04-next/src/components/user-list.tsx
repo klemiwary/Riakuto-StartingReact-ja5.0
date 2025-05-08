@@ -6,8 +6,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card.tsx";
+import type { GenderCode } from "@/entities/types.ts";
 import { getUsers } from "@/entities/user-api.ts";
-import type { GenderCode } from "@/entities/user-type.ts";
 
 export default async function UserList() {
   const users = await getUsers();

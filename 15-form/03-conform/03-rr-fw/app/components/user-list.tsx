@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card.tsx";
-import type { GenderCode, User } from "~/entities/user-type.ts";
+import type { GenderCode, User } from "~/entities/types.ts";
 
 interface UserListProps {
   users: User[];
