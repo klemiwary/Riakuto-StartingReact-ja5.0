@@ -89,8 +89,8 @@ const importConfig = {
 
     // exclude asset files
     // SEE: `node_modules/vite/client.d.ts`
-    "import/no-unresolved": [
-      "error",
+    'import/no-unresolved': [
+      'error',
       {
         ignore: ['^/.+\\.(svg|png|jpg)$'],
         caseSensitive: false,
