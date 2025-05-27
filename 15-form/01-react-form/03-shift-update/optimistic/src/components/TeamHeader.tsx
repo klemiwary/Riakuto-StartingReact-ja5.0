@@ -1,4 +1,4 @@
-import { getTeam } from "@/lib/data-reader.ts";
+import { getTeam } from "@/entities/data-reader.ts";
 
 interface TeamHeaderProps {
   teamId?: string;

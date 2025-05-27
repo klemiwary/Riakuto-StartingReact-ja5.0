@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { Await, data } from "react-router";
 import { Loader2 } from "lucide-react";
 import MemberList from "~/components/member-list.tsx";
-import { getMembers, getOrganization } from "~/lib/data-reader.ts";
+import { getMembers, getOrganization } from "~/entities/data-reader.ts";
 import type { Route } from "./+types/members.ts";
 
 export function loader({ params }: Route.LoaderArgs) {
@@ -43,7 +43,7 @@ export default function Members({ loaderData }: Route.ComponentProps) {
 function Loading() {
   return (
     <div className="my-14 flex h-80 items-center justify-center">
-      <Loader2 className="size-12 animate-spin text-primary" />
+      <Loader2 className="text-primary size-12 animate-spin" />
     </div>
   );
 }

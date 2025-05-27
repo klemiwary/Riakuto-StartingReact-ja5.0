@@ -2,7 +2,7 @@ import { memo } from "react";
 import { UserRound } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar.tsx";
 import { Card } from "@/components/ui/card.tsx";
-import createUser from "@/lib/create-user.ts";
+import { createUser } from "@/entities/create-user.ts";
 import { cn } from "@/lib/utils.ts";
 
 interface UserListProps {

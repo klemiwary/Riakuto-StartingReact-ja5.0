@@ -22,5 +22,9 @@
   {
     "id": "tanstack",
     "name": "TanStack"
+  },
+  {
+    "id": "error",
+    "name": "Intentional Error"
   }
 ]

@@ -11,14 +11,14 @@ function Timer({ maxCount = 60 }: TimerProps) {
   const [countLeft, reset] = useTimer(maxCount);
 
   return (
-    <Card className="w-80 shadow-md">
-      <CardHeader className="pt-4 pb-2">
+    <Card className="w-80 shadow-md gap-2">
+      <CardHeader>
         <div className="text-xl font-medium text-center">Count</div>
       </CardHeader>
-      <CardContent className="py-1 flex justify-center">
+      <CardContent className="flex justify-center pb-2">
         <div className="text-4xl font-semibold">{countLeft}</div>
       </CardContent>
-      <CardContent className="flex pt-4 pb-6 mx-4">
+      <CardContent className="flex mx-4">
         <Button className="w-full bg-red-500 hover:bg-red-600" onClick={reset}>
           <RotateCw className="mr-2 h-4 w-4" /> Reset
         </Button>

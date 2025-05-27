@@ -2,24 +2,103 @@
 
 # 各版・各刷における内容の変更
 
-## 第 4.1 版
+## 第 5 版（2025-05-29 発行）
+
+### ■ 概要
+
+- React 19 に対応。RSC、Server Functions など 19 で導入された新機能をほぼ網羅して紹介
+- 従来の SPA に加え、メタフレームワークを使った書き方も紹介。Next.js の App Router と React Router 7 に対応
+- メタフレームワークで運用することが多い今の状況に合わせ、「② React 基礎編」と「③ React 実践編」の構成を刷新。データ取得、エラーハンドリング、フォームの説明を手厚くする一方で、グローバルな状態管理に関する説明を省略
+- 各種トレンド調査の情報を 2025 年 5 月現在の最新のものに更新
+- 使用する各種ライブラリ・ツールを 2025 年 5 月現在の最新バージョンにアップデート
+
+### 第 1 章&nbsp; こんにちは React
+
+- ブラウザに静的ファイルを読み込ませて React を動作させるのに ESM の記法を使うようにした
+- Node.js のパッケージマネージャを asdf から [mise](https://mise.jdx.dev/) に変更
+
+### 第 2 章&nbsp; ライトでディープな JavaScript の世界
+
+- `this` の挙動についての説明を簡略化
+
+### 第 4 章&nbsp; TypeScript で型をご安全に
+
+- 型チェックが可能な REPL を提供する ts-node が Node.js の最新バージョンに対応していないため、その古いバージョンを指定して動作させる方法を紹介
+- TypeScript ファイルを tsc に型チェックだけさせる方法、型チェックなしに [tsx](https://tsx.is/) で実行する方法を併せて紹介
+- create-vite のテンプレートプロジェクトが `tsconfig.json` の設定を `tsconfig.app.json` と `tsconfig.node.json` に分割するようになったことに合わせて、その説明を変更。また、そこで新しく使われるようになったコンパイラオプションの説明を追加
+
+### 第 6 章&nbsp; React をめぐるモダン Web 開発の歴史（前編）
+
+- 今回、歴史の世代区分に第 4 世代が追加されたため、章を前後編の 2 つに分割
+- フロントエンドの歴史について、リアクティビティをいかにして実現するかという視点からの考察を追加
+- Web Components についての説明を簡略化
+- React が誕生した経緯について、ドキュメンタリー動画[『How A Small Team of Developers Created React at Facebook』](https://www.youtube.com/watch?v=8pDqJVdNa44)を参考にリライト
+
+### 第 7 章&nbsp; ビルドツールでプロジェクトを運用する
+
+- Create React App が非推奨になった経緯を追加
+- Turbopack、Rsbuild（Rspack）の説明を追加
+- Deno の説明を簡略化、Bun の説明を追加
+
+### 第 8 章&nbsp; コンポーネントの基本を学ぶ
+
+- UI コンポーネントライブラリについて専用に 1 節を設けて説明。使用ライブラリも前版までの Chakra-UI から shadcn/ui と Tailwind CSS に変更
+- Custom Hooks の説明をこの章に移動
+
+### 第 9 章&nbsp; リンターとフォーマッターでコード美人に
+
+- 設定記法を eslintrc から Flat Config に全面移行
+- ESLint Config Inspector についての説明を追加
+- Prettier の設定に Tailwind CSS の対応を追加
+- Tailwind CSS の採用により生 CSS を書くことがなくなったため、 Stylelint の節を削除
+- Git Hooks マネージャを simple-git-hooks + lint-staged から [Lefthook](https://lefthook.dev/) に変更
+
+### 第 10 章&nbsp; React をめぐるモダン Web 開発の歴史（後編）
+
+- メタフレームワークが主役となる第 4 世代についての節を追加。Next.js、Remix（現 React Router）についてくわしく説明
+
+### 第 11 章&nbsp; React のページをルーティングする
+
+- React Router 7 のライブラリモードに加え、そのフレームワークモードと Next.js の App Router による 3 種類のルーティングシステムを紹介
+
+### 第 12 章&nbsp; 外部リソースのデータを取得する
+
+- 今版から新設した章。Fetch-on-Render、Fetch-then-Render、Render-as-You-Fetch の 3 つのアプローチによるデータ取得を、それぞれ SPA および React Router の Route Loader、React Server Components によって実装する方法を紹介
+
+### 第 13 章&nbsp; エラーをハンドリングする
+
+- 今版から新設した章。Error Boundary をそれぞれ SPA、React Router、Next.js で実装する方法を紹介
+
+### 第 14 章&nbsp; メモ化でレンダリングを効率化する
+
+- 前版「10-3. コンポーネントのレンダリングを最適化する」の中で説明していたメモ化を独立した章に
+- React Compiler の導入と使い方についての説明を追加
+
+### 第 15 章&nbsp; フォームでデータを更新する
+
+- Controlled Components（制御コンポーネント）によるフォームに加え、`<form>` コンポーネントの `action` プロパティに関数を設定する手法の説明を追加
+- React 19 で追加された API の `useActionState()`、`useFormStatus()`、`useOptimistic()` についての説明を追加
+- 使用するフォームライブラリを React Hook Form から Conform に、スキーマバリデーションライブラリを Yup から Zod に変更
+- React Router の Router Loaders、Next.js の Server Functions による更新処理を、フォームライブラリを使わない場合と使った場合でそれぞれ節を設けて説明
+
+<br />
+
+## 第 4.1 版（2024-01-10 発行）
 
 ### ■ 全体的な変更
 
 - プロジェクトで使用するパッケージマネージャを Yarn から pnpm に変更
 - 各種トレンド調査の情報を 2023 年 12 月現在のものに更新
 
-### 【① 言語・環境編】
-
-#### 第 1 章&nbsp; こんにちは React
+### 第 1 章&nbsp; こんにちは React
 
 - パッケージマネージャの説明を Yarn から pnpm に変更
 
-#### 第 2 章&nbsp; ライトでディープな JavaScript の世界
+### 第 2 章&nbsp; ライトでディープな JavaScript の世界
 
 - ES2022、ES2023 で導入された機能の説明を追加
 
-#### 第 3 章&nbsp; 関数型プログラミングでいこう
+### 第 3 章&nbsp; 関数型プログラミングでいこう
 
 - ES2023 で導入された機能の説明を追加
 - `Promise.all()` を始めとする Promise をまとめて扱う手法の説明を追加

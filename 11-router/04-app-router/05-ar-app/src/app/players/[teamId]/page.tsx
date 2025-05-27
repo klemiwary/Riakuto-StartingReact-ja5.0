@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import PlayerList from "@/components/player-list.tsx";
-import { getTeam } from "@/lib/data-reader.ts";
+import { getTeam } from "@/entities/data-reader.ts";
 
 interface PlayersProps {
   params: Promise<{ teamId: string }>;

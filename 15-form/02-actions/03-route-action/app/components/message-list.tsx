@@ -4,8 +4,8 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card.tsx";
+import type { Message } from "~/entities/types.ts";
 import { formatDate } from "~/lib/date.ts";
-import type { Message } from "~/message.d.ts";
 
 interface MessageListProps {
   messages: Message[];

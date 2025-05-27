@@ -11,9 +11,10 @@ import pluginUnusedImports from "eslint-plugin-unused-imports";
 import pluginJest from "eslint-plugin-jest";
 import pluginStylistic from "@stylistic/eslint-plugin";
 import configPrettier from "eslint-config-prettier";
+import { defineConfig } from "eslint/config";
 
 const assetPattern =
-  "^/.+\\.(jpe?g|gif|png|webp|avif|ico|svg|mp4|webm|woff2?)(\\?.*)?$";
+  ".+\\.(jpe?g|gif|png|webp|avif|ico|svg|mp4|webm|woff2?)(\\?.*)?$";
 
 const reactConfig = {
   name: "React Config",
@@ -78,7 +79,6 @@ const importConfig = {
       ...pluginImport.configs.typescript.settings["import/resolver"],
       typescript: {
         alwaysTryTypes: true,
-        project: ["tsconfig.json", "tsconfig.*.json"],
       },
     },
   },
@@ -165,8 +165,7 @@ const testConfig = {
   ],
 };
 
-/** @type { import('eslint').Linter.Config[] } */
-export default [
+export default defineConfig([
   { files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"] },
   {
     ignores: [
@@ -190,8 +189,8 @@ export default [
     },
   },
   pluginJs.configs.recommended,
-  ...tsEsLint.configs.recommendedTypeChecked,
-  ...tsEsLint.configs.stylistic,
+  tsEsLint.configs.recommendedTypeChecked,
+  tsEsLint.configs.stylistic,
   reactConfig,
   typeConfig,
   importConfig,
@@ -203,4 +202,4 @@ export default [
       "no-empty-pattern": ["error", { allowObjectPatternsAsParameters: true }],
     },
   },
-];
+]);

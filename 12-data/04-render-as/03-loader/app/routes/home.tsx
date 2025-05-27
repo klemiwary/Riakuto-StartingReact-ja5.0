@@ -1,5 +1,5 @@
 import OrgList from "~/components/org-list.tsx";
-import { getAllOrganizations } from "~/lib/data-reader.ts";
+import { getAllOrganizations } from "~/entities/data-reader.ts";
 import type { Route } from "./+types/home.ts";
 
 export function loader() {

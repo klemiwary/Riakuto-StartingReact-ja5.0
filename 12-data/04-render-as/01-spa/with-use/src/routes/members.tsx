@@ -3,7 +3,7 @@ import { Link, Navigate, useParams } from "react-router";
 import { Loader2 } from "lucide-react";
 import MemberList from "@/components/MemberList.tsx";
 import OrgHeader from "@/components/OrgHeader.tsx";
-import { getMembers } from "@/lib/data-reader.ts";
+import { getMembers } from "@/entities/data-reader.ts";
 
 export default function Members() {
   const { orgId } = useParams();
@@ -18,7 +18,7 @@ export default function Members() {
       <Suspense fallback={<Loading />}>
         <MemberList membersPromise={getMembers(orgId)} />
       </Suspense>
-      <hr className="mb-4 mt-8" />
+      <hr className="mt-8 mb-4" />
       <div className="flex justify-center">
         <Link to="/">🔝 トップへ戻る</Link>
       </div>

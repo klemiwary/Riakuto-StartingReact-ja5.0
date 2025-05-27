@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
 import LoadingSwitch from "@/components/loading-switch.tsx";
 import PlayerList from "@/components/player-list.loading.tsx";
-import { getTeam } from "@/lib/data-reader.ts";
+import { getTeam } from "@/entities/data-reader.ts";
 
 interface PlayersProps {
   params: Promise<{ teamId?: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
 function generateTitle(teamId?: string) {

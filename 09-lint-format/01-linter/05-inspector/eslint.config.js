@@ -37,6 +37,20 @@ const reactConfig = {
   },
 };
 
+const typeConfig = {
+  name: 'Type Config',
+  files: ['{src,app,pages}/**/*.{ts,tsx}'],
+  plugins: {
+    'typescript-eslint': tsEsLint,
+  },
+  rules: {
+    '@typescript-eslint/consistent-type-imports': [
+      'warn',
+      { prefer: 'type-imports' },
+    ],
+  },
+};
+
 const importConfig = {
   name: 'Import Config',
   files: ['src/**/*.{js,ts,jsx,tsx}'],
@@ -74,7 +88,13 @@ const importConfig = {
 
     // exclude asset files
     // SEE: `node_modules/vite/client.d.ts`
-    'import/no-unresolved': ['error', { ignore: ['^/.+\\.(svg|png|jpg)$'] }],
+    "import/no-unresolved": [
+      "error",
+      {
+        ignore: ['^/.+\\.(svg|png|jpg)$'],
+        caseSensitive: false,
+      },
+    ],
 
     // for eslint-plugin-simple-import-sort
     'simple-import-sort/imports': [
@@ -156,9 +176,10 @@ export default defineConfig([
     },
   },
   pluginJs.configs.recommended,
-  ...tsEsLint.configs.recommendedTypeChecked,
-  ...tsEsLint.configs.stylistic,
+  tsEsLint.configs.recommendedTypeChecked,
+  tsEsLint.configs.stylistic,
   reactConfig,
+  typeConfig,
   importConfig,
   stylisticConfig,
   testConfig,

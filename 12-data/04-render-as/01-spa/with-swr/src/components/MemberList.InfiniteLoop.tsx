@@ -1,5 +1,5 @@
 import { use } from "react";
-import { getMembers } from "@/lib/data-reader.ts";
+import { getMembers } from "@/entities/data-reader.ts";
 import MemberCard from "./MemberCard.tsx";
 
 interface MemberListProps {

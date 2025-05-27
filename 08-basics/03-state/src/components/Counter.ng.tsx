@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -8,6 +8,7 @@ function Counter() {
   function increment() {
     const range = (n: number) => [...Array(n).keys()];
     range(3).forEach(() => setCount(count + 1));
+    // range(3).forEach(() => setCount((c) => c + 1));
   }
 
   function reset() {
@@ -15,14 +16,14 @@ function Counter() {
   }
 
   return (
-    <Card className="min-w-96 shadow-md">
-      <CardHeader className="pt-4 pb-2">
-        <div className="text-xl font-medium text-center">Count</div>
+    <Card className="min-w-96 gap-2 pt-4 shadow-md">
+      <CardHeader>
+        <div className="text-center text-xl font-medium">Count</div>
       </CardHeader>
-      <CardContent className="py-1 flex justify-center">
+      <CardContent className="flex justify-center pb-2">
         <div className="text-4xl font-semibold">{count}</div>
       </CardContent>
-      <CardContent className="flex gap-2 pt-4 pb-6 mx-4">
+      <CardContent className="mx-4 flex gap-2">
         <Button
           className="flex-1 bg-green-600 hover:bg-green-700"
           onClick={increment}

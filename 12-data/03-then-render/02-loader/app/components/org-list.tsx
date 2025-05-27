@@ -1,6 +1,6 @@
 import { href, Link } from "react-router";
 import { CircleCheck } from "lucide-react";
-import type { Organization } from "~/dev-members.d.ts";
+import type { Organization } from "~/entities/types.ts";
 
 interface OrgListProps {
   orgs: Organization[];

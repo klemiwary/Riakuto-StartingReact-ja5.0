@@ -1,4 +1,4 @@
-import { getOrganization } from "@/lib/data-reader.ts";
+import { getOrganization } from "@/entities/data-reader.ts";
 
 interface OrgHeaderProps {
   orgId: string;

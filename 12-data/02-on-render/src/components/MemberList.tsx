@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
-import type { Member } from "@/dev-members.d.ts";
-import { getMembers } from "@/lib/data-reader.ts";
+import { getMembers } from "@/entities/data-reader.ts";
+import type { Member } from "@/entities/types.ts";
 import MemberCard from "./MemberCard.tsx";
 
 interface MemberListProps {

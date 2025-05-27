@@ -1,6 +1,6 @@
 import { data } from "react-router";
 import MemberList from "~/components/member-list.tsx";
-import { getMembers, getOrganization } from "~/lib/data-reader.ts";
+import { getMembers, getOrganization } from "~/entities/data-reader.ts";
 import type { Route } from "./+types/members.ts";
 
 export async function loader({ params }: Route.LoaderArgs) {

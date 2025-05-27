@@ -4,7 +4,7 @@ import {
   AvatarImage,
 } from '@/components/ui/avatar.tsx';
 import { Card } from '@/components/ui/card.tsx';
-import type { Member } from '@/dev-members.d.ts';
+import type { Member } from '@/entities/types.ts';
 
 interface MemberCardProps {
   member: Member;
@@ -27,8 +27,8 @@ export default function MemberCard({ member }: MemberCardProps) {
           </AvatarFallback>
         </Avatar>
         <div className="space-y-1">
-          <p className="text-sm font-semibold leading-none">{member.login}</p>
-          <p className="text-muted-foreground whitespace-nowrap text-sm">
+          <p className="text-sm leading-none font-semibold">{member.login}</p>
+          <p className="text-muted-foreground text-sm whitespace-nowrap">
             GitHub ID: {member.id}
           </p>
         </div>

@@ -7,5 +7,5 @@
 
   type PermChar = keyof typeof permissions; // 'r' | 'w' | 'x'
   const readable: PermChar = "r";
-  // const writable: PermChar = 'z';
+  const writable: PermChar = 'z';
 }

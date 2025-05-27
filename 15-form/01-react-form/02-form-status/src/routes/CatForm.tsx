@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button.tsx";
 import { Card, CardContent } from "@/components/ui/card.tsx";
 import { Input } from "@/components/ui/input.tsx";
 import { Label } from "@/components/ui/label.tsx";
-import { dummyApi } from "@/lib/dummy-api.ts";
-import type { RegData } from "@/types/form.d.ts";
+import { registerUser } from "@/entities/register-user.ts";
+import type { RegData } from "@/entities/types.ts";
 
 export default function CatForm() {
   const [regData, setRegData] = useState<RegData>({ username: "" });
@@ -16,7 +16,7 @@ export default function CatForm() {
     event.preventDefault();
     startTransition(async () => {
       try {
-        await dummyApi(regData);
+        await registerUser(regData);
         toast("🎉️ 登録されました");
       } catch (_err) {
         toast("⚠️ 不正な入力エラー");

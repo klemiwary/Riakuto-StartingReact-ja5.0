@@ -5,10 +5,6 @@ pre-commit:
       glob: '*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'
       run: pnpm exec eslint {staged_files} --fix --quiet
       stage_fixed: true
-    stylelint:
-      glob: 'src/**/*.{css,scss,sass,less}'
-      run: pnpm exec stylelint {staged_files} --fix --quiet
-      stage_fixed: true
     prettier:
       glob: '*.{js,mjs,cjs,jsx,ts,tsx,html,htm,css,scss,sass,less,json,jsonc,yaml,yml,graphql,gql}'
       exclude:

@@ -1,5 +1,5 @@
 import { use } from "react";
-import type { Member } from "@/dev-members.d.ts";
+import type { Member } from "@/entities/types.ts";
 import MemberCard from "./MemberCard.tsx";
 
 interface MemberListProps {

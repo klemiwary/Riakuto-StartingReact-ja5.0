@@ -11,6 +11,10 @@ import pluginUnusedImports from "eslint-plugin-unused-imports";
 import pluginJest from "eslint-plugin-jest";
 import pluginStylistic from "@stylistic/eslint-plugin";
 import configPrettier from "eslint-config-prettier";
+import { defineConfig } from "eslint/config";
+
+const assetPattern =
+  ".+\\.(jpe?g|gif|png|webp|avif|ico|svg|mp4|webm|woff2?)(\\?.*)?$";
 
 const reactConfig = {
   name: "React Config",
@@ -30,19 +34,16 @@ const reactConfig = {
   rules: {
     ...pluginReact.configs.flat.recommended.rules,
     ...pluginHooks.configs.recommended.rules,
+    ...pluginRefresh.configs.recommended.rules,
     ...pluginJsxA11y.flatConfigs.recommended.rules,
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    "react-refresh/only-export-components": [
-      "warn",
-      { allowConstantExport: true },
-    ],
   },
 };
 
 const typeConfig = {
   name: "Type Config",
-  files: ["{src,app,pages}/**/*.{ts,tsx}"],
+  files: ["src/**/*.{ts,tsx}"],
   plugins: {
     "typescript-eslint": tsEsLint,
   },
@@ -71,7 +72,6 @@ const importConfig = {
       ...pluginImport.configs.typescript.settings["import/resolver"],
       typescript: {
         alwaysTryTypes: true,
-        project: ["tsconfig.json", "tsconfig.*.json"],
       },
     },
   },
@@ -92,7 +92,13 @@ const importConfig = {
 
     // exclude asset files
     // SEE: `node_modules/vite/client.d.ts`
-    "import/no-unresolved": ["error", { ignore: ["^/.+\\.(svg|png|jpg)$"] }],
+    "import/no-unresolved": [
+      "error",
+      {
+        ignore: ["^/" + assetPattern],
+        caseSensitive: false,
+      },
+    ],
 
     // for eslint-plugin-simple-import-sort
     "simple-import-sort/imports": [
@@ -100,7 +106,7 @@ const importConfig = {
       {
         groups: [
           ["^react(-dom)?", "^node:", "^@?\\w", "^@/.*", "^\\.+/(?!assets/)"],
-          ["^.+\\.json$", "^.+\\.(svg|png|jpg)$", "^.+\\.s?css$"],
+          [".+\\.json$", ".+\\.s?css$", assetPattern],
         ],
       },
     ],
@@ -151,8 +157,7 @@ const testConfig = {
   ],
 };
 
-/** @type { import('eslint').Linter.Config[] } */
-export default [
+export default defineConfig([
   { files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"] },
   {
     ignores: [
@@ -174,12 +179,12 @@ export default [
     },
   },
   pluginJs.configs.recommended,
-  ...tsEsLint.configs.recommendedTypeChecked,
-  ...tsEsLint.configs.stylistic,
+  tsEsLint.configs.recommendedTypeChecked,
+  tsEsLint.configs.stylistic,
   reactConfig,
   typeConfig,
   importConfig,
   stylisticConfig,
   testConfig,
   configPrettier,
-];
+]);

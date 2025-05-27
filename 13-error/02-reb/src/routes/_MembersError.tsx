@@ -9,7 +9,7 @@ export default function MembersError({
     <div className="flex items-center justify-center py-20">
       {error instanceof Error && error.cause === 404 ? (
         <div className="flex items-center gap-6">
-          <div className="text-2xl font-medium leading-none">404</div>
+          <div className="text-2xl leading-none font-medium">404</div>
           <div className="bg-border h-16 w-px" />
           <div className="flex flex-col">
             <div className="text-xl">その組織は見つかりませんでした</div>
