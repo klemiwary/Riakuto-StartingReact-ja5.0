@@ -87,6 +87,13 @@ web_modules/
 .next
 out
 
+# React Router
+.react-router
+
+# Vite
+dist
+dist-ssr
+
 # Nuxt.js build / generate output
 .nuxt
 dist
