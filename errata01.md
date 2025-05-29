@@ -153,3 +153,12 @@
 - 205 https://zod.dev/?id=superrefine
 + 205 https://v3.zod.dev/?id=superrefine
 ```
+
+- あとがき / p.215
+
+```diff
+  本書の校正にはRemix Tokyo およびReact Tokyo のコミュニティでお声がけして、以下の方々にご協力いただきました。Coji Mizoguchi さん、Kosuke Ito さん、nkzwsh00 さん、
+- takatocordelia さん、
++ takato さん、
+  cordelia さん。厚く感謝いたします。
+```
