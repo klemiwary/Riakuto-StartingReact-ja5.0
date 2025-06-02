@@ -20,7 +20,42 @@
 
 ## 【① 言語・環境編】
 
-現在のところ、修正箇所はありません。
+- 2-3-1. JavaScript におけるプリミティブ型 / p.53  
+  現在、ts-node の環境構築には「4-2-1. 型アノテーションと型推論」で説明するような環境構築が必要。ここではまだその環境がないため、[TS Playground](https://www.typescriptlang.org/ja/play/) を使うように変更。
+
+```diff
+  静的型付け言語であるTypeScript と挙動のちがいを比べてみるとわかりやすいかな」
+
+- $ ts-node
+- > let num: number = 100;
+- > num = 200;
+- 200
+- > num = 'foo';
+- <repl>.ts:6:1 - error TS2322: Type 'string' is not assignable to type 'number'.
+- num = 'foo'
+- ~~~
+-
+- 「前者が動的型付け言語である JavaScript の挙動。これは Ruby と同じなのでわかる
+- と思うけど、一度宣言した変数に異なるデータ型の値を入れ直すことができる。後者が
+- 静的型付け言語の TypeScript での挙動で、変数を let で宣言していてもデータ型が
+- 異なると値の再代入はコンパイルエラーになって許されない」
++ 「JavaScript での挙動はこのようになる。これは Ruby と同じなのでわかると思うけど、
++ 一度宣言した変数に異なるデータ型の値を入れ直すことができる。では TypeScript で
++ 同じことを実行してみよう。TS Playgroud というWeb 上でypeScript を手軽に試すこと
++ ができる実行環境で同様に入力、実行してみる」
++
++ let num: number = 100;
++ num = 200;
++ num = 'foo';
++ ~~~
++
++ Errors in code
++ | Type 'string' is not assignable to type 'number'.
++
++ 「これを見ればわかるように、TypeScript では変数を let 再代入はエラーになって
++ 許されない」
+  「なるほど、理解できました。軽々しく『型がない』とか言っちゃいけないんですね……」
+```
 
 <br />
 
