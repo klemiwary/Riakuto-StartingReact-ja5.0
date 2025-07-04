@@ -2,9 +2,9 @@
 
 # よりよい環境で「りあクト！」電子版をお読みいただくために
 
-最終更新日： 2023 年 12 月 1 日
+最終更新日： 2025 年 7 月 10 日
 
-『りあクト！ TypeScript で始めるつらくない React 開発 &nbsp;第 4 版』の電子版では、**PDF** と **EPUB**、**AZW3**（Kindle 端末用）の 3 つの形式のファイルを提供しています。このドキュメントをお読みになり、それぞれの特徴を知った上で、ご自身の環境に最適な方法でお読みください。
+『りあクト！ TypeScript で始めるつらくない React 開発 &nbsp;第 5 版』の電子版では、**PDF** と **EPUB**、**AZW3**（Kindle 端末用）の 3 つの形式のファイルを提供しています。このドキュメントをお読みになり、それぞれの特徴を知った上で、ご自身の環境に最適な方法でお読みください。
 
 <br />
 
@@ -47,7 +47,7 @@
 
 #### SideBooks &nbsp;★★★★★
 
-![SideBooks のスクリーンショット](./images/pdf-view.png)
+![SideBooks のスクリーンショット](../images/pdf-view.png)
 
 iOS および Android 双方のプラットフォームに対応している使い勝手のいい国産アプリです。「余白設定」からページの余白を削ることができ、10〜11 インチサイズの iPad でも比較的快適に読書ができます。
 
@@ -76,13 +76,11 @@ PDF と異なり、小さな画面でも文字が細かすぎて読めなくな�
 
 EPUB は ZIP 圧縮によるオープンなファイル形式のため、PDF のように商用フォントをライセンスに問題ない形で埋め込むことができません。基本的にはシステムにインストールされているフォントを使うか、オープンライセンスのフォントを埋め込む形になります。
 
-本書ではソースコードの表示用に [Inconsolata](https://fonts.google.com/specimen/Inconsolata?preview.text_type=custom&preview.text=Riakuto!%20-%20Starting%20React%20with%20TypeScript%20painlessly) を EPUB ファイルに埋め込み、すべてのプラットフォームで優先的に使われるようにしています。
+そのような事情から本文のフォントには、各プラットフォームのシステム内蔵フォントが表示されるようになっています。  
+ソースコードの表示用には [Inconsolata](https://fonts.google.com/specimen/Inconsolata?preview.text_type=custom&preview.text=Riakuto!%20-%20Starting%20React%20with%20TypeScript%20painlessly) を EPUB ファイルに埋め込み、すべてのプラットフォームで優先的に使われるようにしています。
 
 オリジナルの PDF 版でコード用に使われている [Ricty Diminished](https://github.com/edihbrandon/RictyDiminished) は欧文文字に Inconsolata、それ以外に [Circle M+ 1m](http://mix-mplus-ipa.osdn.jp/) を適用した合成フォントですが、膨大な数の全角文字を含むため埋め込みフォントにするには容量が大きすぎます。  
 そこで本書の EPUB 版では欧文フォントの Inconsolata だけを埋め込んで使い、コード内のそれ以外の日本語文字などには各プラットフォームの標準の等幅フォントが適用されるようにしています。
-
-本文のフォントについては、オリジナルに準じて端末に [筑紫明朝 Pr6N](https://fontworks.co.jp/fontsearch/tsukuminpr6n-r/) または [筑紫明朝 Pr6](https://fontworks.co.jp/fontsearch/tsukuminpr6-LB/) がインストールされている場合は、それが優先的に表示されます。  
-インストールされていなければ、下記にある各プラットフォームのシステム内蔵フォントが使われます。
 
 <br />
 <a id="epub-ios"></a>
@@ -97,7 +95,7 @@ EPUB は ZIP 圧縮によるオープンなファイル形式のため、PDF の
 
 #### Apple Books &nbsp;★★★★★（iPhone 版：★★★）
 
-![Apple Books のスクリーンショット](./images/ios-view.png)
+![Apple Books のスクリーンショット](../images/ios-view.png)
 
 iOS および iPadOS にプリインストールされている標準のリーダーアプリ。iOS 11 までは「iBooks」という名前でした。日本語環境ではメニューにはただ「ブック」と表示されます。EPUB、PDF 両フォーマットに対応。  
 EPUB 内に添付されるオリジナルの指定スタイルが素直に再現できる iOS 版のリーダーアプリは非常に少なく、iOS ではおすすめできるアプリはこれひとつしかありません。
@@ -105,8 +103,7 @@ EPUB 内に添付されるオリジナルの指定スタイルが素直に再現
 &nbsp;😄&nbsp; 操作が直感的で、動作も機敏  
 &nbsp;😄&nbsp; オリジナル指定スタイルの再現性が高い  
 &nbsp;😄&nbsp; ライブラリが iCloud で管理され、複数の端末で蔵書やその読書進捗を共有できる  
-&nbsp;😰&nbsp; 画面のマージンが大きく変更不可のため、iPhone 版の狭い画面では 1 ページに表示できる内容が少ない  
-&nbsp;😰&nbsp; ページ移動時のアニメーション効果が、一般的な「スライド」と「めくり」の中間的なもので不自然
+&nbsp;😰&nbsp; 画面のマージンが大きく変更不可のため、iPhone 版の狭い画面では 1 ページに表示できる内容が少ない
 
 <br />
 <a id="epub-android"></a>
@@ -125,7 +122,7 @@ EPUB 内に添付されるオリジナルの指定スタイルが素直に再現
 
 #### Reasily &nbsp;★★★★
 
-![Reasily のスクリーンショット](./images/android-view.png)
+![Reasily のスクリーンショット](../images/android-view.png)
 
 現時点であまりメジャーなアプリではありませんが、動作が早く操作も直感的、スタイルの再現性も高いため、いくつか欠点はあるものの Android ではこの Reasily がイチ推しです。
 
@@ -244,7 +241,7 @@ Windows 版と同様、付属の E-book viewer の使い勝手がいいです。
 
 ## ■ AZW3（Kindle 用）
 
-![Kindle Paperwhite のスクリーンショット](./images/azw-view.png)
+![Kindle Paperwhite のスクリーンショット](../images/azw-view.png)
 
 e-ink スクリーンを採用している、Kindle Paperwhite を始めとした Amazon による電子書籍リーダー専用デバイスで本書を読みたい場合はこの AZW3 フォーマットファイルをお使いください。
 
@@ -288,10 +285,10 @@ BOOTH ではダウンロード商品に `.azw3` 拡張子のファイルを登�
 
 #### ◎ AZW3 にまつわる Kindle のバグ
 
-2022 年 9 月現在、Kindle 端末はパーソナルドキュメントとして転送された AZW3 形式のドキュメントでも表紙画像をファイル中に設定されたものを無視してサーバから取得しようとし、失敗して表紙画像を表示できなくなるというバグがあります。2020 年 5 月ごろに配信されたバージョンのファームウェアから存在しているバグですが、一向に修正される気配がなくそのままになっています。Amazon によるこのバグのため、上記の方法で Kindle 端末に転送したドキュメントには、一覧から表紙画像が表示されません。ご承知おきください。
+2025 年 7 月現在、Kindle 端末はパーソナルドキュメントとして転送された AZW3 形式のドキュメントでも表紙画像をファイル中に設定されたものを無視してサーバから取得しようとし、失敗して表紙画像を表示できなくなるというバグがあります。2020 年 5 月ごろに配信されたバージョンのファームウェアから存在しているバグですが、一向に修正される気配がなくそのままになっています。Amazon によるこのバグのため、上記の方法で Kindle 端末に転送したドキュメントには、一覧から表紙画像が表示されません。ご承知おきください。
 
 【参照記事】
 
 - [Covers for books I send to my e-ink Kindle show up momentarily and then are replaced by a generic cover? - Frequently Asked Questions - calibre](https://manual.calibre-ebook.com/faq.html#covers-for-books-i-send-to-my-e-ink-kindle-show-up-momentarily-and-then-are-replaced-by-a-generic-cover)
 
-![Kindle Paperwhite のスクリーンショット](./images/kindle-missing-cover.png)
+![Kindle Paperwhite のスクリーンショット](../images/kindle-missing-cover.png)
