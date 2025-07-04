@@ -2,7 +2,7 @@
 
 # 『りあクト！ TypeScript で始めるつらくない React 開発 &nbsp;第 5 版』第 1 刷の正誤表・更新情報
 
-最終更新日： 2025 年 7 月 2 日
+最終更新日： 2025 年 7 月 10 日
 
 ### ご注意点
 
@@ -19,6 +19,20 @@
 <br />
 
 ## 【① 言語・環境編】
+
+- 1-2. React のプロジェクトを作成する / p.33
+
+```diff
+  JSX ファイルってことで、コンパイルを経て最終的にJavaScript コードに変換されるのね。
+  ちょっとブラウザで
+- http://localhost:5173/src/App.tsx
++ http://localhost:5173/src/main.tsx
+  にアクセスしてみてくれる？」
+「おおー、なんかすごい読みづらい JavaScript のソースが表示されました！ これが
+- App.tsx
++ main.tsx
+  のコンパイル後の姿ですか……」
+```
 
 - 2-3-1. JavaScript におけるプリミティブ型 / p.53  
   現在、ts-node の環境構築には「4-2-1. 型アノテーションと型推論」で説明するような環境構築が必要。ここではまだその環境がないため、[TS Playground](https://www.typescriptlang.org/ja/play/) を使うように変更。
@@ -57,9 +71,78 @@
   「なるほど、理解できました。軽々しく『型がない』とか言っちゃいけないんですね……」
 ```
 
+- 2-6-1. 分割代入とスプレッド構文 / p.80 / リスト25
+
+```diff
+  console.log(users);
+  // [
+  // { id: 1, name: 'Patty Rabbit', email: 'patty@maple.town' },
+  // { id: 2, name: 'Rolley Cocker', email: 'rolley@palm.town' },
+- // { id: 3, name: 'Bobby Bear', email: 'bobby@maple.town' }
++ // { id: 3, name: 'Bobby Kumanov', email: 'bobby@maple.town' }
+  // ]
+```
+
+- 3-3-3. カリー化と関数の部分適用 / p.119
+
+```diff
+- リスト57: 06-first-class/partially.js
++ リスト57: 03-first-class/partially.js
+```
+
+- 4-4-2. ユニオン型とインターセクション型 / p.171 / リスト84
+
+```diff
+- interface A = {
++ interface A {
+    foo: number;
+    bar?: string;
+  }
+```
+
+- 4-4-3. 型の Null 安全性を保証する / p.175
+
+```diff
+  「ふむふむ。JavaScript も後方互換性を大事にする言語でしたけど、
+- TyptScript
++ TypeScript
+  もその文化を受け継いでるのかもしれませんね。
+```
+
+- 4-5-2. 条件付き型とテンプレートリテラル型 / p.181 / リスト94
+
+```diff
+  interface User { id: unknown }
+  type NewUser = User & { id: string };
+  type OldUser = User & { id: number };
+- interface Book = { isbn: string }
++ interface Book { isbn: string }
+
+  type IdOf<T> = T extends User ? T['id'] : never;
+```
+
+- 4-6-1. as による型アサーション / p.192
+
+```diff
+  「うん。ただこれも抜け道があって、(someValue as unknown) as SomeType のようにいったん
+- unkonwn 型
++ unknown 型
+  を挟む形で二重アサーションを行えばコンパイルは通ってしまうの」
+```
+
 <br />
 
 ## 【② React 基礎編】
+
+- 5-1-4. JSX は汎用的にUI を表現する / p.22 / リスト4
+
+```diff
+- iimport { StrictMode } from 'react'
++ import { StrictMode } from 'react'
+  import { createRoot } from 'react-dom/client'
+  import './index.css'
+  import App from './App.tsx'
+```
 
 - 10-2. 第4世代：メタフレームワークの時代 / p.210
 
