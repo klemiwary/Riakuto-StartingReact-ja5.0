@@ -26,7 +26,7 @@ function FlyableBird(name) {
   return this;
 }
 
-FlyableBird.prototype.__proto__ = Bird.prototype;
+Object.setPrototypeOf(FlyableBird.prototype, Bird.prototype);
 
 Bird.explain();
 

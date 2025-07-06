@@ -109,6 +109,15 @@
   もその文化を受け継いでるのかもしれませんね。
 ```
 
+- 4-5-2. 条件付き型とテンプレートリテラル型 / p.181
+
+```diff
+  「ここでの extends は、関数
+- override()
++ overMerge()
+  の第 2 引数 obj2 の型を定義している型引数 U が第1引数の型 obj1 の型 T と同じか継承したものでなければならないことを示唆するもの。
+```
+
 - 4-5-2. 条件付き型とテンプレートリテラル型 / p.181 / リスト94
 
 ```diff
@@ -142,6 +151,48 @@
   import { createRoot } from 'react-dom/client'
   import './index.css'
   import App from './App.tsx'
+```
+
+- 5-2-1. JSX の基本的な文法 / p.25 / リスト6
+
+```diff
+  | ReactElement | string | number | Iterable<ReactNode> | ReactPortal
+- | boolean | null | undefined | Promise<AwaitedReactNode>;
++ | boolean | null | undefined | Promise<AwaitedReactNode>;;
+```
+
+- 8-1-3. shadcn/ui の環境を構築する / p.96 / リスト32
+
+```diff
+  - <button onClick={() => setCount((count) => count + 1)}>
+  + <Button onClick={() => setCount((count) => count + 1)}>
+      count is {count}
+- - </Button>
+- + </button>
++ - </button>
++ + </Button>
+```
+
+- 8-4. コンポーネントの基本を学ぶ / p.114 / リスト38
+
+```diff
+  import { useEffect, useState } from 'react';
+  import { RotateCw } from 'lucide-react';
+- import { Button } from '@/components/ui/button.tx';
+- import { Card, CardContent, CardHeader } from '@/components/ui/card.tx';
++ import { Button } from '@/components/ui/button.tsx';
++ import { Card, CardContent, CardHeader } from '@/components/ui/card.tsx';
+```
+
+- 8-5. React におけるコンポーネントの構文の変遷 / p.118 / リスト39
+
+```diff
+  import { useEffect, useState } from 'react';
+  import { RotateCw } from 'lucide-react';
+- import { Button } from '@/components/ui/button.tx';
+- import { Card, CardContent, CardHeader } from '@/components/ui/card.tx';
++ import { Button } from '@/components/ui/button.tsx';
++ import { Card, CardContent, CardHeader } from '@/components/ui/card.tsx';
 ```
 
 - 10-2. 第4世代：メタフレームワークの時代 / p.210
