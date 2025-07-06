@@ -173,6 +173,33 @@
 + + </Button>
 ```
 
+- 8-2. コンポーネントにProps を受け渡す / p.105
+
+```diff
+  「あっ、高校名が変更されると同時に PlayerList コンポーネントとその子孫コンポーネント群の枠が一瞬光りました！
+-  これが再レンダリングされたコンポーネントなんですね。でも props が更新された PlayerList
+-  はわかるんですけど、他のコンポーネントも再レンダリングされたのはなぜですか？」
+- 「うん。まず高校名が表示される `Title` コンポーネントに関しては、school が子要素になってる。
+-  子要素は実は children という名前の props というのはすでに説明したよね」
+- 「言われてみれば。いま思い出しました」
+- 「加えて今回の冒頭で話した、コンポーネントが再レンダリングされる 3 つのケースを思い出して。
+- 3 つめは『親コンポーネントが再レンダリングされた場合』だったでしょ。`Title` コ>ンポーネント
+- もそうだし、選手情報が表示されているコンポーネントもこれに合致する」
+- 「なるほど。React ではあるコンポーネントが再レンダリングされると、その子々孫々のコンポー
+- ネントも道連れに再レンダリングされるんですね」
++ これで再レンダリングされたコンポーネントがわかるんですね。でも props が変更された PlayerList
++ コンポーネントはわかるんですけど、アバターの枠も光ってますよね。school の値と無関係の
++ ところに思えるんですが、なぜここも再レンダリングされるんでしょうか？」
++ 「コンポーネントが再レンダリングされる 3 つのケースを思い出して。3 つめは『親コンポーネント
++ が再レンダリングされた場合』だったでしょ。この `Avatar` コンポーネントもこれに合致するよね」
++ 「なるほど。React ではあるコンポーネントが再レンダリングされると、必要がなくてもその子々孫々
++ のコンポーネントも道連れに再レンダリングされるんですね」
+  「そのとおり。
++ ただ子孫コンポーネントの不必要な再レンダリングを防ぐための機能も React には用意されてる。
++ それについてはまたの機会にじっくり説明してあげるよ。
+  じゃ次は同じようにツールから props の `players` を開いて 4 つめのミッチーのデータで `new entry` を `height` に書き換えて、値を `""` から `184` に設定して Enter キーを押してみて」
+```
+
 - 8-4. コンポーネントの基本を学ぶ / p.114 / リスト38
 
 ```diff
@@ -193,6 +220,55 @@
 - import { Card, CardContent, CardHeader } from '@/components/ui/card.tx';
 + import { Button } from '@/components/ui/button.tsx';
 + import { Card, CardContent, CardHeader } from '@/components/ui/card.tsx';
+```
+
+- 9-1-4. ESLint の環境をさらにカスタマイズ / p.145 / リスト46
+
+```diff
+  },
+  rules: {
+-   ...pluginReactConfig.rules,
++   ...pluginReact.configs.flat.recommended.rules,
+    ...pluginHooks.configs.recommended.rules,
+    ...pluginRefresh.configs.recommended.rules,
+```
+
+- 9-1-4. ESLint の環境をさらにカスタマイズ / p.147-148 / リスト49
+
+```diff
+    rules: {
+      ...pluginImport.configs.recommended.rules,
+      ...pluginImport.configs.typescript.rules,
+      'import/extensions': [
+        'error',
++       'ignorePackages',
+        {
+          js: 'always',
+          jsx: 'always',
+          ts: 'always',
+          tsx: 'always',
+          ignorePackages: true,
+        },
+      ],
+```
+
+- 9-2-2. Prettier の環境を作る / p.164
+
+```diff
+  「prettier コマンドのオプションも公式サイトに一覧があるので確認しておいてね。ここで使ってる
+  --write はファイルを上書きする
+- 、--ignore-unknown はマッチしなかったパターンがあってもエラーを出さないための
+  オプションね
+- 。2 つを併せて -wu と書くこともできる
+  」
+```
+
+- p.164 / 脚注
+
+```diff
+  239 「CLI · Prettier」https://prettier.io/docs/en/cli
+- 240 「CLI · Prettier」https://prettier.io/docs/en/cli
++ 240 「Plugins · Prettier」https://prettier.io/docs/plugins
 ```
 
 - 10-2. 第4世代：メタフレームワークの時代 / p.210
