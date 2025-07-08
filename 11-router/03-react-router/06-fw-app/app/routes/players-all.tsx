@@ -10,15 +10,12 @@ export function loader() {
   return { players };
 }
 
-export function meta() {
-  return [{ title }];
-}
-
 export default function Players({ loaderData }: Route.ComponentProps) {
   const { players } = loaderData;
 
   return (
     <>
+      <title>{title}</title>
       <h2 className="mb-12 text-center">{title}</h2>
       <PlayerList players={players} />
     </>

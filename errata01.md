@@ -271,7 +271,19 @@
 + 240 「Plugins · Prettier」https://prettier.io/docs/plugins
 ```
 
-- 10-2. 第4世代：メタフレームワークの時代 / p.210
+- 10-2-4. Remix（React Router v7 以降）/ p.200 / リスト内
+
+```diff
+        <Form method="post">
+-         <input type="text" name="name" defaultValue={product.name}" />
+-         <input type="number" name="price" defaultValue={product.price}" />
++         <input type="text" name="name" defaultValue={product.name} />
++         <input type="number" name="price" defaultValue={product.price} />
+          <button type="submit">Save</button>
+        </Form>
+```
+
+- 10-2-5. どのメタフレームワークを採用するべきか / p.210
 
 ```diff
   Redux が Redux Thunk や Redux-Saga と組み合わせて用いられたり、GraphQL クライ
