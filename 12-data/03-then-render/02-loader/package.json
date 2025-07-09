@@ -32,8 +32,6 @@
     "@react-router/dev": "7.6.3",
     "@stylistic/eslint-plugin": "^5.1.0",
     "@tailwindcss/vite": "^4.1.11",
-    "@types/eslint-config-prettier": "~6.11.3",
-    "@types/eslint-plugin-jsx-a11y": "~6.10.0",
     "@types/node": "^22",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
