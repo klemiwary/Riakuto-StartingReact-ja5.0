@@ -382,6 +382,14 @@
   スッキリ書けるようになる」
 ```
 
+13-1. Error Boundary とは / p.114 / 脚注120
+
+```diff
+- 120 「Component – React」>「componentDidCatch(error, info)」
++ 120 「Component – React」>「static getDerivedStateFromError(error)」
+  https://ja.react.dev/reference/react/Component#static-getderivedstatefromerror
+```
+
 - 13-3. Next.js のApp Router でエラーハンドリング / p.124
 
 ```diff
@@ -397,6 +405,17 @@
 
 ```diff
 - 128 「第16 章 グローバルな状態管理」で説明しています。
+```
+
+- 14-2. 関数定義をメモ化する / p.136
+
+```diff
+  「そう。useRef() の戻り値 RefObject オブジェクトは current という書き換え可能の
+  プロパティを持つので、その値にインターバル ID を格納する。
+- setInterval() が返すインターバル ID は正の整数なので useRef() には初期値として 0 を入れ、
++ setInterval() が返すインターバル ID には初期値として null を入れておき、
+  リセットされたときに実際のインターバル ID が入っていればその値で clearInterval()
+  を実行するわけね」
 ```
 
 - 14-3. React Compiler を導入する / p.140  

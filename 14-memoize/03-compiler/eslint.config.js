@@ -3,7 +3,6 @@ import pluginJs from "@eslint/js";
 import tsEsLint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import pluginHooks from "eslint-plugin-react-hooks";
-import pluginReactCompiler from "eslint-plugin-react-compiler";
 import pluginRefresh from "eslint-plugin-react-refresh";
 import pluginJsxA11y from "eslint-plugin-jsx-a11y";
 import pluginImport from "eslint-plugin-import";
@@ -31,14 +30,12 @@ const reactConfig = {
     "react-hooks": pluginHooks,
     "react-refresh": pluginRefresh,
     "jsx-a11y": pluginJsxA11y,
-    "react-compiler": pluginReactCompiler,
   },
   rules: {
     ...pluginReact.configs.flat.recommended.rules,
     ...pluginHooks.configs.recommended.rules,
     ...pluginRefresh.configs.recommended.rules,
     ...pluginJsxA11y.flatConfigs.recommended.rules,
-    ...pluginReactCompiler.configs.recommended.rules,
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
   },
@@ -83,13 +80,12 @@ const importConfig = {
     ...pluginImport.configs.typescript.rules,
     "import/extensions": [
       "error",
-      "always",
+      "ignorePackages",
       {
         js: "always",
         jsx: "always",
         ts: "always",
         tsx: "always",
-        ignorePackages: true,
       },
     ],
 
@@ -166,7 +162,7 @@ export default defineConfig([
     ignores: [
       "{dist,build,public,node_modules}/**",
       "**/lib/utils.{js,ts}",
-      "**/components/ui/**/*.{jsx,tsx}",
+      "**/components/ui/**/*.{js,jsx,tsx}",
       "**/*.config.*",
     ],
   },
@@ -174,7 +170,7 @@ export default defineConfig([
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...globals.es2024,
+        ...globals.es2025,
       },
       parserOptions: {
         project: ["tsconfig.json", "tsconfig.*.json"],
@@ -185,8 +181,8 @@ export default defineConfig([
   tsEsLint.configs.recommendedTypeChecked,
   tsEsLint.configs.stylistic,
   reactConfig,
-  importConfig,
   typeConfig,
+  importConfig,
   stylisticConfig,
   testConfig,
   configPrettier,
