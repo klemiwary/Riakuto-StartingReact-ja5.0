@@ -16,19 +16,17 @@ export async function loader({ params }: Route.LoaderArgs) {
 }
 
 // export function headers(_: Route.HeadersArgs) {
-//   return { "Cache-Control": "public, max-age=6000, s-maxage=6000" };
+//   return { "Cache-Control": "public, max-age=3600, s-maxage=3000" };
 // }
-
-export function meta({ data }: Route.MetaArgs) {
-  return [{ title: `${data.org.name}の開発メンバー` }];
-}
 
 export default function Members({ loaderData }: Route.ComponentProps) {
   const { org, members } = loaderData;
+  const title = `${org.name} の開発メンバー`;
 
   return (
     <>
-      <h2 className="mb-12 text-center">{org.name}の開発メンバー</h2>
+      <title>{title}</title>
+      <h2 className="mb-12 text-center">{title}</h2>
       <MemberList members={members} />
     </>
   );

@@ -324,11 +324,62 @@
 + ただし Server Functions 内で使用した場合は "push" がデフォルトになります。Server Functions については[「15-2-1. フォームの Action と Server Functions」]で説明しています。
 ```
 
+- 12-3-2. Route Loaders でのデータ取得 / p.98 / リスト内
+
+```diff
+
+  + export function headers(_: Route.HeadersArgs) {
+- +   return { "Cache-Control": "public, max-age=6000, s-maxage=6000" };
++ +   return { "Cache-Control": "public, max-age=3600, s-maxage=3600" };
+  + }
+
+```
+
+- 12-1-2. アプローチからデータ取得手法を分類する / p.84
+
+```diff
+  Render よりも有利だけども、FCP はどうしても長くなってしまう」
+  「つまりクリックしてからページ遷移まで固まってる
++ 時間
+  が長いと」
+  「そうだね。そしてここまで出てきた各種の問題を解消するべく編み出されたのが
+```
+
 - 12-4-1. SPA でのSuspense / p.100 / 脚注104
 
 ```diff
 - 104 「10-2-5. サーバサイドでの React 運用にどのフレームワークを採用するべきか」で触れています。
 + 104 「10-2-5. どのメタフレームワークを採用するべきか」で触れています。
+```
+
+- 12-4-1. SPA での Suspense / p.105
+
+```diff
+  でもそれが React が尊重するコンポーネントの Composability とか独立性といった価値観を
+  損なうことになるのでは
++ ないかという
+  秋谷さんの疑問は妥当だね。
+```
+
+- 12-4-3. Route Loaders と Suspense / p.110
+
+```diff
+  その値を用いて遅延レンダリングされるのはクライアントサイドになるため。用意した実際の
+  コードを
+- 参照ながら
++ 参照しながら
+  説明しよう。
+```
+
+- 12-4-3. Route Loaders と Suspense / p.112
+
+```diff
+  「まあ Client Components でSuspense を扱う以上、それは仕方ないとあきらめるしかないね。
+  React Router も
+- 7.2 で Server Components に対応するので、
++ 近く Server Components をサポートする予定なので、
+  データ取得処理を内包する Server Components を Route Loaders から渡すようにすれば、
+  スッキリ書けるようになる」
 ```
 
 - 13-3. Next.js のApp Router でエラーハンドリング / p.124

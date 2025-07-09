@@ -2,10 +2,6 @@ import { Outlet } from "react-router";
 
 const title = import.meta.env.VITE_APP_TITLE;
 
-export function meta() {
-  return [{ title }];
-}
-
 export default function HomeLayout() {
   return (
     <div className="min-h-screen bg-gray-50">

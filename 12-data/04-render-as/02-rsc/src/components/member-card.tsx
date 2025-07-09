@@ -2,9 +2,9 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@/components/ui/avatar.tsx';
-import { Card } from '@/components/ui/card.tsx';
-import type { Member } from '@/entities/types.ts';
+} from "@/components/ui/avatar.tsx";
+import { Card } from "@/components/ui/card.tsx";
+import type { Member } from "@/entities/types.ts";
 
 interface MemberCardProps {
   member: Member;
