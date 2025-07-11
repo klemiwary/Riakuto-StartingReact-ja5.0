@@ -3,7 +3,7 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card.tsx";
+} from "@/components/ui/index.ts";
 import { getMessages } from "@/entities/message-api.ts";
 import { formatDate } from "@/lib/date.ts";
 

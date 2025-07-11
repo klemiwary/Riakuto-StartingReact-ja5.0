@@ -1,16 +1,13 @@
 import { href, redirect } from "react-router";
 import { parseWithZod } from "@conform-to/zod/v4";
 import RegistrationFormEmail from "~/components/registration-email-form.tsx";
-import { addUser, isEmailUnique } from "~/entities/user-api.ts";
-import { createUserFromForm } from "~/entities/user-lib.ts";
-import { createRegisterSchema } from "~/entities/user-schema.ts";
+import {
+  addUser,
+  createRegisterSchema,
+  createUserFromForm,
+  isEmailUnique,
+} from "~/entities/user/index.ts";
 import type { Route } from "./+types/register";
-
-const title = `${import.meta.env.VITE_APP_TITLE}（要メールアドレス）`;
-
-export function meta() {
-  return [{ title }];
-}
 
 export async function action({ request }: Route.ActionArgs) {
   await new Promise((resolve) => setTimeout(resolve, 200));
@@ -30,12 +27,17 @@ export async function action({ request }: Route.ActionArgs) {
 }
 
 export default function RegisterPage({ actionData }: Route.ComponentProps) {
+  const title = `${import.meta.env.VITE_APP_TITLE}（要メールアドレス）`;
+
   return (
-    <div className="my-16 flex flex-col items-center gap-12">
-      <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
-      <main className="w-full max-w-md">
-        <RegistrationFormEmail lastResult={actionData?.lastResult} />
-      </main>
-    </div>
+    <>
+      <title>{title}</title>
+      <div className="my-16 flex flex-col items-center gap-12">
+        <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
+        <main className="w-full max-w-md">
+          <RegistrationFormEmail lastResult={actionData?.lastResult} />
+        </main>
+      </div>
+    </>
   );
 }

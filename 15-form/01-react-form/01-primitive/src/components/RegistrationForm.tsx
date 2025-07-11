@@ -1,16 +1,17 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button.tsx";
-import { Card, CardContent } from "@/components/ui/card.tsx";
-import { Checkbox } from "@/components/ui/checkbox.tsx";
-import { Input } from "@/components/ui/input.tsx";
-import { Label } from "@/components/ui/label.tsx";
 import {
+  Button,
+  Card,
+  CardContent,
+  Checkbox,
+  Input,
+  Label,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select.tsx";
+} from "@/components/ui/index.ts";
 
 const genderOption = { m: "男性", f: "女性", n: "それ以外" } as const;
 

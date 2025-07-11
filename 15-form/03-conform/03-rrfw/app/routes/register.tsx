@@ -6,12 +6,6 @@ import { createUserFromForm } from "~/entities/user-lib.ts";
 import { userRegisterSchema } from "~/entities/user-schema.ts";
 import type { Route } from "./+types/register";
 
-const title = import.meta.env.VITE_APP_TITLE;
-
-export function meta() {
-  return [{ title }];
-}
-
 export async function action({ request }: Route.ActionArgs) {
   await new Promise((resolve) => setTimeout(resolve, 200));
   const formData = await request.formData();
@@ -29,12 +23,17 @@ export async function action({ request }: Route.ActionArgs) {
 }
 
 export default function RegisterPage({ actionData }: Route.ComponentProps) {
+  const title = import.meta.env.VITE_APP_TITLE;
+
   return (
-    <div className="my-16 flex flex-col items-center gap-12">
-      <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
-      <main className="w-full max-w-md">
-        <RegistrationForm lastResult={actionData?.lastResult} />
-      </main>
-    </div>
+    <>
+      <title>{title}</title>
+      <div className="my-16 flex flex-col items-center gap-12">
+        <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
+        <main className="w-full max-w-md">
+          <RegistrationForm lastResult={actionData?.lastResult} />
+        </main>
+      </div>
+    </>
   );
 }

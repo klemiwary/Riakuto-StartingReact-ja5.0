@@ -1,6 +1,5 @@
 import { useDeferredValue, useState } from "react";
-import { Input } from "@/components/ui/input.tsx";
-import { Label } from "@/components/ui/label.tsx";
+import { Input, Label } from "@/components/ui/index.ts";
 import UserList from "@/components/UserList.tsx";
 
 interface DeferredUpdateProps {

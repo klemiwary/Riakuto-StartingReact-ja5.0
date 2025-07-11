@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect } from "react";
+import { useActionState } from "react";
 import { getInputProps, getSelectProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod/v4";
 import { ChevronDown } from "lucide-react";
@@ -9,8 +9,7 @@ import { Button } from "@/components/ui/button.tsx";
 import { Card, CardContent, CardFooter } from "@/components/ui/card.tsx";
 import { Input } from "@/components/ui/input.tsx";
 import { Label } from "@/components/ui/label.tsx";
-import { genderOptions } from "@/entities/types.ts";
-import { createRegisterSchema } from "@/entities/user-schema.ts";
+import { createRegisterSchema, genderOptions } from "@/entities/user/index.ts";
 import { registerActionWithEmail } from "@/server/register-action.ts";
 
 export default function RegistrationEmailForm() {
@@ -26,19 +25,6 @@ export default function RegistrationEmailForm() {
       }),
     shouldValidate: "onBlur",
   });
-
-  useEffect(() => {
-    const preventReset = (event: Event) => {
-      if (event.target === document.forms.namedItem(form.id)) {
-        event.preventDefault();
-      }
-    };
-    document.addEventListener("reset", preventReset, true);
-
-    return () => {
-      document.removeEventListener("reset", preventReset, true);
-    };
-  }, [form.id]);
 
   return (
     <Card className="w-md max-w-md p-5 shadow-md">

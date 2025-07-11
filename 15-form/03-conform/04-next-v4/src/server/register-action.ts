@@ -2,12 +2,13 @@
 
 import { redirect } from "next/navigation";
 import { parseWithZod } from "@conform-to/zod/v4";
-import type { GenderCode, User } from "@/entities/types.ts";
-import { addUser, isEmailUnique } from "@/entities/user-api.ts";
+import type { GenderCode, User } from "@/entities/user/index.ts";
 import {
+  addUser,
   createRegisterSchema,
+  isEmailUnique,
   userRegisterSchema,
-} from "@/entities/user-schema.ts";
+} from "@/entities/user/index.ts";
 
 export async function registerAction(_prevResult: unknown, formData: FormData) {
   await new Promise((resolve) => setTimeout(resolve, 200));

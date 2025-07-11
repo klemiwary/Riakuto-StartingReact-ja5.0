@@ -1,7 +1,7 @@
 import { startTransition, useOptimistic, useState } from "react";
 import { Heart } from "lucide-react";
 import { toast } from "sonner";
-import { Button } from "@/components/ui/button.tsx";
+import { Button } from "@/components/ui/index.ts";
 import { cn } from "@/lib/utils.ts";
 
 interface LikeButtonProps {

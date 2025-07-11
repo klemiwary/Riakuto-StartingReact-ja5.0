@@ -1,22 +1,18 @@
 import { href, Link } from "react-router";
 import { ChevronRight } from "lucide-react";
 
-const title = "フォームリスト";
-
-export function meta() {
-  return [{ title }];
-}
-
 const pageList = [
   { name: "メールアドレスなし", path: "/register" },
   { name: "メールアドレスあり（重複チェック）", path: "/register-email" },
 ] as const;
 
 export default function Home() {
+  const title = "フォームリスト";
   const bullet = <ChevronRight className="mr-[0.4em] size-4 text-cyan-700" />;
 
   return (
-    <div>
+    <>
+      <title>{title}</title>
       <h1 className="mt-16 text-center text-2xl font-bold text-gray-900">
         {title}
       </h1>
@@ -30,6 +26,6 @@ export default function Home() {
           ))}
         </ul>
       </main>
-    </div>
+    </>
   );
 }

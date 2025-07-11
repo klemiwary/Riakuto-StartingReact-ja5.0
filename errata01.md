@@ -437,7 +437,14 @@
 + 待ったほうが無難かな」
 ```
 
-- 15-1. React でフォームの UI を実装するには / p.149
+- 15-1-1. プリミティブな React フォーム / p.146 / リスト65
+
+```diff
+- リスト 65: 03-form/raw-form/src/components/RegistrationForm.tsx
++ リスト 65: src/components/RegistrationForm.tsx
+```
+
+- 15-1-1. プリミティブな React フォーム / p.149
 
 ```diff
   「shadcn/ui の <Input> コンポーネントは React 組み込みの <input> を拡張したもので、props もほぼ共通してる。onChange は入力値が変更されたときに呼び出されるイベントハンドラを設定するためのものね。ここでは関数 handleInput を渡してるけど、その中で
@@ -446,7 +453,16 @@
   を使って username を更新してるわけね」
 ```
 
-- 15-1. React でフォームの UI を実装するには / p.153-154 / リスト66
+- 15-1-1. プリミティブな React フォーム / p.150
+
+```diff
+  「handleInput は zipcode の onChange にも渡してるでしょ。
+- イベントから id を抽出して、
++ イベントから要素の name 値を抽出して、
+  それを state 更新のキーにすることで汎用的に作ってるの。
+```
+
+- 15-1-2. フォームのステータスを管理する / p.153-154 / リスト66
 
 ```diff
   import { useState } from "react";
@@ -510,7 +526,7 @@
     }
 ```
 
-- 15-1. React でフォームの UI を実装するには / p.155-156 / リスト67
+- 15-1-3. フォーム操作の UI への反映のタイミングをずらす / p.165
 
 ```diff
   「いいね数を `count`、ユーザーがいいねをつけているかどうかを liked プロパティで
@@ -519,6 +535,45 @@
 - useOptimisitic()
 + useOptimistic()
   の仕様はどうなっているんですか？」
+```
+
+- 15-2-2. Action にまつわる状態管理を行う / p.172
+
+```diff
+  「なるほど。残りの permalink と isPending は？」
+  「戻り値の第 3 要素 isPending は
+- 第 2 引数の `action` が
++ 第 1 引数の `action` が
+  実行中のときに `true` になるフラグだね。
+```
+
+- 15-2-3. React Router のRoute Actions を使う / p.177
+
+```diff
+  「引数の型になってる Route.ActionArgs は、以下のインターフェースをベースに生成された
+  ものになってる。
+- action
++ loder()
+  の引数と内容は同じだね」
+```
+
+- 15-2-3. React Router の Route Actions を使う / p.182
+
+```diff
+  このメソッドでは該当ルートの loader() のみが実行される。なおパスにはクエリパラメータ
+- も記述も
++ の記述も
+  可能になってる」
+  「submit() にもありましたけど、オプションの flushSync というのは？」
+```
+
+```diff
+  でも fetcher.load() でそれ以外の loader() を実行した場合、fetcher.data は型アサーション
+  による手動での型整合を
+- しなくと
++ しないと
+  いけなくなるので気をつけてね」
+「わかりました。
 ```
 
 - 15-3-2. React でフォームの UI を実装するには / p.190 / 脚注197

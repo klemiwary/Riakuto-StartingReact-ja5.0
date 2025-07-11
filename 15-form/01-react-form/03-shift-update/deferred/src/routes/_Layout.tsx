@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import { Toaster } from "@/components/ui/sonner.tsx";
+import { Toaster } from "@/components/ui/index.ts";
 
 const appTitle = import.meta.env.VITE_APP_TITLE;
 

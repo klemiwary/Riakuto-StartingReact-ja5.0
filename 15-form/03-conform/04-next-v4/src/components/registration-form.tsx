@@ -5,12 +5,15 @@ import { getInputProps, getSelectProps, useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod/v4";
 import { ChevronDown } from "lucide-react";
 import { Field, FieldError } from "@/components/field.tsx";
-import { Button } from "@/components/ui/button.tsx";
-import { Card, CardContent, CardFooter } from "@/components/ui/card.tsx";
-import { Input } from "@/components/ui/input.tsx";
-import { Label } from "@/components/ui/label.tsx";
-import { genderOptions } from "@/entities/types.ts";
-import { userRegisterSchema } from "@/entities/user-schema.ts";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardFooter,
+  Input,
+  Label,
+} from "@/components/ui/index.ts";
+import { genderOptions, userRegisterSchema } from "@/entities/user/index.ts";
 import { registerAction } from "@/server/register-action.ts";
 
 export default function RegistrationForm() {
