@@ -21,16 +21,14 @@ export function loader({ params }: Route.LoaderArgs) {
   return { org, members };
 }
 
-export function meta({ data }: Route.MetaArgs) {
-  return [{ title: `${data.org.name}の開発メンバー` }];
-}
-
 export default function Members({ loaderData }: Route.ComponentProps) {
   const { org, members } = loaderData;
+  const title = `${org.name} の開発メンバー`;
 
   return (
     <>
-      <h2 className="mb-12 text-center">{org.name}の開発メンバー</h2>
+      <title>{title}</title>
+      <h2 className="mb-12 text-center">{title}</h2>
       <Suspense fallback={<Loading />}>
         <Await resolve={members}>
           {(resolvedMembers) => <MemberList members={resolvedMembers} />}

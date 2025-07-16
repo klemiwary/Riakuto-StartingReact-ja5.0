@@ -1,7 +1,7 @@
 import { UserRound } from "lucide-react";
 // import LikeButton from "@/components/LikeButton.tsx";
 import LikeButton from "@/components/LikeButton.action.tsx";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar.tsx";
+import { Avatar, AvatarFallback } from "@/components/ui/index.ts";
 import { getPlayers, getTeamColor } from "@/entities/data-reader.ts";
 
 interface PlayerListProps {

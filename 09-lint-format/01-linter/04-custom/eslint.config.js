@@ -75,20 +75,19 @@ const importConfig = {
     ...pluginImport.configs.typescript.rules,
     'import/extensions': [
       'error',
-      'always',
+      'ignorePackages',
       {
         js: 'always',
         jsx: 'always',
         ts: 'always',
         tsx: 'always',
-        ignorePackages: true,
       },
     ],
 
     // exclude asset files
     // SEE: `node_modules/vite/client.d.ts`
-    "import/no-unresolved": [
-      "error",
+    'import/no-unresolved': [
+      'error',
       {
         ignore: ['^/.+\\.(svg|png|jpg)$'],
         caseSensitive: false,
@@ -157,7 +156,7 @@ export default defineConfig([
     ignores: [
       '{dist,build,public,node_modules}/**',
       '**/lib/utils.{js,ts}',
-      '**/components/ui/**/*.{jsx,tsx}',
+      '**/components/ui/**/*.{js,jsx,tsx}',
       '**/*.config.*',
     ],
   },
@@ -165,7 +164,7 @@ export default defineConfig([
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...globals.es2024,
+        ...globals.es2025,
       },
       parserOptions: {
         project: ['tsconfig.json', 'tsconfig.*.json'],

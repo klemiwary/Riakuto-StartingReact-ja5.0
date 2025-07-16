@@ -31,10 +31,9 @@ export default defineConfig([
   { ignores: ['{dist,build,public,node_modules}/**', '**/*.config.*'] },
   {
     languageOptions: {
-      ecmaVersion: 'latest',
       globals: {
         ...globals.browser,
-        ...globals.es2024,
+        ...globals.es2025,
       },
     },
   },

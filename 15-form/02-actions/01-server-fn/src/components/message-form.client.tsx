@@ -1,9 +1,13 @@
 "use client";
 
 import { toast } from "sonner";
-import { Button } from "@/components/ui/button.tsx";
-import { Card, CardContent, CardFooter } from "@/components/ui/card.tsx";
-import { Textarea } from "@/components/ui/textarea.tsx";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardFooter,
+  Textarea,
+} from "@/components/ui/index.ts";
 import { postAction } from "@/server/post-action.ts";
 
 export default function MessageForm() {

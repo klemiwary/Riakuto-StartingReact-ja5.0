@@ -13,10 +13,12 @@ export default function OrgHeader({ orgId }: OrgHeaderProps) {
     return <Navigate to="/" replace />;
   }
 
+  const title = `${orgName} の開発メンバー`;
+
   return (
     <>
-      <title>{`${orgName}の開発メンバー`}</title>
-      <h2 className="mb-12 text-center">{orgName} の開発メンバー</h2>
+      <title>{title}</title>
+      <h2 className="mb-12 text-center">{title}</h2>
     </>
   );
 }

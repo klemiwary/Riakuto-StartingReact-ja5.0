@@ -11,7 +11,7 @@ const promise = new Promise((resolve, reject) => {
 promise.then((value) => {
     console.log('1.', value);
 
-    return 'Succees again';
+    return 'Success again';
   })
   .then((value) => {
     console.log('2.', value);

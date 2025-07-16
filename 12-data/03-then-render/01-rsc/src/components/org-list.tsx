@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { CircleCheck } from 'lucide-react';
-import type { Organization } from '@/entities/types.ts';
+import Link from "next/link";
+import { CircleCheck } from "lucide-react";
+import type { Organization } from "@/entities/types.ts";
 
 interface OrgListProps {
   orgs: Organization[];

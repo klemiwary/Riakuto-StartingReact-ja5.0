@@ -1,8 +1,8 @@
 import Timer from "@/components/Timer.tsx";
 
-const title = import.meta.env.VITE_APP_TITLE;
-
 function App() {
+  const title = import.meta.env.VITE_APP_TITLE;
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center space-y-10">
       <h1>{title}</h1>

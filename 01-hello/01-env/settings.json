@@ -1,5 +1,8 @@
 {
   "terminal.integrated.env.osx": {
     "PATH": "${env:PATH}:${env:HOME}/.local/share/mise/shims"
+  },
+  "terminal.integrated.env.windows": {
+    "PATH": "${env:PATH};${env:LOCALAPPDATA}\\mise\\shims"
   }
 }

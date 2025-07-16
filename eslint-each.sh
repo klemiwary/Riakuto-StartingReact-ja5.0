@@ -8,6 +8,7 @@
 stagedFiles="$@"
 fileTypes="js|mjs|cjs|ts|mts|cts|jsx|tsx"
 srcDir="src|app|pages"
+exitCode=0
 
 # detect git against tag
 if git rev-parse --verify HEAD >/dev/null 2>&1
@@ -45,5 +46,11 @@ for project in $stagedProjects; do
       tr "\n" " "
     )
     pnpm exec eslint --fix --quiet $targetFiles
+
+    if [ $? -ne 0 ]; then
+      exitCode=1
+    fi
   fi
 done
+
+exit $exitCode

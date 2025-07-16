@@ -1,10 +1,13 @@
 import { useState, useTransition } from "react";
 import { toast } from "sonner";
 import StatusCat from "@/components/StatusCat.tsx";
-import { Button } from "@/components/ui/button.tsx";
-import { Card, CardContent } from "@/components/ui/card.tsx";
-import { Input } from "@/components/ui/input.tsx";
-import { Label } from "@/components/ui/label.tsx";
+import {
+  Button,
+  Card,
+  CardContent,
+  Input,
+  Label,
+} from "@/components/ui/index.ts";
 import { registerUser } from "@/entities/register-user.ts";
 import type { RegData } from "@/entities/types.ts";
 

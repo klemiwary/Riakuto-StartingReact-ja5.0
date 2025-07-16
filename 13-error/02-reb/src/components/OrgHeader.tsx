@@ -14,10 +14,12 @@ export default function OrgHeader({ orgId }: OrgHeaderProps) {
     throw new Error(`Not found organization '${orgId}'`, { cause: 404 });
   }
 
+  const title = `${org.name} の開発メンバー`;
+
   return (
     <>
-      <title>{`${org.name}の開発メンバー`}</title>
-      <h2 className="mb-12 text-center">{org.name} の開発メンバー</h2>
+      <title>{title}</title>
+      <h2 className="mb-12 text-center">{title}</h2>
     </>
   );
 }

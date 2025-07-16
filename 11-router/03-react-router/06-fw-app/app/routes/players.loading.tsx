@@ -15,18 +15,16 @@ export function loader({ params }: Route.LoaderArgs) {
   return { team, players };
 }
 
-export function meta({ data }: Route.MetaArgs) {
-  return [{ title: `${data.team.name}の選手` }];
-}
-
 export default function Players({ loaderData }: Route.ComponentProps) {
   const { team, players } = loaderData;
   const [searchParams] = useSearchParams();
+  const title = `${team.name}の選手`;
   const isLoading = !!searchParams.get("loading");
 
   return (
     <>
-      <h2 className="mb-12 text-center">{team.name}の選手</h2>
+      <title>{title}</title>
+      <h2 className="mb-12 text-center">{title}</h2>
       <PlayerList
         players={players}
         teamColor={team.color}

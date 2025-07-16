@@ -1,8 +1,12 @@
 import { useEffect, useRef } from "react";
 import { Form, useNavigation } from "react-router";
-import { Button } from "~/components/ui/button.tsx";
-import { Card, CardContent, CardFooter } from "~/components/ui/card.tsx";
-import { Textarea } from "~/components/ui/textarea.tsx";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardFooter,
+  Textarea,
+} from "~/components/ui/index.ts";
 
 interface MessageFormProps {
   errorMessage?: string;

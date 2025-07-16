@@ -90,13 +90,12 @@ const importConfig = {
     ...pluginImport.configs.typescript.rules,
     "import/extensions": [
       "error",
-      "always",
+      "ignorePackages",
       {
         js: "always",
         jsx: "always",
         ts: "always",
         tsx: "always",
-        ignorePackages: true,
       },
     ],
 
@@ -171,7 +170,7 @@ export default defineConfig([
       "{dist,build,public,node_modules}/**",
       "{.react-router,.next}/**",
       "**/lib/utils.{js,ts}",
-      "**/components/ui/**/*.{jsx,tsx}",
+      "**/components/ui/**/*.{js,jsx,tsx}",
       "**/*.config.*",
     ],
   },
@@ -180,7 +179,7 @@ export default defineConfig([
       globals: {
         ...globals.browser,
         ...globals.node,
-        ...globals.es2024,
+        ...globals.es2025,
       },
       parserOptions: {
         project: ["tsconfig.json", "tsconfig.*.json"],

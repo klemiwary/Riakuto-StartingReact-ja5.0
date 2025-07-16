@@ -1,8 +1,12 @@
 import { useEffect, useRef } from "react";
 import { useFetcher } from "react-router";
-import { Button } from "~/components/ui/button.tsx";
-import { Card, CardContent, CardFooter } from "~/components/ui/card.tsx";
-import { Textarea } from "~/components/ui/textarea.tsx";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardFooter,
+  Textarea,
+} from "~/components/ui/index.ts";
 import type { action } from "~/routes/home.tsx";
 
 interface MessageFormProps {

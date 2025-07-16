@@ -14,7 +14,7 @@ function generateTitle(orgId: string) {
   }
   const org = getOrganization(orgId) || notFound();
 
-  return `${org.name}の開発メンバー`;
+  return `${org.name} の開発メンバー`;
 }
 
 export async function generateMetadata({ params }: MembersProps) {
