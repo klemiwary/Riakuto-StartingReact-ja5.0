@@ -2,13 +2,21 @@
 
 このリポジトリは、『りあクト！ TypeScript で始めるつらくない React 開発 第 5 版』のサンプルコードおよび正誤表を提供するものです。なお、本書は以下のショップにて販売中です。
 
-### [BOOTH](https://oukayuka.booth.pm/)
+### [BOOTH](https://oukayuka.booth.pm/) 🐪
 
 - [① 言語・環境編（B5 版・215 ページ）](https://oukayuka.booth.pm/items/2368045)
 - [② React 基礎編（B5 版・216 ページ）](https://oukayuka.booth.pm/items/2368019)
 - [③ React 応用編（B5 版・216 ページ）](https://oukayuka.booth.pm/items/2367992)
 
 各部とも電子版 ￥ 1,200、紙本+電子版セット ￥ 1,550（送料別）
+
+### [Amazon](https://www.amazon.co.jp/stores/author/B0FJ24JF22) 📦
+
+- [① 言語・環境編](https://www.amazon.co.jp/dp/B0FJ1F861J)
+- [② React 基礎編](https://www.amazon.co.jp/dp/B0FJ1YFLVS)
+- [③ React 実践編](https://www.amazon.co.jp/dp/B0CW18PTSW)
+
+各部とも Kindle 版（リフロー型）￥ 1,480、ペーパーバック ￥ 2,350
 
 <a href="https://oukayuka.booth.pm/"><img src="./images/riakuto5-covers.png" alt="りあクト！三部作 表紙画像" /></a>
 
